@@ -7,6 +7,8 @@ from math import ceil, sqrt
 
 # used along with largest vote count to determine size of a cell(location) in a square grid
 votesperinch= 10000/0.25
+# group parlimentary, assembly plots
+combinePlots=False
   
 #fullheader 0year 1no 2name 3cat 4cname 5sex 6party 7abr 8votes 9tot -> pc
 #newhdr 0year  2->1name  4->2cname 5->3sex 6->4party(notused) 7->5abr 8->6votes 9->7tot -> laptop
@@ -53,6 +55,10 @@ partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':10, 'BLD':10,'JP':10, 'ICSP':
             'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':0, 
             'AAAP':11, 'STR':11, 'AIMIM':3, 'BCUF':11, 
             'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11}
+#pprint(dgrid)
+#parties = set([i[1] for i in results])
+#pprint(parties)
+
 #pprint(parties)
 #print(len(partycolor.keys()))
 #print(len(parties))
@@ -66,13 +72,6 @@ partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':10, 'BLD':10,'JP':10, 'ICSP':
 # that would support all 5 levels of elections - 
 # 1 - MP, 2 - MLA, 3 - Zila Parishad/MuniCorp, 4 - Mandal/Taluk/Tehsil, 5 - GramPanchayat/Ward
 def selectgrid(locations):
-  gridrows = 3
-  groupspace= 4 #2x2
-
-  xmax = gridrows * groupspace
-  ymax = gridrows * groupspace
-  border=1
-
   if len(locations) ==1:
     return computeLayout(['Anantapur'])
   elif len(locations)==7:
@@ -101,6 +100,22 @@ def selectgrid(locations):
          'Kalyandurg':(6, 0)
     }, xmax, ymax
 
+# currently using hardcoded data until datafiles include 
+# electiontype col - MP, MLA, ZLTC, MLTC, Panchayat, Ward
+electiontype={'Anantapur':'MP', 
+'Uravakonda':'MLA','Guntakal':'MLA','Tadipatri':'MLA',
+'Rayadurg':'MLA', 'Anantapur Urban':'MLA', 'Singanamala':'MLA',
+'Kalyandurg':'MLA'}
+def splitLocationsByType(locations):
+  breakup = {}
+  for i in locations:
+    if electiontype[i] in breakup:
+      breakup[electiontype[i]].append(i)
+    else:
+      breakup[electiontype[i]] = [i]
+  return breakup.values()
+
+
 # For 10000 votes to correspond to 1/4 inch
 # set votestoinch ratio u = 10000/.25
 # So 100000 votes occupies 2.5 inches
@@ -121,7 +136,7 @@ def computeLayout(Locations):
   U = [votes(i) for i in Locations]
   #print(U)
   LargestVoteCount = max(max([i for i in U]))
-  print(LargestVoteCount)
+  #print(LargestVoteCount)
   halfcell = int(ceil(LargestVoteCount * (1/votesperinch))) 
   LocationCount = len(Locations)
   # uniform square grid where cellwidth = cellheigth
@@ -132,33 +147,11 @@ def computeLayout(Locations):
   dgrid={}
   for i,name in enumerate(Locations):
     dgrid[name]= origins[i]
-  print(dgrid, maxx, maxy)
+  #print(dgrid, maxx, maxy)
   return dgrid, maxx, maxy
 
-
-years = sorted(set([i[0] for i in nodes]))
-if len(sys.argv) > 1 and sys.argv[1] in years:
-  years = [sys.argv[1]]
-
-for year_str in years:
-  print(year_str)
-  results=[(i[1],i[5],i[6]) for i in eq(year_str, 0)]
-  
-  votes = lambda j:[int(i[6]) for i in eq(year_str,0) if i[1].find(j)>-1]
-  orientation = lambda j:[partyangle[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
-  pcolors = lambda j:[partycolor[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
-
+def plot(plt, dgrid, xmax, ymax):
   fig, ax = plt.subplots(1,1)
-
-  #pprint(ac)
-  locations = set([i[0] for i in results])
-  #pprint(locations)
-  
-  #dgrid, xmax, ymax = computeLayout(0.25/10000, ['Uravakonda', 'Guntakal', 'Tadipatri', 'Rayadurg', 'Anantapur Urban', 'Singanamala', 'Kalyandurg'])
-  #pprint(dgrid)
-  #print(xmax, ymax)
-  dgrid, xmax, ymax = selectgrid(locations) 
-
   # diff locations have different number of results
   # quiver seems(?) to require all num of vectors in each 
   # groups be the same. Currently padding with 0 to deal with this issue. 
@@ -166,9 +159,6 @@ for year_str in years:
   #pprint(U)
   pad(U, 0)
 
-  #pprint(dgrid)
-  parties = set([i[1] for i in results])
-  #pprint(parties)
   plt.set_cmap(cm.Paired)
   
   phi = [orientation(i) for i in dgrid]
@@ -203,9 +193,34 @@ for year_str in years:
   ax.set_ylim(0, ymax)
   ax.set_xlim(0, xmax)
   
-  fig.savefig(year_str+'.png', format='png')
+  if combinePlots:
+    filename = year_str+'.png' 
+  else:
+    filename = year_str+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
+  fig.savefig(filename, format='png')  
 #anim = animation.FuncAnimation(fig, update_quiver, fargs=(Q, X, Y),
 #                               interval=50, blit=False)
   #fig.tight_layout()
+  #plt.show()
 
-  plt.show()
+years = sorted(set([i[0] for i in nodes]))
+if len(sys.argv) > 1 and sys.argv[1] in years:
+  years = [sys.argv[1]]
+
+for year_str in years:
+  print(year_str)
+  results=[(i[1],i[5],i[6]) for i in eq(year_str, 0)]
+  
+  votes = lambda j:[int(i[6]) for i in eq(year_str,0) if i[1].find(j)>-1]
+  orientation = lambda j:[partyangle[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
+  pcolors = lambda j:[partycolor[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
+  locations = set([i[0] for i in results])
+  #pprint(locations)
+
+  if combinePlots:  
+    dgrid, xmax, ymax = selectgrid(locations)
+    plot(plt, dgrid, xmax, ymax)
+  else:
+    for l in splitLocationsByType(locations):
+      dgrid, xmax, ymax = selectgrid(l)
+      plot(plt, dgrid, xmax, ymax)
