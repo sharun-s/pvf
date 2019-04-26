@@ -3,10 +3,11 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from pprint import pprint
 from math import ceil, sqrt
-
+from matplotlib.colors import Normalize
+norm = Normalize(vmin=0.0, vmax=11.0)
 
 # used along with largest vote count to determine size of a cell(location) in a square grid
-votesperinch= 10000/0.25
+votesperinch= 5000/0.25
 # group parlimentary, assembly plots
 combinePlots=False
   
@@ -26,15 +27,26 @@ def show(results):
     for i in results:
         print('{0:4} {1:>20} {2:>28} {5:>8} {6:>8} {7:>8}'.format(*i) +' '+ '{:.2f}'.format(float(i[6])/float(i[7])*100))
 
-def pad(array2D, value):
+# without the color hack adding a upper and lower value 
+# of the max and min color in the partycolor array quiver 
+# normalizes colors in the array to whatever max and min in the array(bug in matplotlib)
+def pad(array2D, value, colorHack):
   length_of_longestmember = max(list(map(len, array2D)))
   for i in array2D:
     while len(i) < length_of_longestmember:
       i.insert(0, value)
+  for i in array2D:  
+    if colorHack:
+      i.insert(0, 11.)
+    else:  
+      i.insert(0, 0.)
+    i.insert(0, 0.)
+  #pprint([len(i) for i in array2D]) 
   #pprint(array2D)
-  return length_of_longestmember
+  return length_of_longestmember+2
 
-partyangle={'INC(I)':90, 'JNP':0, 'INC':30, 'TDP':20, 'BLD':5,'JP':10, 'ICSP':300,
+partyangle={'INC(I)':90, 'JNP':355, 'INC':85, 'TDP':0, 
+            'BLD':5,'JP':10, 'ICSP':300,
             'IND':270, 'CPI':180, 'BJP':325, 'MIM':260, 'CPI(ML)':190, 'TRS':270,
             'DMM': 280, 'BSP': 250, 'SP':290, 'PPOI':240, 
             #1999 onwards
@@ -46,13 +58,14 @@ partyangle={'INC(I)':90, 'JNP':0, 'INC':30, 'TDP':20, 'BLD':5,'JP':10, 'ICSP':30
             'SUCI':225, 'WPOI':295, 'MASP':270, 'JaSPa':315}
 # increasing the highest value will change all other colors
 # look at matplotlib.org colormap references for different colormaps
-partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':10, 'BLD':10,'JP':10, 'ICSP':11,
-            'IND': 11, 'CPI': 5, 'BJP':8, 'MIM':3, 'CPI(ML)':5, 'TRS':11,
+partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6, 
+            'BLD':7,'JP':7, 'ICSP':11,
+            'IND': 11, 'CPI': 5, 'BJP':6.5, 'MIM':3, 'CPI(ML)':5, 'TRS':11,
             'DMM':11, 'BSP':4,'SP':11, 'PPOI':11, 
-            'ATDP':10, 'NTRTDP(LP)':10, 'MCPI(S)':5, 'CPM':5,
+            'ATDP':11, 'NTRTDP(LP)':10, 'MCPI(S)':5, 'CPM':5,
             'BJRP':11, 'CPI(ML)(L)':5,
             'TPPP':11, 'PRAP':11, 'BHSASP':11, 'LSP':11, 'RDHP':11, 'PP':11, 
-            'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':0, 
+            'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':1, 
             'AAAP':11, 'STR':11, 'AIMIM':3, 'BCUF':11, 
             'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11}
 #pprint(dgrid)
@@ -157,16 +170,21 @@ def plot(plt, dgrid, xmax, ymax):
   # groups be the same. Currently padding with 0 to deal with this issue. 
   U = [votes(i) for i in dgrid]
   #pprint(U)
-  pad(U, 0)
-
+  pad(U, 0, False)
+  #pprint(U)
   plt.set_cmap(cm.Paired)
   
   phi = [orientation(i) for i in dgrid]
-  pad(phi, 0.)
-
+  pad(phi, 0., False)
+  #pprint(phi)
   C = [pcolors(i) for i in dgrid]
-  newlength = pad(C, 0.)
-  
+  #pprint(C)
+  newlength = pad(C, 11., True)
+  #pprint(C)
+  #C=[[(0.6980392156862745, 0.8745098039215686, 0.5411764705882353, 1.0)
+  #    ,cm.Paired(5)]]
+  #C=[cm.Paired(i) for i in C]
+  #pprint(C)
   X=[ dgrid[i][0] for i in dgrid for j in range(0, newlength)]
   #print(X)
   Y=[ dgrid[i][1] for i in dgrid for j in range(0, newlength)]
@@ -188,11 +206,30 @@ def plot(plt, dgrid, xmax, ymax):
     ax.quiverkey(q, dgrid[i][0], dgrid[i][1], len(i), i,
                         labelpos='S', coordinates = 'data')
 
+  winner = results[-1][1]
+  wc = cm.Paired(norm(partycolor[winner]))
+  #print(wc)
+  winner = results[-1][1] +' '+ results[-1][2]
+  ax.quiverkey(q, 0.4, .2, len(winner), 
+    winner, 
+    labelcolor=wc, fontproperties={'weight':'bold'}, 
+    labelpos='E', coordinates = 'figure')
+  winner = results[-2][1]
+  wc = cm.Paired(norm(partycolor[winner]))
+  #print(wc)
+  winner = results[-2][1] +' '+ results[-2][2]
+  ax.quiverkey(q, 0.4, .17, len(winner), 
+    winner, labelcolor=wc, 
+    labelpos='E', 
+    coordinates = 'figure')
+
+  #wincnt = eq(year_str,0)[-1][5]  
+  #ax.quiverkey(q, 1, 1, )  
   ax.set_axis_off()
   ax.set_title(year_str)
   ax.set_ylim(0, ymax)
   ax.set_xlim(0, xmax)
-  
+  fig.colorbar(q)
   if combinePlots:
     filename = year_str+'.png' 
   else:
@@ -202,7 +239,6 @@ def plot(plt, dgrid, xmax, ymax):
 #                               interval=50, blit=False)
   #fig.tight_layout()
   #plt.show()
-
 years = sorted(set([i[0] for i in nodes]))
 if len(sys.argv) > 1 and sys.argv[1] in years:
   years = [sys.argv[1]]
@@ -210,10 +246,13 @@ if len(sys.argv) > 1 and sys.argv[1] in years:
 for year_str in years:
   print(year_str)
   results=[(i[1],i[5],i[6]) for i in eq(year_str, 0)]
-  
-  votes = lambda j:[int(i[6]) for i in eq(year_str,0) if i[1].find(j)>-1]
-  orientation = lambda j:[partyangle[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
-  pcolors = lambda j:[partycolor[i[5]] for i in eq(year_str,0) if i[1].find(j)>-1]
+  #sort by location and then votecnt
+  #pprint(results)
+  #results.sort(key=lambda x:(x[0], int(x[2])))
+  #pprint(results)
+  votes = lambda j:[int(i[6]) for i in eq(year_str,0) if i[1]==j]
+  orientation = lambda j:[partyangle[i[5]] for i in eq(year_str,0) if i[1]==j]
+  pcolors = lambda j:[partycolor[i[5]] for i in eq(year_str,0) if i[1]==j]
   locations = set([i[0] for i in results])
   #pprint(locations)
 
