@@ -1,49 +1,10 @@
-import csv, sys
+import pandas as p
+import sys
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from pprint import pprint
 from math import ceil, sqrt
 from matplotlib.colors import Normalize
-norm = Normalize(vmin=0.0, vmax=11.0)
-
-# used along with largest vote count to determine size of a cell(location) in a square grid
-votesperinch= 5000/0.25
-# group parlimentary, assembly plots
-combinePlots=False
-  
-#fullheader 0year 1no 2name 3cat 4cname 5sex 6party 7abr 8votes 9tot -> pc
-#newhdr 0year  2->1name  4->2cname 5->3sex 6->4party(notused) 7->5abr 8->6votes 9->7tot -> laptop
-with open('apur.tsv', 'r') as nodecsv:
-    nodereader = csv.reader(nodecsv, delimiter='\t')
-    nodes = [n for n in nodereader][1:]
-
-def eq(value, idx):
-    return [i for i in nodes if i[idx] == str(value)]
-
-def like(value, idx):
-    return [i for i in node if i[idx].find(x)>-1]
-
-def show(results):
-    for i in results:
-        print('{0:4} {1:>20} {2:>28} {5:>8} {6:>8} {7:>8}'.format(*i) +' '+ '{:.2f}'.format(float(i[6])/float(i[7])*100))
-
-# without the color hack adding a upper and lower value 
-# of the max and min color in the partycolor array quiver 
-# normalizes colors in the array to whatever max and min in the array(bug in matplotlib)
-def pad(array2D, value, colorHack):
-  length_of_longestmember = max(list(map(len, array2D)))
-  for i in array2D:
-    while len(i) < length_of_longestmember:
-      i.insert(0, value)
-  for i in array2D:  
-    if colorHack:
-      i.insert(0, 11.)
-    else:  
-      i.insert(0, 0.)
-    i.insert(0, 0.)
-  #pprint([len(i) for i in array2D]) 
-  #pprint(array2D)
-  return length_of_longestmember+2
 
 partyangle={'INC(I)':90, 'JNP':355, 'INC':85, 'TDP':0, 
             'BLD':5,'JP':10, 'ICSP':300,
@@ -68,15 +29,37 @@ partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6,
             'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':1, 
             'AAAP':11, 'STR':11, 'AIMIM':3, 'BCUF':11, 
             'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11}
-#pprint(dgrid)
-#parties = set([i[1] for i in results])
-#pprint(parties)
 
-#pprint(parties)
-#print(len(partycolor.keys()))
-#print(len(parties))
-#if len(partycolor.keys()) != len(parties):
-#  sys.exit()
+# currently using hardcoded data until datafiles include 
+# electiontype col - MP, MLA, ZLTC, MLTC, Panchayat, Ward
+electiontype={'Anantapur':'MP', 
+'Uravakonda':'MLA','Guntakal':'MLA','Tadipatri':'MLA',
+'Rayadurg':'MLA', 'Anantapur Urban':'MLA', 'Singanamala':'MLA',
+'Kalyandurg':'MLA'}
+
+norm = Normalize(vmin=0.0, vmax=11.0)
+# used along with largest vote count to determine size of a cell(location) in a square grid
+votesperinch= 5000/0.25
+# group parlimentary, assembly plots
+combinePlots=False
+
+# without the color hack adding a upper and lower value 
+# of the max and min color in the partycolor array quiver 
+# normalizes colors in the array to whatever max and min in the array(bug in matplotlib)
+def pad(array2D, value, colorHack):
+  length_of_longestmember = max(list(map(len, array2D)))
+  for i in array2D:
+    while len(i) < length_of_longestmember:
+      i.insert(0, value)
+  for i in array2D:  
+    if colorHack:
+      i.insert(0, 11.)
+    else:  
+      i.insert(0, 0.)
+    i.insert(0, 0.)
+  #pprint([len(i) for i in array2D]) 
+  #pprint(array2D)
+  return length_of_longestmember+2
 
 # for parlimentary elections (MP) only one location needs to be plotted
 # for assembly elections (MLAs) 7 locations need to be plotted
@@ -89,14 +72,6 @@ def selectgrid(locations):
     return computeLayout(['Anantapur'])
   elif len(locations)==7:
     return computeLayout(['Uravakonda', 'Guntakal', 'Tadipatri', 'Rayadurg', 'Anantapur Urban', 'Singanamala', 'Kalyandurg'])
-    # return {'Uravakonda':(0, ymax-border-(groupspace/2)), 
-    #      'Guntakal': (xmax/2,  ymax-border-(groupspace/2)), 
-    #      'Tadipatri': (xmax-border, ymax-border-(groupspace/2)),
-    #      'Rayadurg':(0, (ymax/2)-border), 
-    #      'Anantapur Urban':(xmax/2, ymax/2-border),
-    #      'Singanamala':(xmax-border, ymax/2-border),
-    #      'Kalyandurg':(0, 0)
-    #      }, xmax, ymax
   else:
     gridrows = 8
     groupspace= 4 #2x2
@@ -113,12 +88,7 @@ def selectgrid(locations):
          'Kalyandurg':(6, 0)
     }, xmax, ymax
 
-# currently using hardcoded data until datafiles include 
-# electiontype col - MP, MLA, ZLTC, MLTC, Panchayat, Ward
-electiontype={'Anantapur':'MP', 
-'Uravakonda':'MLA','Guntakal':'MLA','Tadipatri':'MLA',
-'Rayadurg':'MLA', 'Anantapur Urban':'MLA', 'Singanamala':'MLA',
-'Kalyandurg':'MLA'}
+
 def splitLocationsByType(locations):
   breakup = {}
   for i in locations:
@@ -146,8 +116,8 @@ def splitLocationsByType(locations):
 # 1st element maps to northwest or topleft corner of grid the move left to right - top down
 # so index in Locations array will determine positions 
 def computeLayout(Locations):
-  U = [votes(i) for i in Locations]
-  #print(U)
+  U = [votes(i).to_list() for i in Locations]
+  print(U)
   LargestVoteCount = max(max([i for i in U]))
   #print(LargestVoteCount)
   halfcell = int(ceil(LargestVoteCount * (1/votesperinch))) 
@@ -168,7 +138,7 @@ def plot(plt, dgrid, xmax, ymax):
   # diff locations have different number of results
   # quiver seems(?) to require all num of vectors in each 
   # groups be the same. Currently padding with 0 to deal with this issue. 
-  U = [votes(i) for i in dgrid]
+  U = [votes(i).to_list() for i in dgrid]
   #pprint(U)
   pad(U, 0, False)
   #pprint(U)
@@ -206,18 +176,18 @@ def plot(plt, dgrid, xmax, ymax):
     ax.quiverkey(q, dgrid[i][0], dgrid[i][1], len(i), i,
                         labelpos='S', coordinates = 'data')
 
-  winner = results[-1][1]
+  winner = results.iloc[-1]['abr']
   wc = cm.Paired(norm(partycolor[winner]))
   #print(wc)
-  winner = results[-1][1] +' '+ results[-1][2]
+  winner = winner +' '+ str(results.iloc[-1]['votes'])
   ax.quiverkey(q, 0.4, .2, len(winner), 
     winner, 
     labelcolor=wc, fontproperties={'weight':'bold'}, 
     labelpos='E', coordinates = 'figure')
-  winner = results[-2][1]
+  winner = results.iloc[-2]['abr']
   wc = cm.Paired(norm(partycolor[winner]))
   #print(wc)
-  winner = results[-2][1] +' '+ results[-2][2]
+  winner = winner +' '+ str(results.iloc[-2]['votes'])
   ax.quiverkey(q, 0.4, .17, len(winner), 
     winner, labelcolor=wc, 
     labelpos='E', 
@@ -230,32 +200,42 @@ def plot(plt, dgrid, xmax, ymax):
   ax.set_ylim(0, ymax)
   ax.set_xlim(0, xmax)
   fig.colorbar(q)
+  print(list(dgrid.keys()))
   if combinePlots:
-    filename = year_str+'.png' 
+    filename = str(year_str)+'.png' 
   else:
-    filename = year_str+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
+    filename = str(year_str)+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
   fig.savefig(filename, format='png')  
-#anim = animation.FuncAnimation(fig, update_quiver, fargs=(Q, X, Y),
-#                               interval=50, blit=False)
+  #anim = animation.FuncAnimation(fig, update_quiver, fargs=(Q, X, Y),
+  #                               interval=50, blit=False)
   #fig.tight_layout()
   #plt.show()
-years = sorted(set([i[0] for i in nodes]))
-if len(sys.argv) > 1 and sys.argv[1] in years:
-  years = [sys.argv[1]]
+
+# Extraction of MP's and MLA's into a dataframe m
+m = p.read_csv('apur.tsv', delimiter='\t')
+# extract a dataframe mptc for 2014
+#import extractTC
+# extract corporators, Mayor, Dep Mayor of MuniCorp (Cities)
+# extract councillors, Chairman, Vice Chair of Municipalities (Towns)
+# all stored in a datafram ulb for 2014
+#import extractULB
+
+# if a year is passed on command line only plot that year else all
+years = sorted(m.year.unique())
+if len(sys.argv) > 1 and int(sys.argv[1]) in years:
+  years = [int(sys.argv[1])]
 
 for year_str in years:
   print(year_str)
-  results=[(i[1],i[5],i[6]) for i in eq(year_str, 0)]
-  #sort by location and then votecnt
-  #pprint(results)
-  #results.sort(key=lambda x:(x[0], int(x[2])))
-  #pprint(results)
-  votes = lambda j:[int(i[6]) for i in eq(year_str,0) if i[1]==j]
-  orientation = lambda j:[partyangle[i[5]] for i in eq(year_str,0) if i[1]==j]
-  pcolors = lambda j:[partycolor[i[5]] for i in eq(year_str,0) if i[1]==j]
-  locations = set([i[0] for i in results])
-  #pprint(locations)
-
+  results = m[m['year']==year_str][['name','abr','votes']]
+  votes = lambda j: results[results.name.eq(j)].votes
+  orientation = lambda j:[partyangle[i] for i in results[results.name.eq(j)].abr]
+  pcolors = lambda j:[partycolor[i] for i in results[results.name.eq(j)].abr]
+  locations = results.name.unique()
+  # chose whether to plot different types of elections as single or seperate plots
+  # depending on the number of election types and combinePlot flag
+  # different grids are plotted. The number of cells depends on the number of locations
+  # 
   if combinePlots:  
     dgrid, xmax, ymax = selectgrid(locations)
     plot(plt, dgrid, xmax, ymax)
