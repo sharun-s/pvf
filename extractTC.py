@@ -67,7 +67,7 @@ for i in range(0, len(mptc_tables)):
             name = removews(tmp.iloc[k][4])
             party = tmp.iloc[k][5]
 
-          ppl.append({'name': name, 
+          ppl.append({'name': name, 'year': 2014, 
               'party': party, 
               'sex':'F' if electioncat.find('(W)')>-1 else 'M?', 
               'electedas':'MTPC', 'year':'2014', 'mandal':mandal,
@@ -79,6 +79,10 @@ for i in range(0, len(mptc_tables)):
 
 #pprint(pdf)
 mptc = pd.DataFrame(ppl, columns=ppl[0].keys())
+
+# write to disk
+# mptc.to_csv(r'apur_mptc_2014.csv', index=False)
+
 #print(mptc.groupby('mandal').size())
 #mptc[mptc['mandal']=='Kanaganapalli']
 #print(mptc['name'].count())
@@ -94,3 +98,25 @@ mptc = pd.DataFrame(ppl, columns=ppl[0].keys())
 mptc.groupby('mandal').area.nunique()
 #to find list of areas in each mandal
 #pdf.groupby('mandal').area.unique()
+
+# note shift_text=[''] makes sure values in a cell without boundaries arent move left or up which is the default
+mptc06_tables=camelot.read_pdf('../pdfs-apec/2006/Anantapur_MPTC-2006.pdf', shift_text='', strip_text='\n', pages='1-end')
+
+def prep(i):
+  d = mptc06_tables[i].df
+  # drop the first column S.No its not reqd
+  d=d.drop(0, axis=1)
+  d=d.drop(1, axis=1) # all rows have same value = districtname
+  # rename col names - by default will be 1,2,3 etc
+  d.columns = ['mandal', 'area', 'name', 'party', 'electioncat', 'community', 'edu', 'age', 'sex', 'occupation']
+  # drop header row
+  return d[1:]
+
+d=prep(0)
+for i in range(1, len(mptc06_tables)):
+  d=d.append(prep(i), ignore_index=True) 
+
+#import matplotlib.pyplot as pyplot
+#d.groupby([age']).size().plot('bar')
+#plt.show()
+
