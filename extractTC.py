@@ -3,16 +3,15 @@ from pprint import pprint
 import pandas as pd
 removews = lambda x: ' '.join(x.split()).title()
 ppl=[]
-mptc=camelot.read_pdf(r'pdfs-apec/2014/Andhra Elected MPTCs List, 2014.pdf',pages='1-21')
+mptc_tables=camelot.read_pdf(r'../pdfs-apec/2014/Andhra Elected MPTCs List, 2014.pdf',pages='1-21')
 dname = 'Ananthapur'
-for i in range(0, len(mptc)):
-  d=mptc[i].df
+for i in range(0, len(mptc_tables)):
+  d=mptc_tables[i].df
   isSubTotalRow = lambda row: d.iloc[row][2].isdigit()
   lastrow = d.shape[0]
   if d.iloc[1][0] == dname:
     mandal_indexlist = d.index[d[1]!=''].to_list()
-    print(mandal_indexlist)
-    
+    #print(mandal_indexlist)
     # if first index is 0
     #   if start row
     #     no issues 
@@ -38,7 +37,7 @@ for i in range(0, len(mptc)):
       #mandal_indexlist[-1] = mandal_indexlist[-1] - 1 
     #else:
       mandal_indexlist.append(lastrow)
-    print(mandal_indexlist)
+    #print(mandal_indexlist)
     for j in range(0, len(mandal_indexlist), 2):
       s = mandal_indexlist[j]
       e = mandal_indexlist[j+1]
@@ -79,11 +78,19 @@ for i in range(0, len(mptc)):
 #print(len(set(s.values)))
 
 #pprint(pdf)
-pdf = pd.DataFrame(ppl, columns=ppl[0].keys())
-print(pdf.groupby('mandal').size())
-pdf[pdf['mandal']=='Kanaganapalli']
-print(pdf['name'].count())
+mptc = pd.DataFrame(ppl, columns=ppl[0].keys())
+#print(mptc.groupby('mandal').size())
+#mptc[mptc['mandal']=='Kanaganapalli']
+#print(mptc['name'].count())
 
-print(pdf.groupby(['mandal', 'party']).size())
+#print(mptc.groupby(['mandal', 'party']).size())
+#geocode mandals
+#import subprocess
+#for n,g in pdf.groupby('mandal'):
+#  o = subprocess.getoutput("./pvf/geocode.sh "+ n)
+#  print(n, o)
 
-
+#to find tot of each mandal
+mptc.groupby('mandal').area.nunique()
+#to find list of areas in each mandal
+#pdf.groupby('mandal').area.unique()

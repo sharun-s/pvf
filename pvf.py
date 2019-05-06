@@ -133,6 +133,16 @@ def computeLayout(Locations):
   #print(dgrid, maxx, maxy)
   return dgrid, maxx, maxy
 
+def showWinners(results, ax):
+  for i in range(1,3):
+    winner = results.tail(i).abr.values[0]
+    wc = cm.Paired(norm(partycolor[winner]))
+    winner = winner +' '+ str(results.tail(i).votes.values[0])
+    ax.quiverkey(q, 0.4, i/8.0, len(winner), winner, 
+    labelcolor=wc, fontproperties={'weight':'bold'}, 
+    labelpos='E', coordinates = 'figure')
+
+
 def plot(plt, dgrid, xmax, ymax):
   fig, ax = plt.subplots(1,1)
   # diff locations have different number of results
@@ -176,30 +186,12 @@ def plot(plt, dgrid, xmax, ymax):
     ax.quiverkey(q, dgrid[i][0], dgrid[i][1], len(i), i,
                         labelpos='S', coordinates = 'data')
 
-  winner = results.iloc[-1]['abr']
-  wc = cm.Paired(norm(partycolor[winner]))
-  #print(wc)
-  winner = winner +' '+ str(results.iloc[-1]['votes'])
-  ax.quiverkey(q, 0.4, .2, len(winner), 
-    winner, 
-    labelcolor=wc, fontproperties={'weight':'bold'}, 
-    labelpos='E', coordinates = 'figure')
-  winner = results.iloc[-2]['abr']
-  wc = cm.Paired(norm(partycolor[winner]))
-  #print(wc)
-  winner = winner +' '+ str(results.iloc[-2]['votes'])
-  ax.quiverkey(q, 0.4, .17, len(winner), 
-    winner, labelcolor=wc, 
-    labelpos='E', 
-    coordinates = 'figure')
-
-  #wincnt = eq(year_str,0)[-1][5]  
   #ax.quiverkey(q, 1, 1, )  
   ax.set_axis_off()
   ax.set_title(year_str)
   ax.set_ylim(0, ymax)
   ax.set_xlim(0, xmax)
-  fig.colorbar(q)
+  #fig.colorbar(q)
   print(list(dgrid.keys()))
   if combinePlots:
     filename = str(year_str)+'.png' 
@@ -214,11 +206,14 @@ def plot(plt, dgrid, xmax, ymax):
 # Extraction of MP's and MLA's into a dataframe m
 m = p.read_csv('apur.tsv', delimiter='\t')
 # extract a dataframe mptc for 2014
-#import extractTC
+from extractTC import mptc
+print('mptc ', len(mptc))
 # extract corporators, Mayor, Dep Mayor of MuniCorp (Cities)
 # extract councillors, Chairman, Vice Chair of Municipalities (Towns)
 # all stored in a datafram ulb for 2014
-#import extractULB
+from extractULB import ulb 
+print('ulb ', len(ulb))
+
 
 # if a year is passed on command line only plot that year else all
 years = sorted(m.year.unique())
@@ -235,7 +230,6 @@ for year_str in years:
   # chose whether to plot different types of elections as single or seperate plots
   # depending on the number of election types and combinePlot flag
   # different grids are plotted. The number of cells depends on the number of locations
-  # 
   if combinePlots:  
     dgrid, xmax, ymax = selectgrid(locations)
     plot(plt, dgrid, xmax, ymax)
