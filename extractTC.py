@@ -67,12 +67,14 @@ for i in range(0, len(mptc_tables)):
             name = removews(tmp.iloc[k][4])
             party = tmp.iloc[k][5]
 
-          ppl.append({'name': name, 'year': 2014, 
+          ppl.append({
+              'mandal':mandal, 
+              'area':tmp.iloc[k][2],
+              'name': name, 
               'party': party, 
-              'sex':'F' if electioncat.find('(W)')>-1 else 'M?', 
-              'electedas':'MTPC', 'year':'2014', 'mandal':mandal,
-              'electiontype':'MTPC', 'area':tmp.iloc[k][2], 
-              'electioncat':electioncat})
+              'sex':'F' if electioncat.find('(W)')>-1 else 'M?',  
+              'electioncat':electioncat,
+              'year':'2014'})
 #s=pd.Series(p['mandal'] for p in ppl)
 #pprint(s.value_counts())
 #print(len(set(s.values)))
@@ -135,16 +137,24 @@ def prep01(i):
   # drop title row + header row
   return d[2:]
 
-d=prep(0)
+mptc01=prep01(0)
 for i in range(1, len(mptc01_tables)):
-  d=d.append(prep01(i), ignore_index=True)
+  mptc01=mptc01.append(prep01(i), ignore_index=True)
 
 #only pull out rows corresponding to the district
-k=d[d['district']!=''].index
+k=mptc01[mptc01['district']!=''].index
 # this gives the index boundaries for one district
-d=d.iloc[k[0]:k[1]]
+mptc01=mptc01.iloc[k[0]:k[1]]
 #now district name col can be dropped as it can only be the same thing
-d=d.drop(0, axis=1)
+mptc01=mptc01.drop('district', axis=1)
 # since mandal name is only present in first row all following rows need to be foward filled with that name
-d.mandal.fillna(method='ffill')
-d.mandal.replace('', None)
+mptc01.mandal.fillna(method='ffill')
+mptc01.mandal = mptc01.mandal.replace('', None)
+
+def r(mandal):
+  print(mptc01[mptc01['mandal'] == mandal].area)
+  print(mptc01[mptc01['mandal'] == mandal].groupby(['party']))
+  print(mptc06[mptc06['mandal'] == mandal].area)
+  print(mptc06[mptc06['mandal'] == mandal].groupby(['party']))
+  print(mptc[mptc['mandal'] == mandal].area )
+  print(mptc[mptc['mandal'] == mandal].groupby(['party']))
