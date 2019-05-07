@@ -112,11 +112,39 @@ def prep(i):
   # drop header row
   return d[1:]
 
-d=prep(0)
+mptc06=prep(0)
 for i in range(1, len(mptc06_tables)):
-  d=d.append(prep(i), ignore_index=True) 
+  mptc06=mptc06.append(prep(i), ignore_index=True) 
 
 #import matplotlib.pyplot as pyplot
 #d.groupby([age']).size().plot('bar')
 #plt.show()
 
+# 2001 MPTC
+mptc01_tables=camelot.read_pdf(r'../pdfs-apec/2001/Anatapur-MPTC-2001.pdf', flavor='stream', pages='9-21')
+# since there are blank spaces and cell values have to be filled
+# from prev row where value exists just like in 2014 table district column 
+# ideally camelot readpdf with copy_text would handle this but doesnt work with stream
+def prep01(i):
+  d = mptc01_tables[i].df
+  # drop the first column S.No its not reqd
+  #d=d.drop(0, axis=1)
+  #d=d.drop(1, axis=1) # all rows have same value = districtname
+  # rename col names - by default will be 1,2,3 etc
+  d.columns = ['district', 'mandal', 'area', 'name', 'party']
+  # drop title row + header row
+  return d[2:]
+
+d=prep(0)
+for i in range(1, len(mptc01_tables)):
+  d=d.append(prep01(i), ignore_index=True)
+
+#only pull out rows corresponding to the district
+k=d[d['district']!=''].index
+# this gives the index boundaries for one district
+d=d.iloc[k[0]:k[1]]
+#now district name col can be dropped as it can only be the same thing
+d=d.drop(0, axis=1)
+# since mandal name is only present in first row all following rows need to be foward filled with that name
+d.mandal.fillna(method='ffill')
+d.mandal.replace('', None)
