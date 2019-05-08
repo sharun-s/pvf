@@ -225,3 +225,89 @@ zp14=zp14.drop('district', axis=1)
 print(zp01.party.value_counts())
 print(zp06.party.value_counts())
 print(zp14.party.value_counts())
+
+# 2001 Mandal Parishad Presidents
+pres01_tables=camelot.read_pdf(r'../pdfs-apec/2001/MP Presidents 2001.pdf', flavor='stream', pages='1-2')
+p01 = pres01_tables[0].df
+p02 = pres01_tables[1].df
+p01 = p01[2:]
+p02 = p02[2:]
+p01=p01.append(p02, ignore_index=True)
+k=p01[p01[0]!=''].index
+p01=p01.iloc[k[1]:k[2]]
+p01['electioncat'], p01['name'] = p01[2].str.split('\n').str
+p01=p01.drop(2, axis=1)
+p01=p01.drop(0, axis=1)
+p01.columns=['mandal', 'party', 'electioncat', 'name']
+p01.party.value_counts()         
+
+# 2006 Mandal Parishar Presidents
+pres06_tables=camelot.read_pdf(r'../pdfs-apec/2006/MP Presidents 2006.pdf', flavor='stream', pages='2-3')
+p06= pres06_tables[0].df
+p061= pres06_tables[1].df
+p06=p06[3:]
+p06=p06.append(p061[3:], ignore_index=True)
+k=p06[p06[0]!=''].index
+p06=p06.iloc[k[0]:k[1]]
+p06=p06.drop(0, axis=1)
+p06.columns=['mandal', 'name', 'party']
+
+#2014 Mandal Parishad Presidents
+pres14_tables=camelot.read_pdf(r'../pdfs-apec/2014/Anantapur-MPP-2014.pdf', pages='1-4')
+p14= pres14_tables[0].df
+p14=p14[2:]
+for i in range(0,len(pres14_tables)):
+  p14=p14.append(pres14_tables[i].df[2:], ignore_index=True)
+ 
+k=p14[p14[1]!=''].index
+p14=p14.iloc[k[1]:k[2]]
+p14=p14.drop(0, axis=1)
+p14=p14.drop(1, axis=1)
+p14.columns=['mandal','electioncat', 'president', 'pparty', 'vp', 'vpparty', 'cooptmember']
+
+# p01[p01.mandal == 'Agali'].name
+# p06[p06.mandal == 'Agali'].name
+# p14[p14.mandal == 'Agali'].president
+# mptc01[mptc01.mandal == 'Agali']
+# mptc06[mptc06.mandal == 'Agali']
+# mptc14[mptc14.mandal == 'Agali']
+
+#Chairman & Vice-Chairman Zila Parishad 2001
+chair01_tables=camelot.read_pdf(r'../pdfs-apec/2001/Chairman list 2001.pdf', flavor='stream')
+c01 = chair01_tables[0].df
+c01 = c01[c01[1].str.contains('Anan')]
+c01 = c01.drop([0, 1], axis=1)
+c01.columns = ['electioncat', 'chair', 'chairparty', 'vicechair', 'vcparty']
+print(c01.chair)
+
+#Chairman & Vice-Chairman Zila Parishad 2006
+zp14[zp14.name.str.contains(c14.chair.values[0])]
+chair06_tables=camelot.read_pdf(r'../pdfs-apec/2006/Chairman & Vice-Chairman list 2006.pdf')
+>>> c06 = chair06_tables[0].df
+c06[c06[1].str.contains('Anan')]
+#UR(W)  T Kavithamma  INC  Muddala Narsimhulu  INC  1. Khaja Moinuddin  2. S Jaffer vali
+c06 = c06[c06[1].str.contains('Anan')]
+c06 = c06.drop(0, axis=1)
+c06 = c06.drop(1, axis=1)
+c06.columns = ['electioncat', 'chair', 'chairparty', 'vicechair', 'vcparty', 'coptmember1', 'coptmember2']
+# c06.chair.values[0]
+# 'T Kavithamma'
+# >>> zp06[zp06.name.str.contains('Kavi')]
+# 12  Rapthadu  T.Kavithamma   INC       UR(W)      Kapu  M.A.  42   F
+# >>> zp06[zp06.name.str.contains('Mudda')]
+#   Nallamada   Muddala Narasimhulu   INC          BC      Boya  HSLC  54   M
+
+#Chairman & Vice-Chairman Zila Parishad 2014
+chair14_tables=camelot.read_pdf(r'../pdfs-apec/2014/Anantapur-ZPP-2014.pdf')
+c14 = chair14_tables[0].df
+c14 = c14[c14[1].str.contains('Anan')]
+c14 = c14.drop([0,1], axis=1)
+#BC  D.Chaman Sab  TDP  Madineni.Subhashini  TDP  C.S.Abdul Ravoof  C.H.Jafroolla \nKhan
+c14.columns = ['electioncat', 'chair', 'chairparty', 'vicechair', 'vcparty', 'coptmember1', 'coptmember2']
+# zp14[zp14.name.str.contains('Chaman')]
+# 46  Ramagiri          UR  D.Chaman Sab   TDP
+# zp14[zp14.name.str.contains('Subha')]
+# 7  Beluguppa       UR(W)  Madineni Subhasini   TDP
+# zp14[zp14.name.str.contains(c14.chair.values[0])]
+#       mandal electioncat          name party
+# 46  Ramagiri          UR  D.Chaman Sab   TDP
