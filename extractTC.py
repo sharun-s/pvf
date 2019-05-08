@@ -81,7 +81,7 @@ for i in range(0, len(mptc_tables)):
 
 #pprint(pdf)
 mptc = pd.DataFrame(ppl, columns=ppl[0].keys())
-
+mptc.area = mptc.area.str.title() # some are all caps
 # write to disk
 # mptc.to_csv(r'apur_mptc_2014.csv', index=False)
 
@@ -151,10 +151,77 @@ mptc01=mptc01.drop('district', axis=1)
 mptc01.mandal.fillna(method='ffill')
 mptc01.mandal = mptc01.mandal.replace('', None)
 
-def r(mandal):
-  print(mptc01[mptc01['mandal'] == mandal].area)
-  print(mptc01[mptc01['mandal'] == mandal].groupby(['party']))
-  print(mptc06[mptc06['mandal'] == mandal].area)
-  print(mptc06[mptc06['mandal'] == mandal].groupby(['party']))
-  print(mptc[mptc['mandal'] == mandal].area )
-  print(mptc[mptc['mandal'] == mandal].groupby(['party']))
+mptc06['year'] = 2006
+mptc01['year'] = 2001
+mptc['year']=2014
+a=pd.concat([mptc, mptc06, mptc01], axis=0, ignore_index=True)
+#a.party.value_counts()
+
+zptc01_tables=camelot.read_pdf(r'../pdfs-apec/2001/Anantapur-ZP-2001.pdf', flavor='stream', pages='2-3')
+def prep02(i):
+  d = zptc01_tables[i].df
+  d.columns = ['district', 'mandal', 'name', 'party', 'electioncat']
+  # drop title row + header row
+  return d[2:]
+zp01=prep02(0)
+# since only two pages no need for loop
+zp01=zp01.append(prep02(1), ignore_index=True)
+k=zp01[zp01['district']!=''].index
+zp01=zp01.iloc[k[0]:k[1]]
+#now district name col can be dropped as it can only be the same thing
+zp01=zp01.drop('district', axis=1)
+
+# shift_text='' is not enough - long names with \n get pushed down to next cell
+zptc06_tables=camelot.read_pdf(r'../pdfs-apec/2006/anantapur-ZP-2006.pdf', pages='1-end')
+def prep03(i):
+  d = zptc06_tables[i].df
+  d=d.drop(0, axis=1) # drop s.no not reqd
+  d=d.drop(9, axis=1) # drop occupation - col isempty
+  d.columns = ['mandal', 'name', 'party', 'electioncat', 'community', 'edu', 'age' , 'sex']
+  # drop title row + header row
+  d.mandal = d.mandal.str.title()
+  return d[2:]
+zp06=prep03(0)
+for i in range(1,len(zptc06_tables)):
+  zp06=zp06.append(prep03(i), ignore_index=True)
+
+mistakes = zp06[zp06.mandal.str.contains('\n')].index
+print('mistakes',len(mistakes))
+for i in mistakes:
+  tokens = zp06.iloc[i]['mandal'].split('\n') 
+  zp06.iloc[i-1]['mandal']= zp06.iloc[i-1]['mandal'] +' '+ tokens[0]  
+  zp06.iloc[i]['mandal']= ' '.join(tokens[1:])  
+ 
+mistakes = zp06[zp06.mandal.str.contains('\n')].index
+print('mistakes',len(mistakes)) # should be zero
+
+mistakes = zp06[zp06.name.str.contains('\n')].index
+print('mistakes',len(mistakes))
+for i in mistakes:
+  tokens = zp06.iloc[i]['name'].split('\n') 
+  zp06.iloc[i-1]['name']= zp06.iloc[i-1]['name'] +' '+ tokens[0]  
+  zp06.iloc[i]['name']= ' '.join(tokens[1:])  
+ 
+mistakes = zp06[zp06.name.str.contains('\n')].index
+print('mistakes',len(mistakes))
+
+#zp06.age.value_counts().sort_index().plot('bar')
+#zp06.age.astype(int).value_counts(bins=[0, 20, 30, 40, 50, 60, 100]).sort_index().plot('pie')
+#plt.show()
+
+zptc14_tables=camelot.read_pdf(r'../pdfs-apec/2014/Andhra Elected ZPTCs List, 2014.pdf', pages='1-2', copy_text=['v'])
+def prep04(i):
+  d = zptc14_tables[i].df
+  d.columns = ['district', 'mandal', 'electioncat', 'name', 'party']
+  return d[1:]
+zp14=prep04(0)
+# only 2 pages so no need for loop
+zp14=zp14.append(prep04(1), ignore_index=True)
+k=zp14[zp14['district']!=''].index
+zp14=zp14.iloc[k[0]:k[2]] # here format is again diff from above 2 distname occurs at begining of each page and as subtot
+#now district name col can be dropped as it can only be the same thing
+zp14=zp14.drop('district', axis=1)
+
+print(zp01.party.value_counts())
+print(zp06.party.value_counts())
+print(zp14.party.value_counts())
