@@ -1,0 +1,88 @@
+2001
+A.Narayanapuram-1
+A.Narayanapuram-2
+Akuthotapalli
+Alamur
+Ananthapur Rural
+Chiyyedu
+Kandukur
+Katiganikalva
+Kodimi
+Kurugunta
+Maneela
+Rachanapalli
+Rudrampeta
+Somaladoddi
+Upparapalli
+
+2001              2006
+A.Narayanapuram-1
+A.Narayanapuram-2
+            A.Narayanapuram-3
+            A.Narayanapuram-4
+            A.Narayanapuram-5
+Akuthotapalli
+Alamur
+Anantapur Rural
+Chiyyedu
+            Itikalapalli
+[-]Katiganikalva
+            Kakkalapalli
+            Kakkalapalli Colony-1
+            Kakkalapalli Colony-2
+Kandukur
+[-]Kodimi
+Kurugunta
+[-]Maneela
+            N.N.Kunta
+Rachanapalli
+            Rajeev Colony
+[-]Rudrampeta
+            Rudrampeta-1
+            Rudrampeta-2
+            Rudrampeta-3
+Somuladoddi
+Upparapalli
+
+2001           2006              2014
+A.Narayanapuram-1
+A.Narayanapuram-2
+            A.Narayanapuram-3
+            A.Narayanapuram-4
+            A.Narayanapuram-5
+                           [+]A.Narayanapuram - 6
+                           [+]A.Narayanapuram - 7
+                           [+]Akkampalli
+[-]Akuthotapalli
+                           [+]Akuthotapalli -1
+                           [+]Akuthotapalli -2
+Alamur
+[-]Anantapur Rural
+                           [+]Anantapur Rural -1
+                           [+]Anantapur Rural -2
+Chiyyedu
+            Itikalapalli
+            Kakkalapalli
+            Kakkalapalli Colony-1
+            Kakkalapalli Colony-2
+                           [+]Kakkalapalli Colony-3
+                           [+]Kamarupalli
+[-]Kandukur
+                           [+]Kandukuru 1
+                           [+]Kandukuru 2
+Kurugunta
+            N.N.Kunta (Narasa Nayani Kunta)
+                           [+]Pulakunta
+[-]Rachanapalli
+                           [+]Rachanapalli 1
+                           [+]Rachanapalli 2
+            [-]Rajeev Colony
+                           [+]Rajiv Colony 1
+                           [+]Rajiv Colony 2
+            Rudrampeta-1
+            Rudrampeta-2
+            Rudrampeta-3
+                           [+]Rudrampeta 4                           
+Somuladoddi
+                           [+]Taticherla
+Upparapalli
