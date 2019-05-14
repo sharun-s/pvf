@@ -1,0 +1,58 @@
+A.Narayanapuram - I,A.Narayanapuram-1
+A.Narayanapuram - Ii,A.Narayanapuram-2
+A.Narayanapuram - Iii,A.Narayanapuram-3
+A.Narayanapuram - Iv,A.Narayanapuram-4
+A.Narayanapuram - V,A.Narayanapuram-5
+A.Narayanapuram - Vi,A.Narayanapuram-6
+A.Narayanapuram - Vii,A.Narayanapuram-7
+A-Narayanapuram-1,A.Narayanapuram-1
+A.Narayanapuram-III,A.Narayanapuram-3
+Hemavathi-ii,Hemavathi-2
+Akuthotapalli - I,Akuthotapalli-1
+Akuthotapalli - Ii,Akuthotapalli-2
+Alamuru,Alamur
+Amarapuram-i,Amarapuram-1
+Amarapuram-ii,Amarapuram-2
+Amarapuram-iii,Amarapuram-3
+Anantapuramu Rural - I,Anantapuramu Rural - 1
+Anantapuramu Rural -ii,Anantapuramu Rural - 2
+Anantapur Rual,Anantapuramu Rural
+Ananthapur(rural),Ananthapuramu Rural
+Anantapuramu Rural,Ananthapuramu Rural
+Haluku-ii,Halukur-2
+Halukur-ii,Halukur-2
+Halukur-i,Halukur-1
+Hemavathi-i,Hemavathi-1
+Hemavathi-iii,Hemavathi-3
+Itikalapalli,Itukalapalli
+Kakkalpalli Colony - Ii,Kakkalpalli Colony - 2
+Kakkalapalli Colony-ii,Kakkalapalli Colony - 2
+Kakkalapalli Colony-i,Kakkalapalli Colony - 1
+Kakkalapalli Colony - I,Kakkalapalli Colony - 1
+Kakkalpalli Colony - 2,Kakkalapalli Colony - 2
+Kakkalpalli Colony - Iii,Kakkalapalli Colony - 3
+Kandukuru - Ii,Kandukuru - 2
+Kandukuru - 2,Kandukuru - 1
+Kandukuru - 1,Kandukur - 1
+Kandukuru - I,Kandukur - I
+Rudrampeta-i,Rudrampeta - 1
+Rudrampeta - I,Rudrampeta - 1
+Rudrampeta - Ii,Rudrampeta - 2
+Rudrampeta - Iii,Rudrampeta - 3
+Rudrampeta - Iv,Rudrampeta - 4
+Rudrampeta-ii,Rudrampeta - 2
+Rudrampeta-iii,Rudrampeta - 3
+Somaladoddi,Somuladoddi
+Thammede Palli-ii,Thammedepalli-ii
+Thammede Palli-i,Thammedepalli-i
+Thammedepalli-ii,Thamedepalli-ii
+Thammedepalli-i,Thamedepalli-i
+Thamedepalli-i,Thamedapalli-i
+Thamedapalli-i,Thamadapalli-i
+Thamedepalli-ii,Thamadepalli-ii
+Thamadapalli-i,Thamadepalli-i
+Upparapalli,Uparapalli
+A Narayanapuram-2,A.Narayanapuram-2
+Konauppalapadu,Konuppalapadu
+Nagaruru,Nagarur
+Kalyandurg-viii,Kalyandurg 8

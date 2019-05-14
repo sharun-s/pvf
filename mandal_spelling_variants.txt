@@ -1,0 +1,62 @@
+Anantapur,Ananthapuramu Rural
+Ananthapur,Ananthapuramu Rural
+Ananthapuramu,Ananthapuramu Rural
+Anantapur Rural,Ananthapuramu Rural
+B K Samudram,B.K.Samudram
+Brahma Samudram,Brahmasamudram
+Bramha-samudram,Bramhasamudram
+Bramhasamudra,Bramhasamudram
+Brahmasamudram,Bramhasamudram
+C K Palli,C.K.Palli
+Ck Palli,C.K.Palli
+D Hirehal,D.Hirehal
+D Hirchal,D Hirehal
+D Hirehal,D.Hirehal
+Gandlapent,Gandlapenta
+Garladdinne,Garladinne
+Agandlapent,Gandlapenta
+Agarladinne,Garladinne
+Kothaceruvu,Kothacheruvu
+Mbramhasamudra,Bramhasamudram
+Mbramhasamudram,Bramhasamudram
+Bukkaptnam,Bukkapatnam
+Mbukkapatnam,Bukkapatnam
+N P Kunta,N.P.Kunta
+Nallacheru,Nallacheruvu
+Np Kunta,N.P.Kunta
+O D Cheruvu,O.D.Cheruvu
+O.D.Cheruvu Mitta Palli,O.D.Cheruvu
+Od Cheruvu,O.D.Cheruvu
+Pedda Pappur,Peddapappur
+Peddapappuru,Peddapappur
+Peddavaduguru,Peddavadugur
+Puttaparthy,Puttaparthi
+Tadipathri,Tadipatri
+Tadpatri,Tadipatri
+Tanakallu,Tanakal
+Vunallamada,Nallamada
+Vunallacheru,Nallacheruvu
+Bukkarayasamudram,B.K.Samudram
+Cheruvukotha,Kothacheruvu
+Cheruvukudair,Kudair
+Kotha,Kothachevuru
+Kothachevuru,Kothacheruvu
+B K Samudram,B. K. Samudram
+B. K. Samudram,B.K.Samudram
+Amadugur,Amadagur
+Ananthapur,Ananthapuramu R
+BramhasamudraM,Bramhasamudram
+Bramhasamudram,Brahmasamudram
+Brahma Samudram,Brahmasamudram
+C K Palli,C.K. Palli
+C.K. Palli,C.K.Palli
+D Hirehal,D.Hirehal
+Garladdinne,Garladinne
+N P Kunta,N.P.Kunta
+O.D. Cheruvu,O.D.Cheruvu
+O D Cheruvu,O.D.Cheruvu
+Peddapappuru,Peddapappur
+Peddavadugur,Peddavaduguru
+Puttaparthy,Puttaparthi
+Tadpatri,Tadipatri
+Tanakallu,Tanakal
