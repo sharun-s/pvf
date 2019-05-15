@@ -1,0 +1,3132 @@
+[
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ananthapur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ananthapuramu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapur Rural"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - Ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - Iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - Iv"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-4"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - V"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-5"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - Vi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-6"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram - Vii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-7"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A-Narayanapuram-1"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A.Narayanapuram-III"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hemavathi-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hemavathi-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Akuthotapalli - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Akuthotapalli-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Akuthotapalli - Ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Akuthotapalli-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Alamuru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Alamur"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Amarapuram-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Amarapuram-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Amarapuram-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Amarapuram-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Amarapuram-iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Amarapuram-3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapuramu Rural - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Anantapuramu Rural - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapuramu Rural -ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Anantapuramu Rural - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapur Rual"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Anantapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ananthapur(rural)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapuramu Rural"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Haluku-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Halukur-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Halukur-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Halukur-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Halukur-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Halukur-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hemavathi-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hemavathi-1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hemavathi-iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hemavathi-3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Itikalapalli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Itukalapalli"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalpalli Colony - Ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalpalli Colony - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalapalli Colony-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalapalli Colony - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalapalli Colony-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalapalli Colony - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalapalli Colony - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalapalli Colony - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalpalli Colony - 2"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalapalli Colony - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kakkalpalli Colony - Iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kakkalapalli Colony - 3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kandukuru - Ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kandukuru - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kandukuru - 2"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kandukuru - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kandukuru - 1"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kandukur - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kandukuru - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kandukur - I"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta - I"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 1"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta - Ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta - Iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta - Iv"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 4"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Rudrampeta-iii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rudrampeta - 3"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Somaladoddi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Somuladoddi"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thammede Palli-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thammedepalli-ii"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thammede Palli-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thammedepalli-i"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thammedepalli-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamedepalli-ii"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thammedepalli-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamedepalli-i"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thamedepalli-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamedapalli-i"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thamedapalli-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamadapalli-i"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thamedepalli-ii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamadepalli-ii"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Thamadapalli-i"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Thamadepalli-i"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Upparapalli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Uparapalli"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "B K Samudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "B.K.Samudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Brahma Samudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brahmasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Bramha-samudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Bramhasamudra"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Brahmasamudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "C K Palli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "C.K.Palli"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ck Palli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "C.K.Palli"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "D Hirehal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "D.Hirehal"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "D Hirchal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "D Hirehal"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "D Hirehal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "D.Hirehal"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Gandlapent"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gandlapenta"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Garladdinne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Garladinne"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Agandlapent"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gandlapenta"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Agarladinne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Garladinne"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kothaceruvu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kothacheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Mbramhasamudra"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Mbramhasamudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Bukkaptnam"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bukkapatnam"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Mbukkapatnam"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bukkapatnam"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "N P Kunta"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "N.P.Kunta"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Nallacheru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nallacheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Np Kunta"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "N.P.Kunta"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "O D Cheruvu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O.D.Cheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "O.D.Cheruvu Mitta Palli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O.D.Cheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Od Cheruvu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O.D.Cheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Pedda Pappur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Peddapappur"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Peddapappuru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Peddapappur"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Peddavaduguru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Peddavadugur"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Puttaparthy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Puttaparthi"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tadipathri"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tadipatri"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tadpatri"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tadipatri"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tanakallu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tanakal"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Vunallamada"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nallamada"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Vunallacheru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nallacheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Bukkarayasamudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "B.K.Samudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Cheruvukotha"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kothacheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Cheruvukudair"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kudair"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kotha"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kothachevuru"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kothachevuru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kothacheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Ananthapuramu Rural",
+                "l": "Ananthapuramu Rural"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "A Narayanapuram-2"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "A.Narayanapuram-2"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  }
+]

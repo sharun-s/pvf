@@ -1,0 +1,615 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression value.toTitlecase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column mandal using expression value.toTitlecase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression value.toTitlecase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " Palli",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/\\s+Palli/,'palli')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/\\s+Palli/,'palli')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Yadiki",
+                "l": "Yadiki"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "year",
+          "expression": "value",
+          "columnName": "year",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2006",
+                "l": "2006"
+              }
+            },
+            {
+              "v": {
+                "v": "2014",
+                "l": "2014"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Konauppalapadu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Konuppalapadu"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "mandal",
+          "expression": "value",
+          "columnName": "mandal",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Yadiki",
+                "l": "Yadiki"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "year",
+          "expression": "value",
+          "columnName": "year",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2006",
+                "l": "2006"
+              }
+            },
+            {
+              "v": {
+                "v": "2014",
+                "l": "2014"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Nagaruru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nagarur"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-i$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-i$/,' 1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-i$/,' 1')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-ii$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-ii$/,' 2')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-ii$/,' 2')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-iii$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-iii$/,' 3')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-iii$/,' 3')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-iv$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-iv$/,' 4')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-iv$/,' 4')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-v$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-v$/,' 5')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-v$/,' 5')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-Vi$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-vi$/,' 6')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-vi$/,' 6')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-Vii$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-vii$/,' 7')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-vii$/,' 7')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-Viii$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kalyandurg-viii"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kalyandurg 8"
+      }
+    ],
+    "description": "Mass edit cells in column area"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-\\d",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-(\\d)/,' $1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-(\\d)/,' $1')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " - \\d",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/ - (\\d)/,' $1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/ - (\\d)/,' $1')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " - I$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/- I$/,' 1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/- I$/,' 1')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " - Ii$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/ - Ii$/,' 2')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/ - Ii$/,' 2')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " - I",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/ - Iii$/,' 3')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/ - Iii$/,' 3')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": " - I",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/ - Iv$/,' 4')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/ - Iv$/,' 4')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/- I$/,' 1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/- I$/,' 1')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/ - V$/,' 5')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/ - V$/,' 5')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/- Ii$/,' 2')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/- Ii$/,' 2')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "area",
+          "columnName": "area",
+          "query": "-",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "area",
+    "expression": "grel:value.replace(/-( \\d)$/,'$1')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column area using expression grel:value.replace(/-( \\d)$/,'$1')"
+  }
+]
