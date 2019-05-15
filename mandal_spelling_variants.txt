@@ -3,12 +3,15 @@ Ananthapur,Ananthapuramu Rural
 Ananthapuramu,Ananthapuramu Rural
 Anantapur Rural,Ananthapuramu Rural
 B K Samudram,B.K.Samudram
+B.K.Samudram,Bukkarayasamudram
+Bukkarayasamudram,B.K.Samudram 
 Brahma Samudram,Brahmasamudram
 Bramha-samudram,Bramhasamudram
 Bramhasamudra,Bramhasamudram
 Brahmasamudram,Bramhasamudram
 C K Palli,C.K.Palli
 Ck Palli,C.K.Palli
+C.K.Palli, Chennekothapalle
 D Hirehal,D.Hirehal
 D Hirchal,D Hirehal
 D Hirehal,D.Hirehal
@@ -60,3 +63,11 @@ Peddavadugur,Peddavaduguru
 Puttaparthy,Puttaparthi
 Tadpatri,Tadipatri
 Tanakallu,Tanakal
+Somandepalli,Somandepalle
+Kanaganapalli,Kanaganapalle
+Kanaganapalle,Kanaganapalli 
+Nambulapulakunta,N.P.Kunta 
+Obuladevaracheruvu,O.D.Cheruvu
+Bathalapalle,Bathalapalli
+Raptadu,Rapthadu  
+Brahmasamudram,Bramhasamudram
