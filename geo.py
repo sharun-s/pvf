@@ -33,10 +33,13 @@ gdf.drop(38, axis=0, inplace=True)
 
 colors = {'BJP':'orange', 'IND': 'purple','INC':'green', 'TDP':'yellow', 'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
 
+zptc=None
+
 def addPartyColFrom(file):
 	#drop party column if it exists
 	if 'party' in gdf:
 		gdf.drop('party', axis=1, inplace=True)
+	global zptc
 	zptc = p.read_csv(file)
 	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
 	# only plot if lat long are known
@@ -92,22 +95,27 @@ annote=None
 def onclick(event):
 	axsub = event.inaxes
 	if axsub:
+		# since points are split by party into seperate pointcollections for legend to work
+		# find which (party based) point collection has been clicked
 		for j in allpc:
 			cnt, ind = j.contains(event)
 			if cnt:
-				print(ind["ind"][0])
+				#print(ind["ind"][0])
 				update_annote(j, ind)
 				annote.set_visible(True)
 				f.canvas.draw_idle()
+				break
 
 
 def update_annote(j, ind):
 	pos = j.get_offsets()[ind["ind"][0]]
 	global annote
 	annote.xy = pos
-	text=str(ind["ind"])
-	print(pos, text)
-	annote.set_text(j.get_label())
+	party = j.get_label()
+	mandal = gdf[gdf.party == party][0].values[ind["ind"][0]]
+	print(mandal)
+	name = zptc[zptc.mandal == mandal].name.values[0]
+	annote.set_text(party + "\n" + mandal + "\n" + name)
 	#annote.get_bbox_patch().set_facecolor('black')
 
 # pathcollections
@@ -115,26 +123,29 @@ allpc=[]
 annotes=[]
 # def hover(event):
 # 	axsub = event.inaxes
-# 	print(axsub)
 # 	if axsub:
+# 		# since points are split by party into seperate pointcollections for legend to work
+# 		# find which (party based) point collection has been clicked
 # 		for j in allpc:
 # 			cnt, ind = j.contains(event)
-# 			#print(cnt, ind)
 # 			if cnt:
-# 				print(ind["ind"][0])
-# 				#update_annote(ind)
-# 				#annote.set_visible(True)
-# 				#f.canvas.draw_idle()
-
+# 				#print(ind["ind"][0])
+# 				update_annote(j, ind)
+# 				annote.set_visible(True)
+# 				f.canvas.draw_idle()
+# 				break
 
 # when hovering over a mandal doaction - show info - excute script etc 
 def plotzp_legends_hover(file, annotate=False):
 	addPartyColFrom(file)
+	global f, ax
+	f,ax = plt.subplots()
 	ax.set_axis_off()
 	ax.set_title(file)
 	f.canvas.mpl_connect('button_press_event', onclick)
 	#f.canvas.mpl_connect('motion_notify_event', hover)
-	
+	global allpc
+	allpc = []
 	#for i in gdf.index:
 	#	ax.scatter(gdf.loc[i, 'geometry'].x, gdf.loc[i, 'geometry'].y, c=colors[gdf.loc[i, 'party']] )
 	# to get the colors to match a particular party and labels to match a particular color
@@ -160,7 +171,7 @@ def plotzp_legends_hover(file, annotate=False):
 	plt.show()
 
 
-f,ax = plt.subplots()
+f,ax = None, None
 plotzp_legends_hover('apur_zptc_2001.csv', True)
 #plotzp_legends('apur_zptc_2006.csv')
 #plotzp_legends('apur_zptc_2014.csv')		
