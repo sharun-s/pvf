@@ -1,5 +1,7 @@
-![](1978.png)
+![](apur_mp.gif)
 
-![](geowiki.png)
+![](apur_mla.png)
 
 ![](geowiki_apur_zptc_2001.png)
+
+![](zptc.gif)
