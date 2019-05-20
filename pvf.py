@@ -5,43 +5,14 @@ import matplotlib.cm as cm
 from pprint import pprint
 from math import ceil, sqrt
 from matplotlib.colors import Normalize
-
-partyangle={'INC(I)':90, 'JNP':355, 'INC':85, 'TDP':0, 
-            'BLD':5,'JP':10, 'ICSP':300,
-            'IND':270, 'CPI':180, 'BJP':325, 'MIM':260, 'CPI(ML)':190, 'TRS':270,
-            'DMM': 280, 'BSP': 250, 'SP':290, 'PPOI':240, 
-            #1999 onwards
-            'ATDP':300, 'NTRTDP(LP)':310, 'MCPI(S)':190, 'CPM':200,
-            'BJRP':320, 'CPI(ML)(L)':210, 
-            'TPPP':220, 'PRAP':230, 'BHSASP':330, 'LSP':340, 'RDHP':345, 'PP':325, 
-            'RPS':305, 'NOTA':0, 'JASPA':315, 'YSRCP':135, 
-            'AAAP':355, 'STR':205, 'AIMIM':260, 'BCUF':215, 
-            'SUCI':225, 'WPOI':295, 'MASP':270, 'JaSPa':315}
-# increasing the highest value will change all other colors
-# look at matplotlib.org colormap references for different colormaps
-partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6, 
-            'BLD':7,'JP':7, 'ICSP':11,
-            'IND': 11, 'CPI': 5, 'BJP':6.5, 'MIM':3, 'CPI(ML)':5, 'TRS':11,
-            'DMM':11, 'BSP':4,'SP':11, 'PPOI':11, 
-            'ATDP':11, 'NTRTDP(LP)':10, 'MCPI(S)':5, 'CPM':5,
-            'BJRP':11, 'CPI(ML)(L)':5,
-            'TPPP':11, 'PRAP':11, 'BHSASP':11, 'LSP':11, 'RDHP':11, 'PP':11, 
-            'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':1, 
-            'AAAP':11, 'STR':11, 'AIMIM':3, 'BCUF':11, 
-            'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11}
-
-# currently using hardcoded data until datafiles include 
-# electiontype col - MP, MLA, ZLTC, MLTC, Panchayat, Ward
-electiontype={'Anantapur':'MP', 
-'Uravakonda':'MLA','Guntakal':'MLA','Tadipatri':'MLA',
-'Rayadurg':'MLA', 'Anantapur Urban':'MLA', 'Singanamala':'MLA',
-'Kalyandurg':'MLA'}
+from pvfdefaults import partycolor, partyangle, electiontype
 
 norm = Normalize(vmin=0.0, vmax=11.0)
 # used along with largest vote count to determine size of a cell(location) in a square grid
 votesperinch= 5000/0.25
 # group parlimentary, assembly plots
 combinePlots=False
+saveFile=True
 
 # without the color hack adding a upper and lower value 
 # of the max and min color in the partycolor array quiver 
@@ -133,14 +104,16 @@ def computeLayout(Locations):
   #print(dgrid, maxx, maxy)
   return dgrid, maxx, maxy
 
-def showWinners(results, ax):
-  for i in range(1,3):
-    winner = results.tail(i).abr.values[0]
-    wc = cm.Paired(norm(partycolor[winner]))
-    winner = winner +' '+ str(results.tail(i).votes.values[0])
-    ax.quiverkey(q, 0.4, i/8.0, len(winner), winner, 
-    labelcolor=wc, fontproperties={'weight':'bold'}, 
-    labelpos='E', coordinates = 'figure')
+def showLegend(results, ax, q, xmax):
+  xpos =10
+  #parties = results.abr.unique()
+  parties = results.loc[results.votes.nlargest(20).index].abr.unique()[:3]
+  for i in parties:
+    wc = cm.Paired(norm(partycolor[i]))  
+    ax.annotate(i, xy=(xpos,2), 
+                xycoords="axes points", 
+                bbox=dict(boxstyle="round", fc=wc))
+    xpos=xpos+45
 
 
 def plot(plt, dgrid, xmax, ymax):
@@ -185,35 +158,42 @@ def plot(plt, dgrid, xmax, ymax):
   for i in dgrid:
     ax.quiverkey(q, dgrid[i][0], dgrid[i][1], len(i), i,
                         labelpos='S', coordinates = 'data')
-
+  showLegend(results, ax, q, xmax);
   #ax.quiverkey(q, 1, 1, )  
   ax.set_axis_off()
   ax.set_title(year_str)
   ax.set_ylim(0, ymax)
   ax.set_xlim(0, xmax)
+  #ax.legend()
   #fig.colorbar(q)
-  print(list(dgrid.keys()))
-  if combinePlots:
-    filename = str(year_str)+'.png' 
-  else:
-    filename = str(year_str)+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
-  fig.savefig(filename, format='png')  
+  #print(list(dgrid.keys()))
+  fig.tight_layout()
+
+  if saveFile:
+    if combinePlots:
+      filename = str(year_str)+'.png' 
+    else:
+      filename = str(year_str)+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
+    
+    fig.savefig(filename, format='png')  
   #anim = animation.FuncAnimation(fig, update_quiver, fargs=(Q, X, Y),
   #                               interval=50, blit=False)
-  #fig.tight_layout()
+  
   #plt.show()
 
 # Extraction of MP's and MLA's into a dataframe m
 m = p.read_csv('apur.tsv', delimiter='\t')
 # extract a dataframe mptc for 2014
-from extractTC import mptc
-print('mptc ', len(mptc))
+#from extractTC import mptc
+#print('mptc ', len(mptc))
 # extract corporators, Mayor, Dep Mayor of MuniCorp (Cities)
 # extract councillors, Chairman, Vice Chair of Municipalities (Towns)
 # all stored in a datafram ulb for 2014
-from extractULB import ulb 
-print('ulb ', len(ulb))
-
+#from extractULB import ulb 
+#print('ulb', len(ulb))
+#print('mp mla columns-',len(m.column), 
+#  'rural local bodies',len(mptc.column), 
+#  'urban local bodies',len(ulb.column))
 
 # if a year is passed on command line only plot that year else all
 years = sorted(m.year.unique())
