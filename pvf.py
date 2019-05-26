@@ -182,7 +182,7 @@ def plot(plt, dgrid, xmax, ymax):
   #plt.show()
 
 # Extraction of MP's and MLA's into a dataframe m
-m = p.read_csv('apur.tsv', delimiter='\t')
+m = p.read_csv('apur.csv')
 # extract a dataframe mptc for 2014
 #from extractTC import mptc
 #print('mptc ', len(mptc))
