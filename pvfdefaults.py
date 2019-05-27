@@ -8,7 +8,7 @@ partyangle={'INC(I)':90, 'JNP':355, 'INC':85, 'TDP':0,
             'TPPP':220, 'PRAP':230, 'JSP':230, 'BHSASP':330, 'LSP':340, 'RDHP':345, 'PP':325, 
             'RPS':305, 'NOTA':0, 'JASPA':315, 'YSRCP':135, 
             'AAAP':355, 'STR':205, 'AIMIM':260, 'BCUF':215, 
-            'SUCI':225, 'WPOI':295, 'MASP':270, 'JaSPa':315, 'PSHP':316, 'JSRP':317, 'AIFB':318, 'IUML':319, 'NSP':321, 'VCK':322}
+            'SUCI':225, 'WPOI':295, 'MASP':270, 'JaSPa':315, 'PSHP':316, 'JSRP':317, 'AIFB':318, 'IUML':319, 'NSP':321, 'VCK':322, 'RDP':323, 'VJP':324}
 # increasing the highest value will change all other colors
 # look at matplotlib.org colormap references for different colormaps
 partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6, 
@@ -20,7 +20,7 @@ partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6,
             'TPPP':11, 'PRAP':11, 'JSP':11, 'BHSASP':11, 'LSP':11, 'RDHP':11, 'PP':11, 
             'RPS':11, 'NOTA':1, 'JASPA':11, 'YSRCP':1, 
             'AAAP':11, 'STR':11, 'AIMIM':3, 'BCUF':11, 
-            'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11, 'PSHP':11, 'JSRP':11, 'AIFB':11, 'IUML':11, 'NSP':11, 'VCK':11}
+            'SUCI':11, 'WPOI':11, 'MASP':11, 'JaSPa':11, 'PSHP':11, 'JSRP':11, 'AIFB':11, 'IUML':11, 'NSP':11, 'VCK':11,'RDP':11,'VJP':11}
 
 # currently using hardcoded data until datafiles include 
 # electiontype col - MP, MLA, ZLTC, MLTC, Panchayat, Ward
