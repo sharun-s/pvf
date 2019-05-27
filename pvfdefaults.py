@@ -11,7 +11,7 @@ partyangle={'INC(I)':90, 'JNP':355, 'INC':85, 'TDP':0,
             'SUCI':225, 'WPOI':295, 'MASP':270, 'JaSPa':315, 'PSHP':316, 'JSRP':317, 'AIFB':318, 'IUML':319, 'NSP':321, 'VCK':322, 'RDP':323, 'VJP':324}
 # increasing the highest value will change all other colors
 # look at matplotlib.org colormap references for different colormaps
-partycolor={'INC(I)': 3, 'INC':2, 'JNP':6.5, 'TDP':6, 
+partycolor={'INC(I)': 0, 'INC':2, 'JNP':6.5, 'TDP':6, 
             'BLD':7,'JP':7, 'ICSP':11,
             'IND': 11, 'CPI': 5, 'BJP':6.5, 'MIM':3, 'CPI(ML)':5, 'TRS':11,
             'DMM':11, 'BSP':4,'SP':11, 'PPOI':11, 
