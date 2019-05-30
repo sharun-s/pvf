@@ -100,7 +100,7 @@ def showOptions(mandal, bossdf, alldf):
 	else:
 		sim = difflib.get_close_matches(pm.values[0], allm)
 		if len(sim) > 0:
-			print(pm.values[0],"similar to(choose index)?")
+			#print(pm.values[0],"similar to(choose index)?")
 			#pick=input(sim)
 			#if pick.isnumeric():
 			#	j=allm[allm.str.contains(sim[int(pick)])].index
@@ -108,22 +108,24 @@ def showOptions(mandal, bossdf, alldf):
 			#	alldf.loc[j[0],'electedas']='MPTC President'
 			# TO RUN a manual check uncomment above comment below
 			# WARNING: 1st match is auto selected in code below.  
+			print(pm.values[0],'->',sim[0])
 			j=allm[allm.str.contains(sim[0])].index
-			print("setting electedas on ", j[0])
+			#print("setting electedas on ", j[0])
 			alldf.loc[j[0],'electedas']='MPTC President'
 		else:
 			largest = max(max(pm.values[0].split(' '), key=lambda x:len(x)).split('.'), key=lambda x:len(x))
-			print('largest', largest, allm)
-			global tmp
-			tmp = allm
+			#print('largest', largest, allm)
+			#global tmp
+			#tmp = allm
 			options = allm[allm.str.lower().str.contains(largest.lower())].values
-			print(pm.values[0], 'matches?') 
+			#print(pm.values[0], 'matches?') 
 			#pick=input(options)
 			#if pick.isnumeric():
 			if len(options)>0:
 				#j=allm[allm.str.contains(options[int(pick)])].index
+				print(pm.values[0],'>>',options[0])
 				j=allm[allm.str.contains(options[0])].index
-				print("setting electedas on ", j[0])
+				#print("setting electedas on ", j[0])
 				alldf.loc[j[0],'electedas']='MPTC President'
 			else:
 				print('mandal pres not set for ', mandal) 
@@ -135,6 +137,7 @@ def reconcile(data):
 
 def countUpdated(data):
 	for a,b in data:
-		print(a['electedas'].value_counts()['MPTC President'],'/',a.shape[0])
+		print(a['electedas'].value_counts()['MPTC President'],'/',b.shape[0],'/',a.shape[0])
 
 reconcile(data)
+countUpdated(data)
