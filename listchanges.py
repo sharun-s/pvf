@@ -1,3 +1,4 @@
+#Works on change list exported from openrefine after cleanup
 import simplejson
 import sys
 f=open(sys.argv[1], 'r')
