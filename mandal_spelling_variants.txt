@@ -6,6 +6,7 @@ B K Samudram,B.K.Samudram
 B.K.Samudram,Bukkarayasamudram
 Bukkarayasamudram,B.K.Samudram 
 Brahma Samudram,Brahmasamudram
+Brahma Samudram,Bramhasamudram
 Bramha-samudram,Bramhasamudram
 Bramha-Samudram,Bramhasamudram
 Bramhasamudra,Bramhasamudram
@@ -52,6 +53,7 @@ Ananthapur,Ananthapuramu R
 BramhasamudraM,Bramhasamudram
 Bramhasamudram,Brahmasamudram
 Brahma Samudram,Brahmasamudram
+Brahma Samudram,Bramhasamudram
 C K Palli,C.K. Palli
 C.K. Palli,C.K.Palli
 D Hirehal,D.Hirehal
@@ -61,6 +63,7 @@ O.D. Cheruvu,O.D.Cheruvu
 O D Cheruvu,O.D.Cheruvu
 Peddapappuru,Peddapappur
 Peddavadugur,Peddavaduguru
+Peddavaduguru,Peddavadugur 
 Puttaparthy,Puttaparthi
 Tadpatri,Tadipatri
 Tanakallu,Tanakal

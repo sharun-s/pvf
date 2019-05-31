@@ -1,0 +1,318 @@
+FULL MERGE steps
+
+#step 1 
+don't use output of extractTC
+instead import apur*-clean.csv files (cleaned in refine)
+and concat into m
+
+remove unnecessary columns
+
+add 'electedas' = "MPTC"
+remove whitespace, \n in name, mandal, set titlecase
+
+#step 2
+bossdf concat presidents p01, p06, p14
+check for and remove whitespace, \n in name, mandal  
+set titlecase
+
+reconcile mandal names between bossdf and m
+
+parties must match, year must match
+
+# p14 and mptc14 of 2014 must have matching mandals
+mismatches =  rlb.p14[rlb.p14['mandal'].isin(rlb.a[rlb.a['year']==2014].mandal)].shape
+	- p14.shape[0]
+
+#p14[p14['president'].isin(a[rlb.a['year']==2014].name)]
+
+for i in rlb.p14.mandal:
+     i, showOptions(i, rlb.p14, rlb.mptc)
+
+def showOptions(mandal, bossdf, alldf):
+	pm = bossdf[bossdf.mandal == mandal].president
+	allm = alldf[alldf.mandal == mandal].name
+	print(difflib.get_close_matches(pm, allm))
+
+showOptions("Agali", rlb.p14, rlb.mptc)
+
+step 3: those that match set 'electedas' to MPTC PRESIDENT, MPTC VP, COPT MEMBER 
+
+step 4:
+check if year exists and 
+concat of mptc, mptc06, mptc14
+
+[c01, c06, c14]
+
+
+
+================================
+
+import extractTC as r
+
+m01=p.read_csv("apur_mptc_2001-clean1.csv")
+m06=p.read_csv("apur_mptc_2006-clean1.csv")
+m14=p.read_csv("apur_mptc_2014-clean1.csv")
+
+data = [ (m01, r.p01), (m02, r.p06), (m14,r.14)]
+
+for i in data:
+	i[0].drop(['president','pparty','vp','vpparty','cooptmember'],axis=1,inplace=True)
+	i[0]['elactedas']='MPTC'
+
+def showOptions(mandal, bossdf, alldf):
+	pm = bossdf[bossdf.mandal == mandal].president
+	allm = alldf[alldf.mandal == mandal]['name']
+	j = allm[allm.isin(pm)].index
+	if len(j)>=1:
+		print(pm.values[0], 'found in', i)
+		y=input(alldf.iloc[j[0]])
+		if y=='y':
+			alldf.iloc[j[0]]['electedas']='MPTC President'
+	else:
+		if len(allm) == 0:
+			print(mandal + " not found")
+			return
+		sim = difflib.get_close_matches(pm, allm)
+		if len(sim) > 0:
+			print(sim)
+		else:
+			largest = max(max(pm.values[0].split(' '), key=lambda x:len(x)).split('.'), key=lambda x:len(x))
+			print('largest', largest, allm)
+			print('matches?', allm[allm.str.contains(largest)].values)
+
+def reconcile(data):
+	for a, b in data:
+		for i in b.mandal:
+			showOptions(i, b, a)
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+reconcile(data)
+Ananthapur not found
+
+M Chennamma matches? ['Chennamma']
+
+Garladdinne not found
+
+Pillala Eswaraiah found in Atmakur
+
+Sri Mude Ramana Naik matches? []
+G Adinarayana matches? []
+
+B K Samudram not found
+
+Nallapati Umapathi Narpala
+
+Tadpatri not found
+
+Bala Ravi Kishore matches? []
+
+K Sai Mohan Peddapappur
+
+Bhumi Reddy Ramachander Reddy matches? []
+
+K Pedda Reddy matches? ['Pedda Nagaiah']
+
+R Jitendra Goud matches? []
+
+Kona Muralider Reddy matches? []
+
+NVS Vasundra Devi matches? []
+
+Peddavaduguru not found
+Madineni Chandrakala Uravakonda
+Ramchandra matches? []
+D Renuka matches? ['Dasari Renuka']
+S Maddileti matches? ['Sake Maddileti']
+P Chenna Krishanamma matches? []
+I Sathyanarayana matches? []
+C K Palli not found
+D Bavi Reddy matches? []
+B Lingappa matches? []
+T Vannur Swami matches? ['T.Vannurswamy']
+Pujari Yerri Swami matches? ['Pujari Yerri Swamy']
+Brahma Samudram not found
+H Nagalaxmi matches? []
+B Rama Bheemappa matches? []
+Girijamma matches? []
+K Kumara Swami matches? ['Kumaraswamy']
+D Hirehal not found
+K Raghavareddy matches? []
+S K Parvathi Kanekal
+R Pushpalatha matches? []
+G Aliveli matches? []
+G Varadappa matches? ['Giddaluru Varadappa']
+U Chalapathi Roddam
+B Obula Reddy matches? ['Obula Reddibeedupalli']
+S Vani matches? ['Salakka Gari Vani']
+P Brundamma Bukkapatnam
+K Laxminarasappa matches? []
+K Govindarava matches? []
+L K Narasimhappa matches? []
+Latha Rolla
+Narasimhaiah Agali
+K H Nanjunda Reddy Hindupur
+Laxmi Devamma Parigi
+T Venkatesulu matches? ['Venkatesulu']
+Sivappa matches? ['V Sivappa']
+E Renuka Devi Gorantla
+M Ramana Naik matches? ['Mude Ramana Naik']
+d Srinisavulu Reddy matches? []
+A Pratap matches? ['Agisam Pratap']
+N P Kunta not found
+K Vijaya Laxmi matches? ['Koduru Vijayalaxmi']
+D Vemaiah matches? []
+O D Cheruvu not found
+Tanakallu not found
+T Ramadevi matches? []
+A Padmaja matches? ['Appireddy Padmaja']
+Anantapur not found
+D.Hanumantha Naik matches? []
+B.K.Samudram not found
+Marri Reddy Sreenivasa Reddy matches? []
+K.S.Fairoz matches? []
+N.Nagabhushanam matches? ['Nagabhushanam']
+K.Bramhaiah matches? []
+Nagappa matches? ['Yerri Nagappa']
+B.C.Mastanaiah matches? []
+T.Sailaja matches? ['Thammisetti Sailaja']
+Lakki Reddy Raghunatha Reddy matches? []
+Annadanam.Aruna Kumari matches? []
+K.Veera Reddy Rapthadu
+Lakshmidevamma matches? []
+M.Krishnamma Tadipatri
+A.C.Yerriswamy Uravakonda
+Teneti Sailaja matches? ['Sailaja']
+V.Venkata Ramana Reddy Vidapanakal
+Bala Ananthamma Yadiki
+N.Yengamma matches? []
+C.Chinna Narayana matches? ['S.Chinna Venkata Ramudu' 'C.Chinnanarayana']
+Lingamma Beluguppa
+D.Lalu Sab matches? ['P.Lalu Sab']
+Bramha-Samudram not found
+V.Govinda Reddy matches? ['Varadanna Gari Govinda Reddy']
+H.Gangadhar matches? ['Harijana Gangadhara']
+Mondi Nagalakshmi matches? ['Mondi Nagalakshmii']
+Yasodamma Gummagatta
+Choula Mallikarjuna matches? ['Chowla Mallikarjuna']
+Talari Narasimhulu Kambadur
+H.Alivelamma matches? ['Hrijana Alivelamma']
+A.Rajagopal Reddy Kanekal
+G.K.Sreenivasulu Kundurpi
+D.Rangaiah matches? ['B.Rangaiah']
+G.Nagaraju Reddy matches? []
+B.Gangamma matches? ['Boya Gangamma']
+A.P.Mitramma matches? []
+Gangamma Agali
+G.Narendra Reddy Amadagur
+B.Krishna Murthy matches? ['E.Krishnamurthy']
+Peddaraju Lakshmidevi matches? ['Peddarasi Lakshmidevi']
+G.Bramaramba matches? []
+D.Gangaraju Gandlapenta
+Tailor Fakruddin Saheb matches? ['T.Fakruddin Sab']
+Lakshmamma Gudibanda
+S.Narasimhulu matches? ['Chinna Narasimhulu']
+K.Chakra Varadha Reddy matches? ['K.Chakra Varthan Reddy']
+Kothaceruvu not found
+M.Anand Kumar matches? ['M.Anandakumar']
+M.Shalini Madakasira
+M. Arunamma matches? ['M.Arunamma']
+Gandiketla Sujatha matches? []
+D.Symalamma matches? []
+M.D.Lalithamma matches? ['Md.Lalithamma']
+Yeddula Sridhar Reddy matches? []
+V.Krishna Murthy matches? ['V.Krishnamurthy' 'Ms.Krishnareddy']
+G.C.Venkata Ramudu matches? ['Guttur Chinna Venkataramudu']
+B.Ramulamma matches? ['Boya Ramulamma']
+P.Subbaratnamma matches? []
+V.Devaraju Rolla
+E.Venkatesulu Somandepalli
+A.Manohar Reddy matches? ['Avula Manohar Reddy']
+Indla Nagalakshmamma Tanakal
+Ammajakka matches? []
+M. Venkataramanamma matches? []
+Meenakshi matches? []
+Ananthapuramu not found
+M. Marekka matches? []
+K. Suryaprakash Babu matches? ['K.Suryaprakash Babu' 'K.Suryaprakash Rao']
+Thirupathamma matches? []
+U. Parvathi matches? ['H Parvathi' 'Urthal Parvathi']
+Brahmasamudram not found
+C. Ravi matches? ['Chinthakayala Ravi']
+B.K.Samudram not found
+A. Amarendra matches? ['A.Amarendra']
+C. Nowzia matches? []
+Palthur Pushpavathi matches? []
+B. Venugopal Reddy matches? ['B.Venugopal Reddy']
+Bhushannagari Padmaja matches? []
+J. Nagaraju matches? ['J.Nagaraju']
+G. Veerabhadraiah matches? []
+N. Vijaya Dharani matches? []
+S. Hanumantha Raidu matches? ['S. Hanumantharayudu']
+K. Girimallappa matches? ['Kuruba Girimallappa']
+Rayal Ramaiah matches? ['R.Ramaiah']
+D. Subhadramma matches? ['Subhadramma.D']
+B. Lalithamma matches? ['Poganuru Lalithamma']
+KALYANDURG not found
+A. Lakshminarayana matches? ['A.Lakshminarayana']
+B. Rajendra matches? ['Bille Rajendra']
+Phathima Bee matches? []
+S. Vani Kothacheruvu
+K. Maheswari matches? ['Kondapalli Maheswari']
+H. Deenamma matches? ['Harijana Deenamma']
+V. Hanook matches? []
+E. Aruna matches? []
+Veluri Malathi Mudigubba
+Y. Vedavathi matches? ['Yeddula Vedavathi']
+T. Mabu sab matches? ['Thaticherla Mabu Sab']
+U. Bramhananda Reddy matches? ['V.Bramhanandareddy']
+Akula Aruna Narpala
+V.Md. Ismail matches? ['G.Md.Ismail']
+Gurram Sumitramma matches? []
+P. Sathyanarayana matches? ['P.Sathyanarayana']
+Peddakotla Subadramma Peddapappur
+K. Leelavathi Peddavadugur
+G. Yashodamma matches? ['G.Yashodamma']
+K. Sujatha matches? ['Kummetha Sujatha']
+R. Ramadevi matches? ['R.Ramadevi']
+B.G. Anjaneyulu matches? ['Anjaneyulu' 'B.G.Anjaneyulu']
+D.Venkata Prasad matches? []
+M. Bharathi matches? ['Bharathi']
+D. Anjanamma matches? []
+Kristappa matches? []
+Amaravathi Manasa matches? ['Amaravathi Maanasa']
+S. Amrutha matches? ['Sattireddy Amrutha']
+D. Varalakshmi matches? []
+Chinnigari Venkatamma matches? []
+T. Guru lakshmi matches? ['S.Nagalakshmi' 'Dorasingam Gari Dhanalakshmi' 'B.Varalakshmi'
+ 'T. Gurulakshmi']
+Pula Subhasinamma matches? []
+Bukya Lakshmi matches? ['Bhukya Lakshmi']
+V. Sunkarathnamma matches? ['V.Sunkarathnamma']
+Gurram Venkatamma matches? ['Korra Venkatamma']
+D. Prathap Naidu matches? []
+V. Rangaiah matches? ['Veluri Rangaiah']
+G. Muniprasad matches? []
+
+
+Mandal spelling mismatch between mptc file and mpPres file
+
+Ananthapur
+Garladdinne
+B K Samudram
+Tadpatri
+Peddavaduguru
+C K Palli
+Brahma Samudram
+D Hirehal
+N P Kunta
+O D Cheruvu
+Tanakallu
+Anantapur
+B.K.Samudram
+Bramha-Samudram
+Kothaceruvu
+Ananthapuramu
+Brahmasamudram
+B.K.Samudram
+KALYANDURG
