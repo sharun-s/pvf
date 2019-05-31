@@ -229,64 +229,67 @@ def zptc_extract():
   zp14=prep04(0)
   # only 2 pages so no need for loop
   zp14=zp14.append(prep04(1), ignore_index=True)
-  k=zp14[zp14['district']!=''].index
-  zp14=zp14.iloc[k[0]:k[2]] # here format is again diff from above 2 distname occurs at begining of each page and as subtot
+  zp14=zp14[zp14['district']=='Ananthapur']
+  
   #now district name col can be dropped as it can only be the same thing
   zp14=zp14.drop('district', axis=1)
+  zp14.drop(62, inplace=True) # subtot line
 
   print(zp01.party.value_counts())
   print(zp06.party.value_counts())
   print(zp14.party.value_counts())
-  zp01['year'] = 2006
-  zp06['year'] = 2001
+  zp01['year'] = 2001
+  zp06['year'] = 2006
   zp14['year'] = 2014
   zp01['electedas'] = 'ZPTC'
   zp06['electedas'] = 'ZPTC'
   zp14['electedas'] = 'ZPTC'
-  return pd.concat([zp01, zp06, zp14], ignore_index=True)
+  #return pd.concat([zp01, zp06, zp14], ignore_index=True)
+  return [zp01, zp06, zp14]
 
-# 2001 Mandal Parishad Presidents
-pres01_tables=camelot.read_pdf(r'../pdfs-apec/2001/MP Presidents 2001.pdf', flavor='stream', pages='1-2')
-p01 = pres01_tables[0].df
-p02 = pres01_tables[1].df
-p01 = p01[2:]
-p02 = p02[2:]
-p01=p01.append(p02, ignore_index=True)
-k=p01[p01[0]!=''].index
-p01=p01.iloc[k[1]:k[2]]
-p01['electioncat'], p01['name'] = p01[2].str.split('\n').str
-p01=p01.drop(2, axis=1)
-p01=p01.drop(0, axis=1)
-p01.columns=['mandal', 'party', 'electioncat', 'president']
-p01.party.value_counts()         
+def mptc_p_vp_extract():
+  # 2001 Mandal Parishad Presidents
+  pres01_tables=camelot.read_pdf(r'../pdfs-apec/2001/MP Presidents 2001.pdf', flavor='stream', pages='1-2')
+  p01 = pres01_tables[0].df
+  p02 = pres01_tables[1].df
+  p01 = p01[2:]
+  p02 = p02[2:]
+  p01=p01.append(p02, ignore_index=True)
+  k=p01[p01[0]!=''].index
+  p01=p01.iloc[k[1]:k[2]]
+  p01['electioncat'], p01['name'] = p01[2].str.split('\n').str
+  p01=p01.drop(2, axis=1)
+  p01=p01.drop(0, axis=1)
+  p01.columns=['mandal', 'party', 'electioncat', 'president']
+  p01.party.value_counts()         
 
-# 2006 Mandal Parishar Presidents
-pres06_tables=camelot.read_pdf(r'../pdfs-apec/2006/MP Presidents 2006.pdf', flavor='stream', pages='2-3')
-p06= pres06_tables[0].df
-p061= pres06_tables[1].df
-p06=p06[3:]
-p06=p06.append(p061[3:], ignore_index=True)
-k=p06[p06[0]!=''].index
-p06=p06.iloc[k[0]:k[1]]
-p06=p06.drop(0, axis=1)
-p06.columns=['mandal', 'president', 'party']
+  # 2006 Mandal Parishar Presidents
+  pres06_tables=camelot.read_pdf(r'../pdfs-apec/2006/MP Presidents 2006.pdf', flavor='stream', pages='2-3')
+  p06= pres06_tables[0].df
+  p061= pres06_tables[1].df
+  p06=p06[3:]
+  p06=p06.append(p061[3:], ignore_index=True)
+  k=p06[p06[0]!=''].index
+  p06=p06.iloc[k[0]:k[1]]
+  p06=p06.drop(0, axis=1)
+  p06.columns=['mandal', 'president', 'party']
 
-#2014 Mandal Parishad Presidents
-pres14_tables=camelot.read_pdf(r'../pdfs-apec/2014/Anantapur-MPP-2014.pdf', pages='1-4')
-p14= pres14_tables[0].df
-p14=p14[2:]
-for i in range(0,len(pres14_tables)):
-  p14=p14.append(pres14_tables[i].df[2:], ignore_index=True)
- 
-k=p14[p14[1]!=''].index
-p14=p14.iloc[k[1]:k[2]]
-p14=p14.drop(0, axis=1)
-p14=p14.drop(1, axis=1)
-p14.columns=['mandal','electioncat', 'president', 'pparty', 'vp', 'vpparty', 'cooptmember']
+  #2014 Mandal Parishad Presidents
+  pres14_tables=camelot.read_pdf(r'../pdfs-apec/2014/Anantapur-MPP-2014.pdf', pages='1-4')
+  p14= pres14_tables[0].df
+  p14=p14[2:]
+  for i in range(0,len(pres14_tables)):
+    p14=p14.append(pres14_tables[i].df[2:], ignore_index=True)
+   
+  k=p14[p14[1]!=''].index
+  p14=p14.iloc[k[1]:k[2]]
+  p14=p14.drop(0, axis=1)
+  p14=p14.drop(1, axis=1)
+  p14.columns=['mandal','electioncat', 'president', 'pparty', 'vp', 'vpparty', 'cooptmember']
 
-p01.to_csv('apur_mpPres_2001.csv', index=False)
-p06.to_csv('apur_mpPres_2006.csv', index=False)
-p14.to_csv('apur_mpPres_2014.csv', index=False)
+  p01.to_csv('apur_mpPres_2001.csv', index=False)
+  p06.to_csv('apur_mpPres_2006.csv', index=False)
+  p14.to_csv('apur_mpPres_2014.csv', index=False)
 
 
 # p01[p01.mandal == 'Agali'].name
@@ -335,6 +338,21 @@ def zp_CandVC_extract():
   # zp14[zp14.name.str.contains(c14.chair.values[0])]
   #       mandal electioncat          name party
   # 46  Ramagiri          UR  D.Chaman Sab   TDP
+  return [c01, c06, c14]
+
+import difflib
+
+def consolidateZP():
+  z=zptc_extract()
+  zc=zp_CandVC_extract()
+  for i, zp in enumerate(z):
+    sim = difflib.get_close_matches(zc[i].chair.values[0], zp.name.values)
+    j = zp[zp.name == sim[0]].index
+    zp.loc[j[0], 'electedas'] = "ZPTC Chairman"
+    sim = difflib.get_close_matches(zc[i].vicechair.values[0], zp.name.values)
+    j = zp[zp.name == sim[0]].index
+    zp.loc[j[0], 'electedas'] = "ZPTC VC"
+  return z
 
 
 

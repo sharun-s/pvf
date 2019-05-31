@@ -9,8 +9,8 @@ d=tables[0].df
 removews = lambda x: ' '.join(x.split()).title()
 mayor_apur_2014 = removews(d.iloc[6][4]) , d.iloc[6][3], d.iloc[6][5] 
 dmayor_apur_2014 = removews(d.iloc[6][6]) , d.iloc[6][3] ,d.iloc[6][7]
-ppl=[{'year':2014, 'name':'Madamanchi Swaroopa', 'party':'TDP', 'sex':'F', 'electedas':'Mayor', 'year':'2014', 'electioncat':d.iloc[6][3], 'electiontype':'MuniCorp', 'area':'Anantapur'}, 
-{'year':2014, 'name':'Sake Gampanna', 'party':'TDP', 'sex':'M', 'electedas':'Deputy Mayor', 'year':'2014', 'electiontype':'MuniCorp', 'area':'Anantapur', 'electioncat':d.iloc[6][3]}]
+ppl=[{'year':2014, 'name':'Madamanchi Swaroopa', 'party':'TDP', 'sex':'F', 'electedas':'Mayor', 'electioncat':d.iloc[6][3], 'area':'Anantapur MuniCorp'}, 
+{'year':2014, 'name':'Sake Gampanna', 'party':'TDP', 'sex':'M', 'electedas':'Deputy Mayor', 'area':'Anantapur MuniCorp', 'electioncat':d.iloc[6][3]}]
 munitables = camelot.read_pdf(r'../pdfs-apec/2014/Anantapur-Municipalities-Chairpersons-2014.pdf', pages='2-end')
 r1=[]
 for i in range(0,len(munitables)):
@@ -23,9 +23,9 @@ for i in range(0,len(munitables)):
 #readline.write_history_file(r'/home/s/apur/pdf2tables.log')
 r=r1[2].append(r1[3])
 for i in range(0, r.shape[0]):
-	ppl.append({'name':removews(r.iloc[i][6]), 'party':r.iloc[i][7], 'sex':'F' if r.iloc[i][3].find('omen')>-1 else 'M?' , 'electedas':'MuniViceChairman', 'year':'2014', 'electiontype':'Muni', 'year':2014, 'area':r.iloc[i][2], 'electioncat':r.iloc[i][3]})
+	ppl.append({'name':removews(r.iloc[i][6]), 'party':r.iloc[i][7], 'sex':'F' if r.iloc[i][3].find('omen')>-1 else 'M?' , 'electedas':'MuniViceChairman', 'year':2014, 'area':r.iloc[i][2]+' Muni', 'electioncat':r.iloc[i][3]})
 for i in range(0, r.shape[0]):
-	ppl.append({'name':removews(r.iloc[i][4]), 'party':r.iloc[i][5], 'sex':'F' if r.iloc[i][3].find('omen')>-1 else 'M?' , 'electedas':'MuniChairman', 'year':'2014', 'electiontype':'Muni', 'year':2014, 'area':r.iloc[i][2], 'electioncat':r.iloc[i][3]})
+	ppl.append({'name':removews(r.iloc[i][4]), 'party':r.iloc[i][5], 'sex':'F' if r.iloc[i][3].find('omen')>-1 else 'M?' , 'electedas':'MuniChairman', 'year':2014, 'area':r.iloc[i][2]+' Muni', 'electioncat':r.iloc[i][3]})
 
 #Mayor + Deputy Mayor + Corporators - Anantapur MuniCorp
 #List of Elected Mayors, 2014 (Andhra).pdf
@@ -48,7 +48,7 @@ for i in range(0, len(municouncilors)):
       d=d.append(tmp)
 
 for i in range(0, d.shape[0]):
-  ppl.append({'name':removews(d.iloc[i][5]), 'party':d.iloc[i][6], 'sex':'F' if d.iloc[i][4].find('(W)')>-1 else 'M?' , 'electedas':'MuniCouncilor', 'year':'2014', 'electiontype':'Muni', 'area':d.iloc[i][2],'ward':d.iloc[i][3], 'electioncat':d.iloc[i][4]})
+  ppl.append({'name':removews(d.iloc[i][5]), 'party':d.iloc[i][6], 'sex':'F' if d.iloc[i][4].find('(W)')>-1 else 'M?' , 'electedas':'MuniCouncilor', 'year':2014, 'area':d.iloc[i][2]+' Muni','ward':d.iloc[i][3], 'electioncat':d.iloc[i][4]})
 
 # Municipal Corporators - 1 MuniCorp - 50?wards
 municorporators = camelot.read_pdf(r'../pdfs-apec/2014/Andhra Elected Corporators List, 2014.pdf', pages='8-9')
@@ -64,8 +64,11 @@ for i in range(0, len(municorporators)):
 
 for i in range(0, d.shape[0]):
   ppl.append({'year':2014, 'name':removews(d.iloc[i][4]), 'party':d.iloc[i][5], 'sex':'F' if d.iloc[i][3].find('(W)')>-1 else 'M?', 
-    'electedas':'MuniCorporator', 'year':'2014', 'electiontype':'MuniCorp', 'area':'Anantapur',
+    'electedas':'MuniCorporator', 'area':'Anantapur MuniCorp',
     'ward':d.iloc[i][2], 'electioncat':d.iloc[i][3]})
 
-ulb = pd.DataFrame(ppl, columns=ppl[0].keys())
+#ulb = pd.DataFrame(ppl, columns=ppl[0].keys())
+ulb = pd.DataFrame(ppl)
+
 # Municipal Results 2014 also shows losing contestants/party and vote count per ward in municorp and muni
+

@@ -215,3 +215,18 @@ m.to_csv("apur_mandal_parishad_history.csv", index=False)
 
 #vc = m.name.value_counts()
 #vc[vc > 1] # 89/2216
+
+import extractTC as rlb
+z = rlb.consolidateZP()
+zz=pd.concat(z, ignore_index=True)
+
+mp = pd.read_csv("apur.csv")
+mp['electedas']="MLA"
+# rename cols so concat works
+mp.columns = ['year', 'segment', 'name', 'party', 'votes', 'tot', 'electedas']
+mp.loc[mp.segment=='Anantapur',"electedas"] = "MP"
+
+from extractULB import ulb
+
+master = pd.concat([mp,zz,m, ulb], ignore_index=True)
+master.to_csv("rep.csv",index=False)

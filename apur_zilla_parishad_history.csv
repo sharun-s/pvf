@@ -1,192 +1,189 @@
-age,chair,chairparty,community,coptmember1,coptmember2,edu,electioncat,mandal,name,party,sex,vcparty,vicechair,year
-,,,,,,,BC(W),Agali,Sailaja Ramakrishna,TDP,,,,2014
-,,,,,,,UR(W),Amadugur,P.Umadevi,TDP,,,,2014
-,,,,,,,BC(W),Amarapuram,K.Rathnamma,TDP,,,,2014
-,,,,,,,UR,Ananthapuramu R,M.Venugopal,TDP,,,,2014
-,,,,,,,SC,Atmakur,H.Kullayappa,YSRCP,,,,2014
-,,,,,,,UR,B.K.Samudram,K.Ramalinga Reddy,TDP,,,,2014
-,,,,,,,SC,Bathalapalli,A.Narasimhulu,YSRCP,,,,2014
-,,,,,,,UR(W),Beluguppa,Madineni Subhasini,TDP,,,,2014
-,,,,,,,BC(W),Bommanahal,Kondapuram Vani,TDP,,,,2014
-,,,,,,,BC(W),Brahmasamudram,Kuruba Gangamm,TDP,,,,2014
-,,,,,,,UR(W),Bukkapatnam,Pulakuntla Sreedevi,YSRCP,,,,2014
-,,,,,,,UR,C.K.Palli,K. Venkatarami Reddy,TDP,,,,2014
-,,,,,,,UR,Chilamathur,M. Lakshminarayanareddy,TDP,,,,2014
-,,,,,,,SC(W),D.Hirehal,H.Padmavathi,TDP,,,,2014
-,,,,,,,SC,Dharmavaram,Mekala Ramanjineyulu,TDP,,,,2014
-,,,,,,,BC(W),Gandlapenta,C.Sarojamma,TDP,,,,2014
-,,,,,,,UR(W),Garladinne,C. Vishalakshi,TDP,,,,2014
-,,,,,,,UR,Gooty,Praveen Kumar. N,YSRCP,,,,2014
-,,,,,,,UR(W),Gorantla,C Indiramma,TDP,,,,2014
-,,,,,,,BC,Gudibanda,Doctor D.Sreenivasamurthy,TDP,,,,2014
-,,,,,,,BC,Gummagatta,Boya Nagaraju,TDP,,,,2014
-,,,,,,,ST,Guntakal,N.Mathru Naik,TDP,,,,2014
-,,,,,,,BC,Hindupur,K.L.Adinarayana,TDP,,,,2014
-,,,,,,,BC(W),Kadiri,Mekala Prameelamma,YSRCP,,,,2014
-,,,,,,,SC,Kalyandurg,H.D.Kolla Purappa,TDP,,,,2014
-,,,,,,,UR,Kambadur,Rama Mohan,TDP,,,,2014
-,,,,,,,UR,Kanaganapalli,Bille Eswarayya,YSRCP,,,,2014
-,,,,,,,SC(W),Kanekal,Sharada,TDP,,,,2014
-,,,,,,,UR(W),Kothacheruvu,M. Mahalakshmi,TDP,,,,2014
-,,,,,,,UR(W),Kudair,P. Meri Nirmalamma,YSRCP,,,,2014
-,,,,,,,BC,Kundurpi,K.Mallikarjuna,TDP,,,,2014
-,,,,,,,UR,Lepakshi,Rg Adinarayana Reddy,TDP,,,,2014
-,,,,,,,UR(W),Madakasira,Y.K.Sulochanamma,TDP,,,,2014
-,,,,,,,UR(W),Mudigubba,P. Leelavathi,YSRCP,,,,2014
-,,,,,,,UR(W),N.P.Kunta,P.Maheswaramma,TDP,,,,2014
-,,,,,,,UR(W),Nallacheruvu,Nalabothu Nagarathnamma,TDP,,,,2014
-,,,,,,,UR,Nallamada,Jakkala Adisheshu,YSRCP,,,,2014
-,,,,,,,UR(W),Narpala,Alam. Shiresh,TDP,,,,2014
-,,,,,,,UR,O.D.Cheruvu,Pitta Obulareddy,TDP,,,,2014
-,,,,,,,ST(W),Pamidi,Ramavath Jaya Lakshmi,TDP,,,,2014
-,,,,,,,BC,Parigi,B.Suryanarayana,TDP,,,,2014
-,,,,,,,UR(W),Peddapappur,Gorla. Krishnakumari,TDP,,,,2014
-,,,,,,,UR,Peddavadugur,M.Chithambara Reddy,YSRCP,,,,2014
-,,,,,,,UR,Penukonda,N.Narayanaswamy,TDP,,,,2014
-,,,,,,,BC(W),Putlur,Jangampalli. Nallamma,YSRCP,,,,2014
-,,,,,,,ST(W),Puttaparthi,M.Yeshoda Bai,IND,,,,2014
-,,,,,,,UR,Ramagiri,D.Chaman Sab,TDP,,,,2014
-,,,,,,,UR,Rapthadu,Vennapusa Ravindrareddy,YSRCP,,,,2014
-,,,,,,,BC,Rayadurg,G.V.Vijayakumar,YSRCP,,,,2014
-,,,,,,,BC,Roddam,E.Chinnappaiah,TDP,,,,2014
-,,,,,,,BC,Rolla,V.M.Pandurangappa,TDP,,,,2014
-,,,,,,,BC(W),Settur,Kuchi Kavitha,TDP,,,,2014
-,,,,,,,UR(W),Singanamala,Ammaladinne Salini,TDP,,,,2014
-,,,,,,,BC,Somandepalli,Rangepalli Venkataramanappa,TDP,,,,2014
-,,,,,,,BC(W),Tadimarri,Kappala Padmavathi,YSRCP,,,,2014
-,,,,,,,SC(W),Tadipatri,K.Savithri,TDP,,,,2014
-,,,,,,,UR(W),Talupula,I. Jyothirmayi,YSRCP,,,,2014
-,,,,,,,BC(W),Tanakal,Jakkala Sreelatha,YSRCP,,,,2014
-,,,,,,,SC(W),Uravakonda,Lalitha,YSRCP,,,,2014
-,,,,,,,SC(W),Vajrakarur,Nancherla. Indiramma,YSRCP,,,,2014
-,,,,,,,SC,Vidapanakal,Singadi. Thippaiah,YSRCP,,,,2014
-,D.Chaman Sab,TDP,,C.S.Abdul Ravoof,"C.H.Jafroolla 
-Khan",,BC,,,,,TDP,Madineni.Subhashini,2014
-41,,,Kapu,,,B.Com,UR,Anantapur,A.Gangadhara Reddy,TDP,M,,,2006
-35,,,Boya,,,Intermediate,BC,Atmakur,B.Madhusudhana,INC,M,,,2006
-31,,,Kapu,,,Degree,UR,B.K.Samudram,G.Sreekanth Reddy,TDP,M,,,2006
-31,,,Madiga,,,4th Class,SC(W),Garladinne,J.Padmavathi,TDP,F,,,2006
-59,,,Mala,,,SSLC,SC(W),Gooty,B. Kamalakshmamma,TDP,F,,,2006
-29,,,OC,,,5th Class,UR(W),Guntakal,K.Kalavathi,TDP,F,,,2006
-49,,,Mala,,,5th Class,SC,Kudair,U.Nagasbhushanam,TDP,M,,,2006
-31,,,OC,,,Intermediate,UR,Narpala,A.Jayasimha,INC,M,,,2006
-47,,,Thogata (BC),,,BA,UR,Pamidi,D.Lakshmikanthamma,TDP,F,,,2006
-27,,,Vadde,,,6th Class,BC,Peddapappuru,D.Nagasubbarayudu,INC,M,,,2006
-30,,,Golla,,,10th Class,BC,Peddavaduguru,V.Harikrishna,INC,M,,,2006
-35,,,Kapu,,,Intermediate,UR(W),Putlur,E.Bharathi,INC,F,,,2006
-42,,,Kapu,,,M.A.,UR(W),Rapthadu,T.Kavithamma,INC,F,,,2006
-49,,,Kapu,,,M.Com,UR,Singanamala,T.Sarathchandra Reddy,TDP,M,,,2006
-33,,,Kapu,,,10th Class,UR(W),Tadipatri,Y.Umadevi,INC,F,,,2006
-46,,,Kamma,,,B.Com,UR,Uravakonda,Gurram Sudhakar,INC,M,,,2006
-40,,,Sugali,,,Intermediate,ST,Vajrakarur,SK.Tulasidas Naik,INC,M,,,2006
-39,,,Boya,,,8th Class,BC(W),Vidapanakal,K.Erramma,INC,F,,,2006
-26,,,Kapu,,,B.Sc,UR(W),Yadiki,A.Rajeswari,INC,F,,,2006
-30,,,Madiga,,,10th Class,SC,Yellanur,Bala Polerappa,INC,M,,,2006
-30,,,OC,,,MA (Lit),UR(W),Bathalapalli,K.Sudha,TDP,F,,,2006
-37,,,Madiga,,,10th Class,SC,Beluguppa,Parvathaiah,TDP,M,,,2006
-60,,,Kapu,,,PUC,UR,Bommanahal,P.Nalla Reddy,INC,M,,,2006
-44,,,Magida,,,7th Class,SC,BramhasamudraM,HB.Gangappa,TDP,M,,,2006
-39,,,Kapu,,,Intermediate,UR,C.K.Palli,E.Parimala,TDP,F,,,2006
-30,,,Padmasali,,,SSC,UR(W),D.Hirehal,Sreeram Jyothi,INC,F,,,2006
-27,,,Boya,,,B.Com,BC(W),Dharmavaram,Konda Varipalli Laxmidevi,INC,F,,,2006
-34,,,Madiga,,,SSC,SC,Gummagatta,Harijana Vannurappa,TDP,M,,,2006
-42,,,Kapu,,,Intermediate,UR,Kanekal,P.Nagireddy,INC,M,,,2006
-54,,,Boya,,,,UR,Kalyandurg,Ramanna,TDP,M,,,2006
-39,,,Kamma,,,B.Com,UR,Kambadur,Rama Mohan,TDP,M,,,2006
-39,,,Boya,,,5th Class,BC,Kanaganapalli,Anke Laxmanna,INC,M,,,2006
-27,,,Madiga,,,5th Class,SC,Kundurpi,Rajagopal,INC,M,,,2006
-47,,,OC,,,BA,UR,Ramagiri,K.Rama Murthy,TDP,M,,,2006
-45,,,Kapu,,,SSC,UR,Rayadurg,Rajasekhar Reddy,INC,M,,,2006
-47,,,Boya,,,6th Class,BC,Settur,Padamati Lingamaiah,TDP,M,,,2006
-59,,,Madiga,,,SSLC,SC,Tadimarri,A.B.Nagabhushanam,INC,M,,,2006
-39,,,Boya,,,SSC,BC,Agali,KN.Gopinath,INC,M,,,2006
-49,,,Kapu,,,SSC,UR,Amadagur,Peddaka Sreenivasareddy,TDP,M,,,2006
-44,,,Golla,,,BA,BC,Amarapuram, B.C. Chithanna,INC,M,,,2006
-67,,,Kapu,,,"MA,",UR,Bukkapatnam,P.Brundamma,INC,F,,,2006
-40,,,Devanga,,,Intermediate,UR(W),Chilamathur,N.Varalakshmi,TDP,F,,,2006
-47,,,sugali,,,Intermediate,ST(W),Gandlapenta,Bhukya Charilamma,TDP,F,,,2006
-48,,,Kapu,,,B.Com,UR,Gorantla,C.Gopal Reddy,TDP,M,,,2006
-41,,,OC,,,"B.Sc, B.Ed.",UR,Gudibanda,G.B. Sivakumar,INC,M,,,2006
-34,,,Boya,,,7th Class,BC(W),Hindupur,T.Gangaratnamma,TDP,F,,,2006
-35,,,Kapu,,,10 th Class,UR(W),Kadiri,Lingala Aurna,TDP,F,,,2006
-55,,,Dudekula,,,SSC,BC,Kothacheruvu,Pulacherla Gaffar,TDP,M,,,2006
-27,,,Madiga,,,Intermediate,SC(W),Lepakshi,N.T. Ramanjinamma,TDP,F,,,2006
-33,,,Boya,,,BA,BC,Madakasira,G.A.Narasimhamurthy,INC,M,,,2006
-33,,,Gandla,,,SSC,BC,Mudigubba,Reddyvari Nagaraju,INC,M,,,2006
-37,,,Vadde,,,5th Class,UR,N.P.Kunta,Tatiparti Raghavaiah,TDP,M,,,2006
-58,,,Dudekula,,,5th Class,BC,Nallacheruvu,Vadalapalli Abdhul Khadir,TDP,M,,,2006
-54,,,Boya,,,HSLC,BC,Nallamada, Muddala Narasimhulu,INC,M,,,2006
-69,,,Kapu,,,SSLC,UR,O.D. Cheruvu,Eddula Hanumanthareddy,INC,M,,,2006
-24,,,Kuruba,,,B.Sc,UR,Parigi, P.Jayalakshmi,TDP,F,,,2006
-33,,,Kuraba,,,Intermediate,UR,Penukonda,Sreenivasulu,TDP,M,,,2006
-42,,,Chakali,,,6th Class,BC(W),Puttaparthy,Kogira Suvarna,INC,F,,,2006
-30,,,Golla,,,7th class,BC(W),Roddam,Padma,TDP,F,,,2006
-55,,,Golla (BC),,,"BA, B.Ed",UR,Rolla,G.Sanna Thimmappa,INC,M,,,2006
-24,,,Kapu,,,BA,UR(W),Somandepalli,2) M.Subhasini,TDP,F,,,2006
-29,,,Thogata,,,5th Class,BC(W),Talupula,Pattu Pogula Chandrakala,TDP,F,,,2006
-31,,,Kapu,,,10th Class,UR,Tanakal, N.Swarnalatha,TDP,F,,,2006
-,T Kavithamma,INC,,1. Khaja Moinuddin,2. S Jaffer vali,,UR(W),,,,,INC,Muddala Narsimhulu,2006
-,,,,,,,UR(W),Ananthapur,Lakshminarayanamma,TDP,,,,2001
-,,,,,,,UR,Rapthadu,Kanuthuru Subba Reddy,INC,,,,2001
-,,,,,,,ST,Atmakur,Karamthota Govindu,INC,,,,2001
-,,,,,,,BC,Garladdinne,Kuruba Lingaiah,TDP,,,,2001
-,,,,,,,SC(W),Narpala,P Sarada,TDP,,,,2001
-,,,,,,,UR,Tadpatri,P Narasimhaiah,TDP,,,,2001
-,,,,,,,SC,Peddapappur,A Narayana,TDP,,,,2001
-,,,,,,,UR(W),Yellanur,Bogathi Balagangamma,INC,,,,2001
-,,,,,,,BC,Gooty,Naraboina Praveen Kumar,INC,,,,2001
-,,,,,,,UR,Guntakal,Rangappa Chowdary,TDP,,,,2001
-,,,,,,,UR,Gorantla,R Venkata Reddy,TDP,,,,2001
-,,,,,,,UR(W),Vajrakarur,D Khajabi,INC,,,,2001
-,,,,,,,UR,Gandlapenta,Katakam Bhaskara Reddy,INC,,,,2001
-,,,,,,,BC(W),Gudibanda,Kariyamma,INC,,,,2001
-,,,,,,,BC,Uravakonda,Regati Lakshmanna,TDP,,,,2001
-,,,,,,,ST(W),Mudigubba,K Sake Bai,INC,,,,2001
-,,,,,,,SC,Peddavaduguru,N Chiranjeevulu,TDP,,,,2001
-,,,,,,,UR(W),Madakasira,Sulochanamma,TDP,,,,2001
-,,,,,,,UR,Chilamathur,M Lakshminarayana Reddy,TDP,,,,2001
-,,,,,,,BC,Lepakshi,P Krishnappa,TDP,,,,2001
-,,,,,,,BC(W),Beluguppa,B Ramalakshmamma,TDP,,,,2001
-,,,,,,,BC,Parigi,Nanjundappa,TDP,,,,2001
-,,,,,,,UR(W),Kalyandurg,Pujari Mahadevi,INC,,,,2001
-,,,,,,,SC,Hindupur,B Thippanna,INC,,,,2001
-,,,,,,,UR,Rolla,G Thippeswamy,INC,,,,2001
-,,,,,,,SC(W),Rayadurg,Govindamma,INC,,,,2001
-,,,,,,,BC(W),Ramagiri,G Padmavathi,TDP,,,,2001
-,,,,,,,SC,Kanaganapalli,K Peddappaiah,TDP,,,,2001
-,,,,,,,UR,Amadagur,Potta Purushotham Reddy,INC,,,,2001
-,,,,,,,UR,C K Palli,M Suryanarayana Reddy,TDP,,,,2001
-,,,,,,,UR(W),Agali,Seethamma,INC,,,,2001
-,,,,,,,UR,Bathalapalli,Kodimi Chinna Peddanna,TDP,,,,2001
-,,,,,,,UR(W),Amarapuram,Rangamma,INC,,,,2001
-,,,,,,,UR,Vidapanakal,Patil Veeranna Gowd,TDP,,,,2001
-,,,,,,,UR,Tanakallu,Ravindra Reddy,TDP,,,,2001
-,,,,,,,UR,Talupula,Pattupogula Narayana,INC,,,,2001
-,,,,,,,BC(W),Settur,S Nagarathna,CPI,,,,2001
-,,,,,,,UR(W),N P Kunta,Kotte Ramulamma,TDP,,,,2001
-,,,,,,,ST,Nallamada,D Narayana Naik,INC,,,,2001
-,,,,,,,BC,Kambadur,G Ramanjaneyulu,INC,,,,2001
-,,,,,,,UR,Kadiri,J Suryanarayana,TDP,,,,2001
-,,,,,,,UR,Brahma Samudram,Ingala Gidda Reddy,INC,,,,2001
-,,,,,,,UR,Puttaparthi,V Chennakesavulu,TDP,,,,2001
-,,,,,,,UR,O D Cheruvu,P Obula Reddy,TDP,,,,2001
-,,,,,,,UR(W),Nallacheruvu,Yerragonda Vanemma,INC,,,,2001
-,,,,,,,BC(W),Bukkapatnam,Kandukuri Lakshmikanthamma,INC,,,,2001
-,,,,,,,UR,Kothacheruvu,Chinnapolla Lakshminarayana,TDP,,,,2001
-,,,,,,,SC,Roddam,Subbarayappagari Narasimhulu,TDP,,,,2001
-,,,,,,,SC,Somandepalli,Vetti Aswarthanarayana,TDP,,,,2001
-,,,,,,,UR,Penukonda,G Venkataramudu,TDP,,,,2001
-,,,,,,,BC,Bommanahal,Mallikarjuna,TDP,,,,2001
-,,,,,,,BC,Kanekal,Anjaneyulu,TDP,,,,2001
-,,,,,,,BC(W),Gummagatta,Thippamma,INC,,,,2001
-,,,,,,,BC,D Hirehal,Anumatharayudu,TDP,,,,2001
-,,,,,,,BC,Kundurpi,P G Veeranna,INC,,,,2001
-,,,,,,,BC,Pamidi,Manikinda Veeranjaneyulu,INC,,,,2001
-,,,,,,,SC,Putlur,K C Narayana,INC,,,,2001
-,,,,,,,UR,Yadiki,Gutta Venkatanaidu,INC,,,,2001
-,,,,,,,BC,B K Samudram,Talari Kondanna,INC,,,,2001
-,,,,,,,BC(W),Singanamala,Nagapuram Pullamma,BJP,,,,2001
-,,,,,,,BC,Kudair,Kondapalli Madanna,INC,,,,2001
-,,,,,,,UR,Dharmavaram,Ch. Obireddy,TDP,,,,2001
-,,,,,,,UR(W),Tadimarri,Yerraganga Manjula,TDP,,,,2001
-,G Thipee Swamy,INC,,,,,BC,,,,,TDP,C Obi Reddy,2001
+age,community,edu,electedas,electioncat,mandal,name,party,sex,year
+,,,ZPTC,UR(W),Ananthapur,Lakshminarayanamma,TDP,,2001
+,,,ZPTC,UR,Rapthadu,Kanuthuru Subba Reddy,INC,,2001
+,,,ZPTC,ST,Atmakur,Karamthota Govindu,INC,,2001
+,,,ZPTC,BC,Garladdinne,Kuruba Lingaiah,TDP,,2001
+,,,ZPTC,SC(W),Narpala,P Sarada,TDP,,2001
+,,,ZPTC,UR,Tadpatri,P Narasimhaiah,TDP,,2001
+,,,ZPTC,SC,Peddapappur,A Narayana,TDP,,2001
+,,,ZPTC,UR(W),Yellanur,Bogathi Balagangamma,INC,,2001
+,,,ZPTC,BC,Gooty,Naraboina Praveen Kumar,INC,,2001
+,,,ZPTC,UR,Guntakal,Rangappa Chowdary,TDP,,2001
+,,,ZPTC,UR,Gorantla,R Venkata Reddy,TDP,,2001
+,,,ZPTC,UR(W),Vajrakarur,D Khajabi,INC,,2001
+,,,ZPTC,UR,Gandlapenta,Katakam Bhaskara Reddy,INC,,2001
+,,,ZPTC,BC(W),Gudibanda,Kariyamma,INC,,2001
+,,,ZPTC,BC,Uravakonda,Regati Lakshmanna,TDP,,2001
+,,,ZPTC,ST(W),Mudigubba,K Sake Bai,INC,,2001
+,,,ZPTC,SC,Peddavaduguru,N Chiranjeevulu,TDP,,2001
+,,,ZPTC,UR(W),Madakasira,Sulochanamma,TDP,,2001
+,,,ZPTC,UR,Chilamathur,M Lakshminarayana Reddy,TDP,,2001
+,,,ZPTC,BC,Lepakshi,P Krishnappa,TDP,,2001
+,,,ZPTC,BC(W),Beluguppa,B Ramalakshmamma,TDP,,2001
+,,,ZPTC,BC,Parigi,Nanjundappa,TDP,,2001
+,,,ZPTC,UR(W),Kalyandurg,Pujari Mahadevi,INC,,2001
+,,,ZPTC,SC,Hindupur,B Thippanna,INC,,2001
+,,,ZPTC Chairman,UR,Rolla,G Thippeswamy,INC,,2001
+,,,ZPTC,SC(W),Rayadurg,Govindamma,INC,,2001
+,,,ZPTC,BC(W),Ramagiri,G Padmavathi,TDP,,2001
+,,,ZPTC,SC,Kanaganapalli,K Peddappaiah,TDP,,2001
+,,,ZPTC,UR,Amadagur,Potta Purushotham Reddy,INC,,2001
+,,,ZPTC,UR,C K Palli,M Suryanarayana Reddy,TDP,,2001
+,,,ZPTC,UR(W),Agali,Seethamma,INC,,2001
+,,,ZPTC,UR,Bathalapalli,Kodimi Chinna Peddanna,TDP,,2001
+,,,ZPTC,UR(W),Amarapuram,Rangamma,INC,,2001
+,,,ZPTC,UR,Vidapanakal,Patil Veeranna Gowd,TDP,,2001
+,,,ZPTC,UR,Tanakallu,Ravindra Reddy,TDP,,2001
+,,,ZPTC,UR,Talupula,Pattupogula Narayana,INC,,2001
+,,,ZPTC,BC(W),Settur,S Nagarathna,CPI,,2001
+,,,ZPTC,UR(W),N P Kunta,Kotte Ramulamma,TDP,,2001
+,,,ZPTC,ST,Nallamada,D Narayana Naik,INC,,2001
+,,,ZPTC,BC,Kambadur,G Ramanjaneyulu,INC,,2001
+,,,ZPTC,UR,Kadiri,J Suryanarayana,TDP,,2001
+,,,ZPTC,UR,Brahma Samudram,Ingala Gidda Reddy,INC,,2001
+,,,ZPTC,UR,Puttaparthi,V Chennakesavulu,TDP,,2001
+,,,ZPTC,UR,O D Cheruvu,P Obula Reddy,TDP,,2001
+,,,ZPTC,UR(W),Nallacheruvu,Yerragonda Vanemma,INC,,2001
+,,,ZPTC,BC(W),Bukkapatnam,Kandukuri Lakshmikanthamma,INC,,2001
+,,,ZPTC,UR,Kothacheruvu,Chinnapolla Lakshminarayana,TDP,,2001
+,,,ZPTC,SC,Roddam,Subbarayappagari Narasimhulu,TDP,,2001
+,,,ZPTC,SC,Somandepalli,Vetti Aswarthanarayana,TDP,,2001
+,,,ZPTC,UR,Penukonda,G Venkataramudu,TDP,,2001
+,,,ZPTC,BC,Bommanahal,Mallikarjuna,TDP,,2001
+,,,ZPTC,BC,Kanekal,Anjaneyulu,TDP,,2001
+,,,ZPTC,BC(W),Gummagatta,Thippamma,INC,,2001
+,,,ZPTC,BC,D Hirehal,Anumatharayudu,TDP,,2001
+,,,ZPTC,BC,Kundurpi,P G Veeranna,INC,,2001
+,,,ZPTC,BC,Pamidi,Manikinda Veeranjaneyulu,INC,,2001
+,,,ZPTC,SC,Putlur,K C Narayana,INC,,2001
+,,,ZPTC,UR,Yadiki,Gutta Venkatanaidu,INC,,2001
+,,,ZPTC,BC,B K Samudram,Talari Kondanna,INC,,2001
+,,,ZPTC,BC(W),Singanamala,Nagapuram Pullamma,BJP,,2001
+,,,ZPTC,BC,Kudair,Kondapalli Madanna,INC,,2001
+,,,ZPTC VC,UR,Dharmavaram,Ch. Obireddy,TDP,,2001
+,,,ZPTC,UR(W),Tadimarri,Yerraganga Manjula,TDP,,2001
+41,Kapu,B.Com,ZPTC,UR,Anantapur,A.Gangadhara Reddy,TDP,M,2006
+35,Boya,Intermediate,ZPTC,BC,Atmakur,B.Madhusudhana,INC,M,2006
+31,Kapu,Degree,ZPTC,UR,B.K.Samudram,G.Sreekanth Reddy,TDP,M,2006
+31,Madiga,4th Class,ZPTC,SC(W),Garladinne,J.Padmavathi,TDP,F,2006
+59,Mala,SSLC,ZPTC,SC(W),Gooty,B. Kamalakshmamma,TDP,F,2006
+29,OC,5th Class,ZPTC,UR(W),Guntakal,K.Kalavathi,TDP,F,2006
+49,Mala,5th Class,ZPTC,SC,Kudair,U.Nagasbhushanam,TDP,M,2006
+31,OC,Intermediate,ZPTC,UR,Narpala,A.Jayasimha,INC,M,2006
+47,Thogata (BC),BA,ZPTC,UR,Pamidi,D.Lakshmikanthamma,TDP,F,2006
+27,Vadde,6th Class,ZPTC,BC,Peddapappuru,D.Nagasubbarayudu,INC,M,2006
+30,Golla,10th Class,ZPTC,BC,Peddavaduguru,V.Harikrishna,INC,M,2006
+35,Kapu,Intermediate,ZPTC,UR(W),Putlur,E.Bharathi,INC,F,2006
+42,Kapu,M.A.,ZPTC Chairman,UR(W),Rapthadu,T.Kavithamma,INC,F,2006
+49,Kapu,M.Com,ZPTC,UR,Singanamala,T.Sarathchandra Reddy,TDP,M,2006
+33,Kapu,10th Class,ZPTC,UR(W),Tadipatri,Y.Umadevi,INC,F,2006
+46,Kamma,B.Com,ZPTC,UR,Uravakonda,Gurram Sudhakar,INC,M,2006
+40,Sugali,Intermediate,ZPTC,ST,Vajrakarur,SK.Tulasidas Naik,INC,M,2006
+39,Boya,8th Class,ZPTC,BC(W),Vidapanakal,K.Erramma,INC,F,2006
+26,Kapu,B.Sc,ZPTC,UR(W),Yadiki,A.Rajeswari,INC,F,2006
+30,Madiga,10th Class,ZPTC,SC,Yellanur,Bala Polerappa,INC,M,2006
+30,OC,MA (Lit),ZPTC,UR(W),Bathalapalli,K.Sudha,TDP,F,2006
+37,Madiga,10th Class,ZPTC,SC,Beluguppa,Parvathaiah,TDP,M,2006
+60,Kapu,PUC,ZPTC,UR,Bommanahal,P.Nalla Reddy,INC,M,2006
+44,Magida,7th Class,ZPTC,SC,Bramhasamudra M,HB.Gangappa,TDP,M,2006
+39,Kapu,Intermediate,ZPTC,UR,C.K.Palli,E.Parimala,TDP,F,2006
+30,Padmasali,SSC,ZPTC,UR(W),D.Hirehal,Sreeram Jyothi,INC,F,2006
+27,Boya,B.Com,ZPTC,BC(W),Dharmavaram,Konda Varipalli Laxmidevi,INC,F,2006
+34,Madiga,SSC,ZPTC,SC,Gummagatta,Harijana Vannurappa,TDP,M,2006
+42,Kapu,Intermediate,ZPTC,UR,Kanekal,P.Nagireddy,INC,M,2006
+54,Boya,,ZPTC,UR,Kalyandurg,Ramanna,TDP,M,2006
+39,Kamma,B.Com,ZPTC,UR,Kambadur,Rama Mohan,TDP,M,2006
+39,Boya,5th Class,ZPTC,BC,Kanaganapalli,Anke Laxmanna,INC,M,2006
+27,Madiga,5th Class,ZPTC,SC,Kundurpi,Rajagopal,INC,M,2006
+47,OC,BA,ZPTC,UR,Ramagiri,K.Rama Murthy,TDP,M,2006
+45,Kapu,SSC,ZPTC,UR,Rayadurg,Rajasekhar Reddy,INC,M,2006
+47,Boya,6th Class,ZPTC,BC,Settur,Padamati Lingamaiah,TDP,M,2006
+59,Madiga,SSLC,ZPTC,SC,Tadimarri,A.B.Nagabhushanam,INC,M,2006
+39,Boya,SSC,ZPTC,BC,Agali,KN.Gopinath,INC,M,2006
+49,Kapu,SSC,ZPTC,UR,Amadagur,Peddaka Sreenivasareddy,TDP,M,2006
+44,Golla,BA,ZPTC,BC,Amarapuram, B.C. Chithanna,INC,M,2006
+67,Kapu,"MA,",ZPTC,UR,Bukkapatnam,P.Brundamma,INC,F,2006
+40,Devanga,Intermediate,ZPTC,UR(W),Chilamathur,N.Varalakshmi,TDP,F,2006
+47,sugali,Intermediate,ZPTC,ST(W),Gandlapenta,Bhukya Charilamma,TDP,F,2006
+48,Kapu,B.Com,ZPTC,UR,Gorantla,C.Gopal Reddy,TDP,M,2006
+41,OC,"B.Sc, B.Ed.",ZPTC,UR,Gudibanda,G.B. Sivakumar,INC,M,2006
+34,Boya,7th Class,ZPTC,BC(W),Hindupur,T.Gangaratnamma,TDP,F,2006
+35,Kapu,10 th Class,ZPTC,UR(W),Kadiri,Lingala Aurna,TDP,F,2006
+55,Dudekula,SSC,ZPTC,BC,Kothacheruvu,Pulacherla Gaffar,TDP,M,2006
+27,Madiga,Intermediate,ZPTC,SC(W),Lepakshi,N.T. Ramanjinamma,TDP,F,2006
+33,Boya,BA,ZPTC,BC,Madakasira,G.A.Narasimhamurthy,INC,M,2006
+33,Gandla,SSC,ZPTC,BC,Mudigubba,Reddyvari Nagaraju,INC,M,2006
+37,Vadde,5th Class,ZPTC,UR,N.P.Kunta,Tatiparti Raghavaiah,TDP,M,2006
+58,Dudekula,5th Class,ZPTC,BC,Nallacheruvu,Vadalapalli Abdhul Khadir,TDP,M,2006
+54,Boya,HSLC,ZPTC VC,BC,Nallamada, Muddala Narasimhulu,INC,M,2006
+69,Kapu,SSLC,ZPTC,UR,O.D. Cheruvu,Eddula Hanumanthareddy,INC,M,2006
+24,Kuruba,B.Sc,ZPTC,UR,Parigi, P.Jayalakshmi,TDP,F,2006
+33,Kuraba,Intermediate,ZPTC,UR,Penukonda,Sreenivasulu,TDP,M,2006
+42,Chakali,6th Class,ZPTC,BC(W),Puttaparthy,Kogira Suvarna,INC,F,2006
+30,Golla,7th class,ZPTC,BC(W),Roddam,Padma,TDP,F,2006
+55,Golla (BC),"BA, B.Ed",ZPTC,UR,Rolla,G.Sanna Thimmappa,INC,M,2006
+24,Kapu,BA,ZPTC,UR(W),Somandepalli,2) M.Subhasini,TDP,F,2006
+29,Thogata,5th Class,ZPTC,BC(W),Talupula,Pattu Pogula Chandrakala,TDP,F,2006
+31,Kapu,10th Class,ZPTC,UR,Tanakal, N.Swarnalatha,TDP,F,2006
+,,,ZPTC,BC(W),Agali,Sailaja Ramakrishna,TDP,,2014
+,,,ZPTC,UR(W),Amadugur,P.Umadevi,TDP,,2014
+,,,ZPTC,BC(W),Amarapuram,K.Rathnamma,TDP,,2014
+,,,ZPTC,UR,Ananthapuramu R,M.Venugopal,TDP,,2014
+,,,ZPTC,SC,Atmakur,H.Kullayappa,YSRCP,,2014
+,,,ZPTC,UR,B.K.Samudram,K.Ramalinga Reddy,TDP,,2014
+,,,ZPTC,SC,Bathalapalli,A.Narasimhulu,YSRCP,,2014
+,,,ZPTC VC,UR(W),Beluguppa,Madineni Subhasini,TDP,,2014
+,,,ZPTC,BC(W),Bommanahal,Kondapuram Vani,TDP,,2014
+,,,ZPTC,BC(W),Brahmasamudram,Kuruba Gangamm,TDP,,2014
+,,,ZPTC,UR(W),Bukkapatnam,Pulakuntla Sreedevi,YSRCP,,2014
+,,,ZPTC,UR,C.K.Palli,K. Venkatarami Reddy,TDP,,2014
+,,,ZPTC,UR,Chilamathur,M. Lakshminarayanareddy,TDP,,2014
+,,,ZPTC,SC(W),D.Hirehal,H.Padmavathi,TDP,,2014
+,,,ZPTC,SC,Dharmavaram,Mekala Ramanjineyulu,TDP,,2014
+,,,ZPTC,BC(W),Gandlapenta,C.Sarojamma,TDP,,2014
+,,,ZPTC,UR(W),Garladinne,C. Vishalakshi,TDP,,2014
+,,,ZPTC,UR,Gooty,Praveen Kumar. N,YSRCP,,2014
+,,,ZPTC,UR(W),Gorantla,C Indiramma,TDP,,2014
+,,,ZPTC,BC,Gudibanda,Doctor D.Sreenivasamurthy,TDP,,2014
+,,,ZPTC,BC,Gummagatta,Boya Nagaraju,TDP,,2014
+,,,ZPTC,ST,Guntakal,N.Mathru Naik,TDP,,2014
+,,,ZPTC,BC,Hindupur,K.L.Adinarayana,TDP,,2014
+,,,ZPTC,BC(W),Kadiri,Mekala Prameelamma,YSRCP,,2014
+,,,ZPTC,SC,Kalyandurg,H.D.Kolla Purappa,TDP,,2014
+,,,ZPTC,UR,Kambadur,Rama Mohan,TDP,,2014
+,,,ZPTC,UR,Kanaganapalli,Bille Eswarayya,YSRCP,,2014
+,,,ZPTC,SC(W),Kanekal,Sharada,TDP,,2014
+,,,ZPTC,UR(W),Kothacheruvu,M. Mahalakshmi,TDP,,2014
+,,,ZPTC,UR(W),Kudair,P. Meri Nirmalamma,YSRCP,,2014
+,,,ZPTC,BC,Kundurpi,K.Mallikarjuna,TDP,,2014
+,,,ZPTC,UR,Lepakshi,Rg Adinarayana Reddy,TDP,,2014
+,,,ZPTC,UR(W),Madakasira,Y.K.Sulochanamma,TDP,,2014
+,,,ZPTC,UR(W),Mudigubba,P. Leelavathi,YSRCP,,2014
+,,,ZPTC,UR(W),N.P.Kunta,P.Maheswaramma,TDP,,2014
+,,,ZPTC,UR(W),Nallacheruvu,Nalabothu Nagarathnamma,TDP,,2014
+,,,ZPTC,UR,Nallamada,Jakkala Adisheshu,YSRCP,,2014
+,,,ZPTC,UR(W),Narpala,Alam. Shiresh,TDP,,2014
+,,,ZPTC,UR,O.D.Cheruvu,Pitta Obulareddy,TDP,,2014
+,,,ZPTC,ST(W),Pamidi,Ramavath Jaya Lakshmi,TDP,,2014
+,,,ZPTC,BC,Parigi,B.Suryanarayana,TDP,,2014
+,,,ZPTC,UR(W),Peddapappur,Gorla. Krishnakumari,TDP,,2014
+,,,ZPTC,UR,Peddavadugur,M.Chithambara Reddy,YSRCP,,2014
+,,,ZPTC,UR,Penukonda,N.Narayanaswamy,TDP,,2014
+,,,ZPTC,BC(W),Putlur,Jangampalli. Nallamma,YSRCP,,2014
+,,,ZPTC,ST(W),Puttaparthi,M.Yeshoda Bai,IND,,2014
+,,,ZPTC Chairman,UR,Ramagiri,D.Chaman Sab,TDP,,2014
+,,,ZPTC,UR,Rapthadu,Vennapusa Ravindrareddy,YSRCP,,2014
+,,,ZPTC,BC,Rayadurg,G.V.Vijayakumar,YSRCP,,2014
+,,,ZPTC,BC,Roddam,E.Chinnappaiah,TDP,,2014
+,,,ZPTC,BC,Rolla,V.M.Pandurangappa,TDP,,2014
+,,,ZPTC,BC(W),Settur,Kuchi Kavitha,TDP,,2014
+,,,ZPTC,UR(W),Singanamala,Ammaladinne Salini,TDP,,2014
+,,,ZPTC,BC,Somandepalli,Rangepalli Venkataramanappa,TDP,,2014
+,,,ZPTC,BC(W),Tadimarri,Kappala Padmavathi,YSRCP,,2014
+,,,ZPTC,SC(W),Tadipatri,K.Savithri,TDP,,2014
+,,,ZPTC,UR(W),Talupula,I. Jyothirmayi,YSRCP,,2014
+,,,ZPTC,BC(W),Tanakal,Jakkala Sreelatha,YSRCP,,2014
+,,,ZPTC,SC(W),Uravakonda,Lalitha,YSRCP,,2014
+,,,ZPTC,SC(W),Vajrakarur,Nancherla. Indiramma,YSRCP,,2014
+,,,ZPTC,SC,Vidapanakal,Singadi. Thippaiah,YSRCP,,2014
+,,,ZPTC,UR,Yadiki,"Vennapusapalli Venkata Rami Reddy",YSRCP,,2014
