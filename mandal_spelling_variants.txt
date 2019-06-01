@@ -11,6 +11,10 @@ Bramha-samudram,Bramhasamudram
 Bramha-Samudram,Bramhasamudram
 Bramhasamudra,Bramhasamudram
 Brahmasamudram,Bramhasamudram
+BramhasamudraM,Bramhasamudram
+Bramhasamudram,Brahmasamudram
+Brahma Samudram,Brahmasamudram
+Brahma Samudram,Bramhasamudram
 C K Palli,C.K.Palli
 Ck Palli,C.K.Palli
 C.K.Palli, Chennekothapalle
@@ -50,21 +54,12 @@ B K Samudram,B. K. Samudram
 B. K. Samudram,B.K.Samudram
 Amadugur,Amadagur
 Ananthapur,Ananthapuramu R
-BramhasamudraM,Bramhasamudram
-Bramhasamudram,Brahmasamudram
-Brahma Samudram,Brahmasamudram
-Brahma Samudram,Bramhasamudram
 C K Palli,C.K. Palli
 C.K. Palli,C.K.Palli
-D Hirehal,D.Hirehal
 Garladdinne,Garladinne
 N P Kunta,N.P.Kunta
 O.D. Cheruvu,O.D.Cheruvu
 O D Cheruvu,O.D.Cheruvu
-Peddapappuru,Peddapappur
-Peddavadugur,Peddavaduguru
-Peddavaduguru,Peddavadugur 
-Puttaparthy,Puttaparthi
 Tadpatri,Tadipatri
 Tanakallu,Tanakal
 Somandepalli,Somandepalle

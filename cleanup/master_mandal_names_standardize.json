@@ -1,0 +1,286 @@
+[
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Garladinne",
+          "Garladdinne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Garladinne"
+      },
+      {
+        "from": [
+          "Puttaparthi",
+          "Puttaparthy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Puttaparthi"
+      },
+      {
+        "from": [
+          "D.Hirehal",
+          "D Hirehal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "D.Hirehal"
+      },
+      {
+        "from": [
+          "Peddapappur",
+          "Peddapappuru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Peddapappur"
+      },
+      {
+        "from": [
+          "Peddavadugur",
+          "Peddavaduguru"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Peddavadugur"
+      },
+      {
+        "from": [
+          "Bramhasamudram",
+          "Bramhasamudra M"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      },
+      {
+        "from": [
+          "O.D.Cheruvu",
+          "O.D. Cheruvu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O.D.Cheruvu"
+      },
+      {
+        "from": [
+          "Brahma Samudram",
+          "Brahmasamudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bramhasamudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ananthapuramu R"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "B K Samudram"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "B.K.Samudram"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "C K Palli"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "C.K.Palli"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "N P Kunta"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "N.P.Kunta"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "O D Cheruvu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O.D.Cheruvu"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tanakallu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tanakal"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tadpatri"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tadipatri"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Amadugur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Amadagur"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Anantapur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "mandal",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ananthapur"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ananthapuramu Rural"
+      }
+    ],
+    "description": "Mass edit cells in column mandal"
+  }
+]

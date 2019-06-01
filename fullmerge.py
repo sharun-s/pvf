@@ -221,10 +221,24 @@ z = rlb.consolidateZP()
 zz=pd.concat(z, ignore_index=True)
 
 mp = pd.read_csv("apur.csv")
-mp['electedas']="MLA"
+# initial default
+mp['electedas']="MLA Candidate"
 # rename cols so concat works
 mp.columns = ['year', 'segment', 'name', 'party', 'votes', 'tot', 'electedas']
-mp.loc[mp.segment=='Anantapur',"electedas"] = "MP"
+
+mp.loc[mp.segment=='Anantapur',"electedas"] = "MP Candidate"
+#set only winners as MP, MLA 
+mp_years = mp[mp.electedas == "MP Candidate"].year.unique()
+for i in mp_years:
+	idx=mp[(mp.electedas=="MP Candidate") & (mp.year==i)].votes.idxmax()
+	mp.loc[idx, "electedas"]="MP"
+
+mla_years = mp[mp.electedas == "MLA Candidate"].year.unique()
+mla_segments = mp[mp.electedas == "MLA Candidate"].segment.unique()
+for i in mla_years:
+	for j in mla_segments:
+		idx=mp[(mp.electedas=="MLA Candidate") & (mp.year==i) & (mp.segment == j) ].votes.idxmax()
+		mp.loc[idx, "electedas"]="MLA"
 
 from extractULB import ulb
 
