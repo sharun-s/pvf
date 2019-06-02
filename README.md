@@ -1,7 +1,7 @@
-![](apur_mp.gif)
+![](viz/apur_mp.gif)
 
-![](apur_mla.gif)
+![](viz/apur_mla.gif)
 
-![](geowiki_apur_zptc_2001.png)
+![](viz/geowiki_apur_zptc_2001.png)
 
-![](zptc.gif)
+![](viz/zptc.gif)

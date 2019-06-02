@@ -32,3 +32,23 @@ electiontype={'Anantapur':'MP',
                   'Anantapur Urban':'MLA', 
                   'Singanamala':'MLA',
                   'Kalyandurg':'MLA'}
+
+import pandas as pd
+#debugging helper fns
+#get rows with exact keyword in col
+g=lambda df,col,keyword:df[x.col == keyword]
+#get rows containing keyword in col
+gco=lambda df,col,keyword:df[df.col.str.contains(keyword)]
+
+
+mv = pd.read_csv("mandal_spelling_variants.txt", 
+      names=['variant','standard'], index_col=0 )
+def getSpellingVariants(mandal):
+      if mandal in mv.index:
+            tmp = mv.loc[mandal]
+            if tmp.size ==1: 
+                  return [tmp.standard]
+            else:
+                  return tmp.standard.values # return all variants
+      else:
+            return None 
