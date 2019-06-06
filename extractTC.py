@@ -287,9 +287,9 @@ def mptc_p_vp_extract():
   p14=p14.drop(1, axis=1)
   p14.columns=['mandal','electioncat', 'president', 'pparty', 'vp', 'vpparty', 'cooptmember']
 
-  p01.to_csv('apur_mpPres_2001.csv', index=False)
-  p06.to_csv('apur_mpPres_2006.csv', index=False)
-  p14.to_csv('apur_mpPres_2014.csv', index=False)
+  p01.to_csv('data/apur_mpPres_2001.csv', index=False)
+  p06.to_csv('data/apur_mpPres_2006.csv', index=False)
+  p14.to_csv('data/apur_mpPres_2014.csv', index=False)
 
 
 # p01[p01.mandal == 'Agali'].name

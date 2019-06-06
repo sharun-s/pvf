@@ -48,14 +48,14 @@
 import difflib
 import pandas as pd 
 
-p01 = pd.read_csv('apur_mpPres_2001.csv')
-p06 = pd.read_csv('apur_mpPres_2006.csv')
-p14 = pd.read_csv('apur_mpPres_2014.csv')
-m01=pd.read_csv("apur_mptc_2001-clean1.csv")
-m06=pd.read_csv("apur_mptc_2006-clean1.csv")
-m14=pd.read_csv("apur_mptc_2014-clean1.csv")
+p01 = pd.read_csv('data/apur_mpPres_2001.csv')
+p06 = pd.read_csv('data/apur_mpPres_2006.csv')
+p14 = pd.read_csv('data/apur_mpPres_2014.csv')
+m01=pd.read_csv("data/apur_mptc_2001-clean1.csv")
+m06=pd.read_csv("data/apur_mptc_2006-clean1.csv")
+m14=pd.read_csv("data/apur_mptc_2014-clean1.csv")
 
-mv = pd.read_csv("mandal_spelling_variants.txt", names=['variant','standard'], index_col=0 )
+mv = pd.read_csv("data/mandal_spelling_variants.txt", names=['variant','standard'], index_col=0 )
 def getSpellingVariants(mandal):
 	if mandal in mv.index:
 		tmp = mv.loc[mandal]
@@ -211,7 +211,7 @@ m14[~m14.mandal.isin(m14[m14.electedas == "MPTC Vice President"].mandal)].mandal
 m14['electedas'].value_counts()['MPTC Vice President'],'/',p14.shape[0]
 
 m=pd.concat([m01, m06, m14], ignore_index=True)
-m.to_csv("apur_mandal_parishad_history.csv", index=False)
+m.to_csv("data/apur_mandal_parishad_history.csv", index=False)
 
 #vc = m.name.value_counts()
 #vc[vc > 1] # 89/2216
@@ -220,7 +220,7 @@ import extractTC as rlb
 z = rlb.consolidateZP()
 zz=pd.concat(z, ignore_index=True)
 
-mp = pd.read_csv("apur.csv")
+mp = pd.read_csv("data/apur.csv")
 # initial default
 mp['electedas']="MLA Candidate"
 # rename cols so concat works
@@ -243,4 +243,34 @@ for i in mla_years:
 from extractULB import ulb
 
 master = pd.concat([mp,zz,m, ulb], ignore_index=True)
-master.to_csv("rep.csv",index=False)
+#master.to_csv("data/rep.csv",index=False)
+
+# read AP state council of ministers list and mark those MLAs as Ministers
+l=[fn for fn in listdir('data/') if fn.startswith("ap_ministers")]
+years=[{"file":i,"year":int(i[:-4].split("_")[2]),"key":"_".join(i[:-4].split("_")[2:])} for i in l]
+years.sort(key=lambda x:x["year"])
+
+for i in years:
+	ministers_thatyear=pd.read_csv("data/"+i["file"], header=None, comment='#', names=['minister'],usecols=[0])
+	#print(ministers_that_year)
+	mlas_thatyear = master[(master.year==i["year"]) & (master.electedas=="MLA")].name
+	print(i['year'],i['file'])
+	#print(mlas_thatyear)
+	from_apur= mlas_thatyear[mlas_thatyear.isin(ministers_thatyear["minister"])].index
+	if len(from_apur) >0:
+		print("**found",from_apur)
+		master.loc[from_apur,"electedas"]="MLA Minister"
+		#print(master.loc[from_apur])
+	# for i in mlas_thatyear:
+	# 	#print(type(i),type(mlas_thatyear.values))
+	# 	sim = difflib.get_close_matches(i, ministers_that_year.minister.values)
+	# 	if len(sim)>0:
+	# 		print('difflib',i,sim)
+	# for i in mlas_thatyear:
+	# 	largest = max(max(i.split(' '), key=lambda x:len(x)).split('.'), key=lambda x:len(x))
+	# 	#print(largest)
+	# 	sim = difflib.get_close_matches(largest, ministers_that_year.minister.values)
+	# 	if len(sim)>0:
+	# 		print('largestsub',i,sim)
+	
+master.to_csv("data/rep.csv",index=False)
