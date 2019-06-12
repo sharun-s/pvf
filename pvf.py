@@ -7,6 +7,8 @@ from math import ceil, sqrt
 from matplotlib.colors import Normalize
 from pvfdefaults import partycolor, partyangle, electiontype
 
+# arg1 - optional pass year [if not pass plots of every year available created]
+
 norm = Normalize(vmin=0.0, vmax=11.0)
 # used along with largest vote count to determine size of a cell(location) in a square grid
 votesperinch= 5000/0.25
@@ -115,7 +117,8 @@ def showLegend(results, ax, q, xmax):
                 bbox=dict(boxstyle="round", fc=wc))
     xpos=xpos+45
 
-
+#directory to dump images in
+dirname='viz/'
 def plot(plt, dgrid, xmax, ymax):
   fig, ax = plt.subplots(1,1)
   # diff locations have different number of results
@@ -171,9 +174,9 @@ def plot(plt, dgrid, xmax, ymax):
 
   if saveFile:
     if combinePlots:
-      filename = str(year_str)+'.png' 
+      filename = dirname+str(year_str)+'.png' 
     else:
-      filename = str(year_str)+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
+      filename = dirname+str(year_str)+'_'+electiontype[list(dgrid.keys())[0]]+'.png'
     
     fig.savefig(filename, format='png')  
   #anim = animation.FuncAnimation(fig, update_quiver, fargs=(Q, X, Y),
@@ -182,7 +185,7 @@ def plot(plt, dgrid, xmax, ymax):
   #plt.show()
 
 # Extraction of MP's and MLA's into a dataframe m
-m = p.read_csv('apur.csv')
+m = p.read_csv('data/apur.csv')
 # extract a dataframe mptc for 2014
 #from extractTC import mptc
 #print('mptc ', len(mptc))
@@ -195,6 +198,7 @@ m = p.read_csv('apur.csv')
 #  'rural local bodies',len(mptc.column), 
 #  'urban local bodies',len(ulb.column))
 
+#def pvf():
 # if a year is passed on command line only plot that year else all
 years = sorted(m.year.unique())
 if len(sys.argv) > 1 and int(sys.argv[1]) in years:
@@ -217,3 +221,4 @@ for year_str in years:
     for l in splitLocationsByType(locations):
       dgrid, xmax, ymax = selectgrid(l)
       plot(plt, dgrid, xmax, ymax)
+

@@ -41,7 +41,7 @@ g=lambda df,col,keyword:df[x.col == keyword]
 gco=lambda df,col,keyword:df[df.col.str.contains(keyword)]
 
 
-mv = pd.read_csv("mandal_spelling_variants.txt", 
+mv = pd.read_csv("data/mandal_spelling_variants.txt", 
       names=['variant','standard'], index_col=0 )
 def getSpellingVariants(mandal):
       if mandal in mv.index:
