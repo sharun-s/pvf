@@ -14,7 +14,7 @@ maketrail = False
 norm = Normalize(vmin=0.0, vmax=11.0)
 
 #m = p.read_csv("apur.tsv", delimiter='\t')
-m = p.read_csv("apur.csv")
+m = p.read_csv("data/apur.csv")
 district = sys.argv[1] # district name eg Tadipatri
 d = m[m.name == district]
 # get the 3 largest votes polled per year
