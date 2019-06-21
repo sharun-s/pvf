@@ -36,9 +36,9 @@ electiontype={'Anantapur':'MP',
 import pandas as pd
 #debugging helper fns
 #get rows with exact keyword in col
-g=lambda df,col,keyword:df[x.col == keyword]
+g=lambda df,col,keyword:df[df[col] == keyword]
 #get rows containing keyword in col
-gco=lambda df,col,keyword:df[df.col.str.contains(keyword)]
+gco=lambda df,col,keyword:df[df[col].str.contains(keyword)]
 
 
 mv = pd.read_csv("data/mandal_spelling_variants.txt", 

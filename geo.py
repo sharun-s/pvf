@@ -24,16 +24,38 @@ def geopandasGeocoder(location):
 # tmp['mandal']='Agali'
 # gm=gm.append(tmp, ignore_index=True)
 
-wikilocs = p.read_csv("locdb.wikipedia", header=None, comment='#', dtype={0: str, 1: np.float64, 2:np.float64})
-gdf = g.GeoDataFrame(wikilocs, geometry=g.points_from_xy(wikilocs[2], wikilocs[1]))
-#here 2 values had to be dropped cause they werent found in wiki and were set to 0,0
-#Atmakur and O D Cheruvu
-gdf.drop(4, axis=0, inplace=True)
-gdf.drop(38, axis=0, inplace=True)
+# wikilocs = p.read_csv("locdb.wikipedia", header=None, comment='#', dtype={0: str, 1: np.float64, 2:np.float64})
+# gdf = g.GeoDataFrame(wikilocs, geometry=g.points_from_xy(wikilocs[2], wikilocs[1]))
+# #here 2 values had to be dropped cause they werent found in wiki and were set to 0,0
+# #Atmakur and O D Cheruvu
+# gdf.drop(4, axis=0, inplace=True)
+# gdf.drop(38, axis=0, inplace=True)
 
 colors = {'BJP':'orange', 'IND': 'purple','INC':'green', 'TDP':'yellow', 'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
 
 zptc=None
+gdf=g.read_file('mandals_gj.json')
+gdf.mandalnam = gdf.mandalnam.str.title()
+import pvfdefaults as pvfd
+
+def reconcile_names():
+	# find mandals with unset parties and reset names with variants. 
+	gdf.loc[gdf.party == 'NA','mandalnam']=gdf[gdf.party == 'NA'].mandalnam.apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
+
+
+def _addPartyColFrom(file):
+	#drop party column if it exists
+	if 'party' in gdf:
+		gdf.drop('party', axis=1, inplace=True)
+	global zptc
+	zptc = p.read_csv(file)
+	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
+	# only plot if lat long are known
+	for i in gdf.index:
+		if gdf.loc[i]['mandalnam'] in zptc.mandal.to_list():
+			gdf.loc[i,'party'] = zptc[zptc.mandal == gdf.loc[i]['mandalnam']]['party'].values[0]
+		else:
+			gdf.loc[i,'party'] = 'NA'	
 
 def addPartyColFrom(file):
 	#drop party column if it exists
@@ -55,6 +77,19 @@ def plotzp_geopandas(file, annotate=False):
 	ax=gdf.plot(column='party', categorical=True, legend=True, c=gdf.party.apply(lambda x:colors[x]))	
 	if annotate:
 		for x,y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf[0]):
+			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+	plt.show()
+
+def _plotzp_geopandas(file, annotate=False):
+	_addPartyColFrom(file)
+	print(gdf[gdf.party=='NA'].mandalnam)
+	reconcile_names()
+	_addPartyColFrom(file)
+	print(gdf[gdf.party=='NA'].mandalnam)
+	
+	ax=gdf.plot(column='party', categorical=True, legend=True)	
+	if annotate:
+		for x,y, label in zip(gdf.geometry.centroid.x, gdf.geometry.centroid.y , gdf['mandalnam']):
 			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 	plt.show()
 
@@ -172,6 +207,10 @@ def plotzp_legends_hover(file, annotate=False):
 
 
 f,ax = None, None
-plotzp_legends_hover('apur_zptc_2001.csv', True)
+#plotzp_legends_hover('apur_zptc_2001.csv', True)
 #plotzp_legends('apur_zptc_2006.csv')
 #plotzp_legends('apur_zptc_2014.csv')		
+
+_plotzp_geopandas('data/apur_zptc_2001.csv', True)
+_plotzp_geopandas('data/apur_zptc_2006.csv', True)
+_plotzp_geopandas('data/apur_zptc_2014.csv', True)
