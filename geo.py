@@ -31,11 +31,17 @@ def geopandasGeocoder(location):
 # gdf.drop(4, axis=0, inplace=True)
 # gdf.drop(38, axis=0, inplace=True)
 
-colors = {'BJP':'orange', 'IND': 'purple','INC':'green', 'TDP':'yellow', 'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
+colors = {'BJP':'orange', 'CPI(M)':'red', 'Independent': 'purple',
+'IND': 'purple','INC':'green', 'TDP':'yellow', 
+'CPI':'red', 'NA':'white', 'YSRCP':'blue'}
 
 zptc=None
-gdf=g.read_file('mandals_gj.json')
-gdf.mandalnam = gdf.mandalnam.str.title()
+#gdf=g.read_file('mandals_gj.json')
+#gdf.mandalnam = gdf.mandalnam.str.title()
+
+vdf=g.read_file('villages_gj.json')
+vdf.villagenam = vdf.villagenam.str.title()
+
 import pvfdefaults as pvfd
 
 def reconcile_names():
@@ -56,6 +62,20 @@ def _addPartyColFrom(file):
 			gdf.loc[i,'party'] = zptc[zptc.mandal == gdf.loc[i]['mandalnam']]['party'].values[0]
 		else:
 			gdf.loc[i,'party'] = 'NA'	
+
+def __addPartyColFrom(file):
+	#drop party column if it exists
+	if 'party' in vdf:
+		vdf.drop('party', axis=1, inplace=True)
+	global zptc
+	zptc = p.read_csv(file)
+	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
+	# only plot if lat long are known
+	for i in vdf.index:
+		if vdf.loc[i]['villagenam'] in zptc.area.to_list():
+			vdf.loc[i,'party'] = zptc[zptc.area == vdf.loc[i]['villagenam']]['party'].values[0]
+		else:
+			vdf.loc[i,'party'] = 'NA'
 
 def addPartyColFrom(file):
 	#drop party column if it exists
@@ -93,6 +113,21 @@ def _plotzp_geopandas(file, annotate=False):
 			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 	plt.show()
 
+def _plotmp_geopandas(file, annotate=False):
+	__addPartyColFrom(file)
+	#print(vdf[vdf.party=='NA'].villagenam)
+	#reconcile_names()
+	#_addPartyColFrom(file)
+	#print(gdf[gdf.party=='NA'].mandalnam)
+	
+	ax=vdf.plot(column='party', categorical=True, legend=True, color = vdf.party.apply(lambda x:colors[x]))	
+	ax.set_axis_off()
+	if annotate:
+		for x,y, label in zip(vdf.geometry.centroid.x, vdf.geometry.centroid.y , vdf['villagenam']):
+			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+	plt.show()
+
+
 # use matplotlib 
 def plotzp(file, annotate=False):
 	addPartyColFrom(file)
@@ -121,6 +156,23 @@ def plotzp_legends(file, annotate=False):
 		ax.scatter(x,y, c=colors[i], label=i)
 	if annotate:
 		for x,y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf[0]):
+			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+	ax.legend()
+	plt.show()
+
+def plotmp_legends(file, annotate=False):
+	__addPartyColFrom(file)
+	f,ax = plt.subplots()
+	ax.set_axis_off()
+	ax.set_title(file)
+	# to get the colors to match a particular party and labels to match a particular color
+	for i in vdf.party.unique():
+		h=vdf[vdf.party == i]
+		x=h.geometry.centroid.x
+		y=h.geometry.centroid.y
+		ax.scatter(x,y, c=colors[i], label=i)
+	if annotate:
+		for x,y, label in zip(vdf.geometry.centroid.x, vdf.geometry.centroid.y, vdf[0]):
 			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 	ax.legend()
 	plt.show()
@@ -211,6 +263,15 @@ f,ax = None, None
 #plotzp_legends('apur_zptc_2006.csv')
 #plotzp_legends('apur_zptc_2014.csv')		
 
-_plotzp_geopandas('data/apur_zptc_2001.csv', True)
-_plotzp_geopandas('data/apur_zptc_2006.csv', True)
-_plotzp_geopandas('data/apur_zptc_2014.csv', True)
+#_plotzp_geopandas('data/apur_zptc_2001.csv', True)
+#_plotzp_geopandas('data/apur_zptc_2006.csv', True)
+#_plotzp_geopandas('data/apur_zptc_2014.csv', True)
+
+_plotmp_geopandas('data/apur_mptc_2001-clean1.csv')
+_plotmp_geopandas('data/apur_mptc_2006-clean1.csv')
+_plotmp_geopandas('data/apur_mptc_2014-clean1.csv')
+
+# centroids not polygons
+#plotmp_legends('data/apur_mptc_2001-clean1.csv')
+#plotmp_legends('data/apur_mptc_2006-clean1.csv')
+#plotmp_legends('data/apur_mptc_2014-clean1.csv')
