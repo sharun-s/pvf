@@ -31,149 +31,101 @@ def geopandasGeocoder(location):
 # gdf.drop(4, axis=0, inplace=True)
 # gdf.drop(38, axis=0, inplace=True)
 
+class meta:
+	def __init__(self, e, lc, g, glc):
+		self.electedas=e
+		self.locCol=lc
+		self.geoFile=g
+		self.geolocCol=glc
+
 colors = {'BJP':'orange', 'CPI(M)':'red', 'Independent': 'purple',
 'IND': 'purple','INC':'green', 'TDP':'yellow', 
 'CPI':'red', 'NA':'white', 'YSRCP':'blue'}
 
-zptc=None
-#gdf=g.read_file('mandals_gj.json')
-#gdf.mandalnam = gdf.mandalnam.str.title()
+data=p.read_csv('data/rep.csv')
 
-vdf=g.read_file('villages_gj.json')
-vdf.villagenam = vdf.villagenam.str.title()
+zptc=meta('ZPTC','mandal','mandals_gj.json','mandalnam')
+mptc=meta('MPTC','area','gp_gj.json', 'villagenam') #'grmpchnam'
+mptc2=meta('MPTC','area','villages_gj.json', 'villagenam')
+
+year=sys.argv[2] or 2001
+
+def setup(m=mptc):
+	df=g.read_file(m.geoFile)
+	df[m.geolocCol] = df[m.geolocCol].str.title()
+	d=data[(data['year']==year) & (data['electedas'].str.startswith(m.electedas))]
+	return m,df,d
+
+context,df,d=setup()
 
 import pvfdefaults as pvfd
 
-def reconcile_names():
+def reconcile_names(x):
 	# find mandals with unset parties and reset names with variants. 
-	gdf.loc[gdf.party == 'NA','mandalnam']=gdf[gdf.party == 'NA'].mandalnam.apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
+	df.loc[df.party == 'NA',context.geolocCol]=df[df.party == 'NA'][context.geolocCol].apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
 
-
-def _addPartyColFrom(file):
+# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
+# only plot if lat long are known
+def addPartyCol():
 	#drop party column if it exists
-	if 'party' in gdf:
-		gdf.drop('party', axis=1, inplace=True)
-	global zptc
-	zptc = p.read_csv(file)
-	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
-	# only plot if lat long are known
-	for i in gdf.index:
-		if gdf.loc[i]['mandalnam'] in zptc.mandal.to_list():
-			gdf.loc[i,'party'] = zptc[zptc.mandal == gdf.loc[i]['mandalnam']]['party'].values[0]
+	if 'party' in df:
+		df.drop('party', axis=1, inplace=True)
+	for i in df.index:
+		if df.loc[i][context.geolocCol] in d[context.locCol].to_list():
+			df.loc[i,'party'] = d[d[context.locCol] == df.loc[i][context.geolocCol]]['party'].values[0]
 		else:
-			gdf.loc[i,'party'] = 'NA'	
+			df.loc[i,'party'] = 'NA'	
 
-def __addPartyColFrom(file):
-	#drop party column if it exists
-	if 'party' in vdf:
-		vdf.drop('party', axis=1, inplace=True)
-	global zptc
-	zptc = p.read_csv(file)
-	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
-	# only plot if lat long are known
-	for i in vdf.index:
-		if vdf.loc[i]['villagenam'] in zptc.area.to_list():
-			vdf.loc[i,'party'] = zptc[zptc.area == vdf.loc[i]['villagenam']]['party'].values[0]
-		else:
-			vdf.loc[i,'party'] = 'NA'
+# add location name to plot
+def annotate_centroid(ax):
+	for x,y, label in zip(df.geometry.centroid.x, df.geometry.centroid.y , df[context.geolocCol]):
+		ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+#use if using locdb which just has x,y and not shapes
+def annotate_xy(ax):
+	for x,y, label in zip(df.geometry.x, df.geometry.y , df[context.geolocCol]):
+		ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 
-def addPartyColFrom(file):
-	#drop party column if it exists
-	if 'party' in gdf:
-		gdf.drop('party', axis=1, inplace=True)
-	global zptc
-	zptc = p.read_csv(file)
-	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
-	# only plot if lat long are known
-	for i in gdf.index:
-		if gdf.loc[i][0] in zptc.mandal.to_list():
-			gdf.loc[i,'party'] = zptc[zptc.mandal == gdf.loc[i][0]]['party'].values[0]
-		else:
-			gdf.loc[i,'party'] = 'NA'
-
-
-def plotzp_geopandas(file, annotate=False):
-	addPartyColFrom(file)
-	ax=gdf.plot(column='party', categorical=True, legend=True, c=gdf.party.apply(lambda x:colors[x]))	
-	if annotate:
-		for x,y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf[0]):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
-	plt.show()
-
-def _plotzp_geopandas(file, annotate=False):
-	_addPartyColFrom(file)
-	print(gdf[gdf.party=='NA'].mandalnam)
-	reconcile_names()
-	_addPartyColFrom(file)
-	print(gdf[gdf.party=='NA'].mandalnam)
-	
-	ax=gdf.plot(column='party', categorical=True, legend=True)	
-	if annotate:
-		for x,y, label in zip(gdf.geometry.centroid.x, gdf.geometry.centroid.y , gdf['mandalnam']):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
-	plt.show()
-
-def _plotmp_geopandas(file, annotate=False):
-	__addPartyColFrom(file)
-	#print(vdf[vdf.party=='NA'].villagenam)
+def plot_shapes(annotate=False, customColor=True):
+	addPartyCol()
+	#print(df[df.party=='NA'][context.geolocCol])
 	#reconcile_names()
-	#_addPartyColFrom(file)
-	#print(gdf[gdf.party=='NA'].mandalnam)
-	
-	ax=vdf.plot(column='party', categorical=True, legend=True, color = vdf.party.apply(lambda x:colors[x]))	
-	ax.set_axis_off()
+	#addPartyColFrom(file)
+	#print(df[df.party=='NA'][context.geolocCol])
+	if customColor:
+		ax=df.plot(column='party', categorical=True, legend=True, color=df.party.apply(lambda x:colors[x]))	
+	else:
+		ax=df.plot(column='party', categorical=True, legend=True)
 	if annotate:
-		for x,y, label in zip(vdf.geometry.centroid.x, vdf.geometry.centroid.y , vdf['villagenam']):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+		annotate_centroid(ax)	
 	plt.show()
-
 
 # use matplotlib 
-def plotzp(file, annotate=False):
-	addPartyColFrom(file)
+def plot_points(annotate=False):
+	addPartyCol()
 	#ax=gdf.plot(column='party', categorical=True, legend=True, c=gdf.party.apply(lambda x:colors[x]))	
 	f,ax = plt.subplots()
 	ax.set_axis_off()
-	ax.set_title(file)
-	ax.scatter(gdf.geometry.x, gdf.geometry.y, c = gdf.party.apply(lambda x:colors[x]) )
+	ax.set_title(context.electedas + ' '+ str(year))
+	ax.scatter(df.geometry.centroid.x, df.geometry.centroid.y, c = df.party.apply(lambda x:colors[x]) )
 	if annotate:
-		for x,y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf[0]):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+		annotate_centroid(ax)
 	ax.legend()
 	plt.show()
 
 # use matplotlib 
-def plotzp_legends(file, annotate=False):
-	addPartyColFrom(file)
+def plot_points_legends(annotate=False):
+	addPartyCol()
 	f,ax = plt.subplots()
 	ax.set_axis_off()
-	ax.set_title(file)
+	ax.set_title(context.electedas + ' '+ str(year))
 	# to get the colors to match a particular party and labels to match a particular color
-	for i in gdf.party.unique():
-		h=gdf[gdf.party == i]
-		x=h.geometry.x
-		y=h.geometry.y
-		ax.scatter(x,y, c=colors[i], label=i)
-	if annotate:
-		for x,y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf[0]):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
-	ax.legend()
-	plt.show()
-
-def plotmp_legends(file, annotate=False):
-	__addPartyColFrom(file)
-	f,ax = plt.subplots()
-	ax.set_axis_off()
-	ax.set_title(file)
-	# to get the colors to match a particular party and labels to match a particular color
-	for i in vdf.party.unique():
-		h=vdf[vdf.party == i]
+	for i in df.party.unique():
+		h=df[df.party == i]
 		x=h.geometry.centroid.x
 		y=h.geometry.centroid.y
 		ax.scatter(x,y, c=colors[i], label=i)
 	if annotate:
-		for x,y, label in zip(vdf.geometry.centroid.x, vdf.geometry.centroid.y, vdf[0]):
-			ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
+		annotate_xy(ax)
 	ax.legend()
 	plt.show()
 
@@ -184,25 +136,25 @@ def onclick(event):
 	if axsub:
 		# since points are split by party into seperate pointcollections for legend to work
 		# find which (party based) point collection has been clicked
-		for j in allpc:
-			cnt, ind = j.contains(event)
-			if cnt:
-				#print(ind["ind"][0])
-				update_annote(j, ind)
+		for pathCollection in allpc:
+			yes, index = pathCollection.contains(event)
+			if yes:
+				update_annote(pathCollection, index)
 				annote.set_visible(True)
 				f.canvas.draw_idle()
 				break
 
-
-def update_annote(j, ind):
-	pos = j.get_offsets()[ind["ind"][0]]
+def update_annote(pc, ind):
+	pos = pc.get_offsets()[ind["ind"][0]]
 	global annote
 	annote.xy = pos
-	party = j.get_label()
-	mandal = gdf[gdf.party == party][0].values[ind["ind"][0]]
-	print(mandal)
-	name = zptc[zptc.mandal == mandal].name.values[0]
-	annote.set_text(party + "\n" + mandal + "\n" + name)
+	party = pc.get_label()
+	txt = df[df.party == party][context.geolocCol].values[ind["ind"][0]]
+	#txt = ind["ind"][0]
+	print(txt)
+	name = data[data[context.locCol] == txt].name.values[0]
+	#annote.set_text(party + "\n" + mandal + "\n" + name)
+	annote.set_text(party + "\n" + txt+' '+name)
 	#annote.get_bbox_patch().set_facecolor('black')
 
 # pathcollections
@@ -223,12 +175,12 @@ annotes=[]
 # 				break
 
 # when hovering over a mandal doaction - show info - excute script etc 
-def plotzp_legends_hover(file, annotate=False):
-	addPartyColFrom(file)
+def plot_legends_ux(annotate=False):
+	addPartyCol()
 	global f, ax
 	f,ax = plt.subplots()
 	ax.set_axis_off()
-	ax.set_title(file)
+	ax.set_title(context.electedas + ' '+ str(year))
 	f.canvas.mpl_connect('button_press_event', onclick)
 	#f.canvas.mpl_connect('motion_notify_event', hover)
 	global allpc
@@ -236,10 +188,10 @@ def plotzp_legends_hover(file, annotate=False):
 	#for i in gdf.index:
 	#	ax.scatter(gdf.loc[i, 'geometry'].x, gdf.loc[i, 'geometry'].y, c=colors[gdf.loc[i, 'party']] )
 	# to get the colors to match a particular party and labels to match a particular color
-	for i in gdf.party.unique():
-		h=gdf[gdf.party == i]
-		x=h.geometry.x
-		y=h.geometry.y
+	for i in df.party.unique():
+		h=df[df.party == i]
+		x=h.geometry.centroid.x
+		y=h.geometry.centroid.y
 		allpc.append(ax.scatter(x,y, c=colors[i], label=i))
 	
 	if annotate:
@@ -259,19 +211,4 @@ def plotzp_legends_hover(file, annotate=False):
 
 
 f,ax = None, None
-#plotzp_legends_hover('apur_zptc_2001.csv', True)
-#plotzp_legends('apur_zptc_2006.csv')
-#plotzp_legends('apur_zptc_2014.csv')		
 
-#_plotzp_geopandas('data/apur_zptc_2001.csv', True)
-#_plotzp_geopandas('data/apur_zptc_2006.csv', True)
-#_plotzp_geopandas('data/apur_zptc_2014.csv', True)
-
-_plotmp_geopandas('data/apur_mptc_2001-clean1.csv')
-_plotmp_geopandas('data/apur_mptc_2006-clean1.csv')
-_plotmp_geopandas('data/apur_mptc_2014-clean1.csv')
-
-# centroids not polygons
-#plotmp_legends('data/apur_mptc_2001-clean1.csv')
-#plotmp_legends('data/apur_mptc_2006-clean1.csv')
-#plotmp_legends('data/apur_mptc_2014-clean1.csv')
