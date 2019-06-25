@@ -40,7 +40,7 @@ class meta:
 
 colors = {'BJP':'orange', 'CPI(M)':'red', 'Independent': 'purple',
 'IND': 'purple','INC':'green', 'TDP':'yellow', 
-'CPI':'red', 'NA':'white', 'YSRCP':'blue'}
+'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
 
 data=p.read_csv('data/rep.csv')
 
@@ -50,7 +50,7 @@ mptc2=meta('MPTC','area','villages_gj.json', 'villagenam')
 
 year=sys.argv[2] or 2001
 
-def setup(m=mptc):
+def setup(m=zptc):
 	df=g.read_file(m.geoFile)
 	df[m.geolocCol] = df[m.geolocCol].str.title()
 	d=data[(data['year']==year) & (data['electedas'].str.startswith(m.electedas))]
@@ -60,7 +60,7 @@ context,df,d=setup()
 
 import pvfdefaults as pvfd
 
-def reconcile_names(x):
+def reconcile_names():
 	# find mandals with unset parties and reset names with variants. 
 	df.loc[df.party == 'NA',context.geolocCol]=df[df.party == 'NA'][context.geolocCol].apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
 
@@ -76,6 +76,9 @@ def addPartyCol():
 		else:
 			df.loc[i,'party'] = 'NA'	
 
+def rowsUnset():
+	print(df[df.party=='NA'][context.geolocCol])
+
 # add location name to plot
 def annotate_centroid(ax):
 	for x,y, label in zip(df.geometry.centroid.x, df.geometry.centroid.y , df[context.geolocCol]):
@@ -87,16 +90,23 @@ def annotate_xy(ax):
 
 def plot_shapes(annotate=False, customColor=True):
 	addPartyCol()
-	#print(df[df.party=='NA'][context.geolocCol])
-	#reconcile_names()
-	#addPartyColFrom(file)
-	#print(df[df.party=='NA'][context.geolocCol])
+	global f,ax
+	f,ax = plt.subplots()
+	ax.set_axis_off()
+	ax.set_title(context.electedas + ' '+ str(year))
+	f.canvas.mpl_connect('button_press_event', onclick2)
+	
 	if customColor:
-		ax=df.plot(column='party', categorical=True, legend=True, color=df.party.apply(lambda x:colors[x]))	
+		df.plot(ax=ax,column='party', categorical=True, legend=True, color=df.party.apply(lambda x:colors[x]), edgecolor='red')	
 	else:
-		ax=df.plot(column='party', categorical=True, legend=True)
+		df.plot(ax=ax,column='party', categorical=True, legend=True)
 	if annotate:
-		annotate_centroid(ax)	
+		annotate_centroid(ax)
+	global annote
+	annote = ax.annotate("", xy=(0,0), xytext=(-30,30), textcoords="offset points", 
+								bbox=dict(boxstyle="round", fc="w"), 
+								arrowprops=dict(arrowstyle="->"))
+	annote.set_visible(False)	
 	plt.show()
 
 # use matplotlib 
@@ -106,7 +116,7 @@ def plot_points(annotate=False):
 	f,ax = plt.subplots()
 	ax.set_axis_off()
 	ax.set_title(context.electedas + ' '+ str(year))
-	ax.scatter(df.geometry.centroid.x, df.geometry.centroid.y, c = df.party.apply(lambda x:colors[x]) )
+	ax.scatter(df.geometry.centroid.x, df.geometry.centroid.y, c = df.party.apply(lambda x:colors[x]) , edgecolor='black')
 	if annotate:
 		annotate_centroid(ax)
 	ax.legend()
@@ -133,6 +143,7 @@ annote=None
 
 def onclick(event):
 	axsub = event.inaxes
+	print(event)
 	if axsub:
 		# since points are split by party into seperate pointcollections for legend to work
 		# find which (party based) point collection has been clicked
@@ -143,6 +154,23 @@ def onclick(event):
 				annote.set_visible(True)
 				f.canvas.draw_idle()
 				break
+import shapely
+tmp=None
+def onclick2(event):
+	axsub = event.inaxes
+	if axsub:
+		global tmp
+		tmp = df[df.contains(shapely.geometry.Point(event.xdata,event.ydata))]
+		if len(tmp)>0:
+			global annote
+			annote.xy = (event.xdata,event.ydata)
+			loc = tmp.iloc[0][context.geolocCol]
+			name = d[d[context.locCol] == loc].name.values[0]
+	
+			annote.set_text(tmp.iloc[0]['party'] + "\n"+name+"\n" + tmp.iloc[0][context.geolocCol])
+			annote.set_visible(True)
+			f.canvas.draw_idle()
+
 
 def update_annote(pc, ind):
 	pos = pc.get_offsets()[ind["ind"][0]]
@@ -152,7 +180,7 @@ def update_annote(pc, ind):
 	txt = df[df.party == party][context.geolocCol].values[ind["ind"][0]]
 	#txt = ind["ind"][0]
 	print(txt)
-	name = data[data[context.locCol] == txt].name.values[0]
+	name = d[d[context.locCol] == txt].name.values[0]
 	#annote.set_text(party + "\n" + mandal + "\n" + name)
 	annote.set_text(party + "\n" + txt+' '+name)
 	#annote.get_bbox_patch().set_facecolor('black')
