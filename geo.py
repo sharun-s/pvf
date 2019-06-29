@@ -88,6 +88,8 @@ def annotate_xy(ax):
 	for x,y, label in zip(df.geometry.x, df.geometry.y , df[context.geolocCol]):
 		ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 
+from matplotlib.lines import Line2D
+
 def plot_shapes(annotate=False, customColor=True):
 	addPartyCol()
 	global f,ax
@@ -95,9 +97,26 @@ def plot_shapes(annotate=False, customColor=True):
 	ax.set_axis_off()
 	ax.set_title(context.electedas + ' '+ str(year))
 	f.canvas.mpl_connect('button_press_event', onclick2)
-	
+	#for hover handling
+	#f.canvas.mpl_connect('motion_notify_event', onclick2)
+	patches = []
+	cats = []
 	if customColor:
-		df.plot(ax=ax,column='party', categorical=True, legend=True, color=df.party.apply(lambda x:colors[x]), edgecolor='red')	
+		for i in df.party.unique():
+			h=df[df.party == i]
+			g.plotting.plot_polygon_collection(ax, h.geometry, facecolor=colors[i], edgecolor='gray', label=i)
+			patches.append(
+                    Line2D([0], [0], linestyle="none", 
+                    	marker="o",
+                        markersize=10,
+                        markerfacecolor=colors[i],
+                        markeredgewidth=0))
+			cats.append(i)
+			legend_kwds = {}
+			legend_kwds.setdefault('numpoints', 1)
+			legend_kwds.setdefault('loc', 'best')
+		ax.legend(patches, cats, **legend_kwds)
+		#ax.legend()	
 	else:
 		df.plot(ax=ax,column='party', categorical=True, legend=True)
 	if annotate:
@@ -109,21 +128,8 @@ def plot_shapes(annotate=False, customColor=True):
 	annote.set_visible(False)	
 	plt.show()
 
-# use matplotlib 
-def plot_points(annotate=False):
-	addPartyCol()
-	#ax=gdf.plot(column='party', categorical=True, legend=True, c=gdf.party.apply(lambda x:colors[x]))	
-	f,ax = plt.subplots()
-	ax.set_axis_off()
-	ax.set_title(context.electedas + ' '+ str(year))
-	ax.scatter(df.geometry.centroid.x, df.geometry.centroid.y, c = df.party.apply(lambda x:colors[x]) , edgecolor='black')
-	if annotate:
-		annotate_centroid(ax)
-	ax.legend()
-	plt.show()
-
-# use matplotlib 
-def plot_points_legends(annotate=False):
+# use points instead of shapes 
+def plot_points(geolabel=False):
 	addPartyCol()
 	f,ax = plt.subplots()
 	ax.set_axis_off()
@@ -134,7 +140,7 @@ def plot_points_legends(annotate=False):
 		x=h.geometry.centroid.x
 		y=h.geometry.centroid.y
 		ax.scatter(x,y, c=colors[i], label=i)
-	if annotate:
+	if geolabel:
 		annotate_xy(ax)
 	ax.legend()
 	plt.show()
@@ -161,13 +167,16 @@ def onclick2(event):
 	if axsub:
 		global tmp
 		tmp = df[df.contains(shapely.geometry.Point(event.xdata,event.ydata))]
+		print(tmp[context.geolocCol])
 		if len(tmp)>0:
 			global annote
 			annote.xy = (event.xdata,event.ydata)
-			loc = tmp.iloc[0][context.geolocCol]
-			name = d[d[context.locCol] == loc].name.values[0]
-	
-			annote.set_text(tmp.iloc[0]['party'] + "\n"+name+"\n" + tmp.iloc[0][context.geolocCol])
+			loc = tmp[context.geolocCol].values[0]
+			#print(loc)
+			rep = d[d[context.locCol] == loc]
+			name = rep.name.values[0]
+			party = rep.party.values[0]
+			annote.set_text(loc + "\n"+name+'\n'+party)
 			annote.set_visible(True)
 			f.canvas.draw_idle()
 
@@ -188,22 +197,9 @@ def update_annote(pc, ind):
 # pathcollections
 allpc=[]
 annotes=[]
-# def hover(event):
-# 	axsub = event.inaxes
-# 	if axsub:
-# 		# since points are split by party into seperate pointcollections for legend to work
-# 		# find which (party based) point collection has been clicked
-# 		for j in allpc:
-# 			cnt, ind = j.contains(event)
-# 			if cnt:
-# 				#print(ind["ind"][0])
-# 				update_annote(j, ind)
-# 				annote.set_visible(True)
-# 				f.canvas.draw_idle()
-# 				break
 
 # when hovering over a mandal doaction - show info - excute script etc 
-def plot_legends_ux(annotate=False):
+def plot_points_ux(annotate=False):
 	addPartyCol()
 	global f, ax
 	f,ax = plt.subplots()
@@ -213,30 +209,19 @@ def plot_legends_ux(annotate=False):
 	#f.canvas.mpl_connect('motion_notify_event', hover)
 	global allpc
 	allpc = []
-	#for i in gdf.index:
-	#	ax.scatter(gdf.loc[i, 'geometry'].x, gdf.loc[i, 'geometry'].y, c=colors[gdf.loc[i, 'party']] )
-	# to get the colors to match a particular party and labels to match a particular color
 	for i in df.party.unique():
 		h=df[df.party == i]
 		x=h.geometry.centroid.x
 		y=h.geometry.centroid.y
 		allpc.append(ax.scatter(x,y, c=colors[i], label=i))
-	
 	if annotate:
-		#for j in allpc:
 		global annote
 		annote = ax.annotate("", xy=(0,0), xytext=(-30,30), textcoords="offset points", 
 								bbox=dict(boxstyle="round", fc="w"), 
 								arrowprops=dict(arrowstyle="->"))
 		annote.set_visible(False)
-		#annotes.append(annote)
-
-	#annot_dict = dict(zip(allpc, annotes))
-	#ax_dict = dict(zip(allax, allax))
-
 	ax.legend()
 	plt.show()
 
 
 f,ax = None, None
-
