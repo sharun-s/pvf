@@ -49,6 +49,8 @@ mptc=meta('MPTC','area','gp_gj.json', 'villagenam') #'grmpchnam'
 mptc2=meta('MPTC','area','villages_gj.json', 'villagenam')
 
 year=sys.argv[2] or 2001
+years = [2001, 2006, 2014]
+hierachy = [zptc, mptc]
 
 def setup(m=zptc):
 	df=g.read_file(m.geoFile)
@@ -89,14 +91,40 @@ def annotate_xy(ax):
 		ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 
 from matplotlib.lines import Line2D
+from matplotlib.widgets import Button
+
+class Index(object):
+	ind = 0
+	level = 0
+	def zoom(self, event):
+		self.level += 1
+		i = self.level % len(hierachy)
+		global year,context, df, d
+		context,df,d=setup(hierachy[i])
+		#print(d.year.values[0])
+		#reconcile_names()
+		plot_shapes()
+	def next(self, event):
+		self.ind += 1
+		i = self.ind % len(years)
+		global year,context, df, d
+		year = years[i]
+		context,df,d=setup(hierachy[self.level % len(hierachy)])
+		plot_shapes()
+		#print(d.year.values[0])
+		#reconcile_names()
+
+
+db = Index()
 
 def plot_shapes(annotate=False, customColor=True):
 	addPartyCol()
 	global f,ax
-	f,ax = plt.subplots()
-	ax.set_axis_off()
+	# f,ax = plt.subplots()
+	# ax.set_axis_off()
+	# f.canvas.mpl_connect('button_press_event', onclick2)
+
 	ax.set_title(context.electedas + ' '+ str(year))
-	f.canvas.mpl_connect('button_press_event', onclick2)
 	#for hover handling
 	#f.canvas.mpl_connect('motion_notify_event', onclick2)
 	patches = []
@@ -122,11 +150,16 @@ def plot_shapes(annotate=False, customColor=True):
 	if annotate:
 		annotate_centroid(ax)
 	global annote
-	annote = ax.annotate("", xy=(0,0), xytext=(-30,30), textcoords="offset points", 
-								bbox=dict(boxstyle="round", fc="w"), 
-								arrowprops=dict(arrowstyle="->"))
+	#annote = ax.annotate("", xy=(0,0), xytext=(-30,30), textcoords="offset points", 
+	#							bbox=dict(boxstyle="round", fc="w"), 
+	#							arrowprops=dict(arrowstyle="->"))
+	annote = ax.annotate("", xy=(0.01,0.9), xycoords="figure fraction", 
+								bbox=dict(boxstyle="round",fc='black'), 
+								color='orange')
+	
 	annote.set_visible(False)	
-	plt.show()
+	#plt.show()
+	f.canvas.draw_idle()
 
 # use points instead of shapes 
 def plot_points(geolabel=False):
@@ -167,16 +200,16 @@ def onclick2(event):
 	if axsub:
 		global tmp
 		tmp = df[df.contains(shapely.geometry.Point(event.xdata,event.ydata))]
-		print(tmp[context.geolocCol])
+		print('shape click '+tmp[context.geolocCol])
 		if len(tmp)>0:
-			global annote
-			annote.xy = (event.xdata,event.ydata)
+			#global annote
+			#annote.xy = (event.xdata,event.ydata)
 			loc = tmp[context.geolocCol].values[0]
 			#print(loc)
 			rep = d[d[context.locCol] == loc]
 			name = rep.name.values[0]
 			party = rep.party.values[0]
-			annote.set_text(loc + "\n"+name+'\n'+party)
+			annote.set_text(loc + " "+name+" "+party)
 			annote.set_visible(True)
 			f.canvas.draw_idle()
 
@@ -224,4 +257,17 @@ def plot_points_ux(annotate=False):
 	plt.show()
 
 
-f,ax = None, None
+#f,ax = None, None
+f,ax = plt.subplots()
+plt.subplots_adjust(bottom=0.2)
+ax.set_axis_off()
+f.canvas.mpl_connect('button_press_event', onclick2)
+axnext = plt.axes([0.81, 0.05, 0.1, 0.075])
+bnext = Button(axnext, 'Next')
+bnext.on_clicked(db.next)
+zxnext = plt.axes([0.7, 0.05, 0.1, 0.075])
+zup = Button(zxnext, 'Zoom')
+zup.on_clicked(db.zoom)
+
+plot_shapes()
+plt.show()
