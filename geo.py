@@ -4,6 +4,10 @@ import numpy as np
 import subprocess
 import sys
 import matplotlib.pyplot as plt
+import pvfdefaults as pvfd
+from matplotlib.lines import Line2D
+from matplotlib.widgets import Button
+import shapely
 
 #use wikipedia
 #location = sys.argv[1]
@@ -32,51 +36,57 @@ def geopandasGeocoder(location):
 # gdf.drop(38, axis=0, inplace=True)
 
 class meta:
-	def __init__(self, e, lc, g, glc):
+	def __init__(self, e, lc, gf, glc):
 		self.electedas=e
 		self.locCol=lc
-		self.geoFile=g
+		self.geoFile=gf
 		self.geolocCol=glc
+		self.geoDataFrame = g.GeoDataFrame()
+		self.data = None
 
-colors = {'BJP':'orange', 'CPI(M)':'red', 'Independent': 'purple',
-'IND': 'purple','INC':'green', 'TDP':'yellow', 
-'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
+	def gdf(self):
+		if self.geoDataFrame.empty:
+			self.geoDataFrame = g.read_file(self.geoFile)
+			self.geoDataFrame[self.geolocCol] = self.geoDataFrame[self.geolocCol].str.title()
+		return self.geoDataFrame
 
-data=p.read_csv('data/rep.csv')
+	def reconcile_names(self):
+		# find mandals with unset parties and reset names with variants. 
+		self.geoDataFrame.loc[self.geoDataFrame.party == 'NA',self.geolocCol]=self.geoDataFrame[self.geoDataFrame.party == 'NA'][self.geolocCol].apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
+
+	# adding/updating party column
+	# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
+	# only plot if lat long are known
+	def updateColumnToPlot(self, d):
+	    #drop party column if it exists
+	    if 'party' in self.geoDataFrame:
+	        self.geoDataFrame.drop('party', axis=1, inplace=True)
+	    print('update ',len(d))
+	    for i in self.geoDataFrame.index:
+	        if self.geoDataFrame.loc[i][self.geolocCol] in d[self.locCol].to_list():
+	            self.geoDataFrame.loc[i,'party'] = d[d[self.locCol] == self.geoDataFrame.loc[i][self.geolocCol]]['party'].values[0]
+	        else:
+	            self.geoDataFrame.loc[i,'party'] = 'NA'
+	    self.data = d
+
+	def queryFilteredData(self, location):
+		return self.data[self.data[self.locCol] == location]
+
+class ElecData():
+	def __init__(self, filename):
+		self.data = p.read_csv(filename)
+	def get(self, year, electype):
+		return self.data[(self.data['year']==year) & (self.data['electedas'].str.startswith(electype.electedas))]
+
+data = ElecData('data/rep.csv')
 
 zptc=meta('ZPTC','mandal','mandals_gj.json','mandalnam')
 mptc=meta('MPTC','area','gp_gj.json', 'villagenam') #'grmpchnam'
 mptc2=meta('MPTC','area','villages_gj.json', 'villagenam')
 
-year=sys.argv[2] or 2001
-years = [2001, 2006, 2014]
-hierachy = [zptc, mptc]
-
-def setup(m=zptc):
-	df=g.read_file(m.geoFile)
-	df[m.geolocCol] = df[m.geolocCol].str.title()
-	d=data[(data['year']==year) & (data['electedas'].str.startswith(m.electedas))]
-	return m,df,d
-
-context,df,d=setup()
-
-import pvfdefaults as pvfd
-
-def reconcile_names():
-	# find mandals with unset parties and reset names with variants. 
-	df.loc[df.party == 'NA',context.geolocCol]=df[df.party == 'NA'][context.geolocCol].apply(lambda x: x if pvfd.getSpellingVariants(x) is None else pvfd.getSpellingVariants(x)[0].strip())
-
-# reconcile data file with geo file. names may mismatch due to spellings or they maybe missing
-# only plot if lat long are known
-def addPartyCol():
-	#drop party column if it exists
-	if 'party' in df:
-		df.drop('party', axis=1, inplace=True)
-	for i in df.index:
-		if df.loc[i][context.geolocCol] in d[context.locCol].to_list():
-			df.loc[i,'party'] = d[d[context.locCol] == df.loc[i][context.geolocCol]]['party'].values[0]
-		else:
-			df.loc[i,'party'] = 'NA'	
+colors = {'BJP':'orange', 'CPI(M)':'red', 'Independent': 'purple',
+'IND': 'purple','INC':'green', 'TDP':'yellow', 'dentTDP':'yellow', 
+'CPI':'red', 'NA':'black', 'YSRCP':'blue'}
 
 def rowsUnset():
 	print(df[df.party=='NA'][context.geolocCol])
@@ -90,45 +100,37 @@ def annotate_xy(ax):
 	for x,y, label in zip(df.geometry.x, df.geometry.y , df[context.geolocCol]):
 		ax.annotate(label, xy=(x,y), xytext=(3,3), textcoords="offset points")
 
-from matplotlib.lines import Line2D
-from matplotlib.widgets import Button
-
-class Index(object):
-	ind = 0
+class UIControl(object):
+	year_index = 0
 	level = 0
+	ptype = 0
 	def zoom(self, event):
 		self.level += 1
 		i = self.level % len(hierachy)
-		global year,context, df, d
-		context,df,d=setup(hierachy[i])
-		#print(d.year.values[0])
-		#reconcile_names()
-		plot_shapes()
+		global context
+		context = hierachy[i]
+		print(len(context.gdf()))
+		shapes()
 	def next(self, event):
-		self.ind += 1
-		i = self.ind % len(years)
-		global year,context, df, d
-		year = years[i]
-		context,df,d=setup(hierachy[self.level % len(hierachy)])
-		plot_shapes()
+		self.year_index += 1
+		i = self.year_index % len(years)
+		d=data.get(years[i], context)
+		context.updateColumnToPlot(d)
+		shapes()
 		#print(d.year.values[0])
 		#reconcile_names()
+	def style(self, event):
+		self.ptype +=1
+		ptype[self.ptype % len(ptype)]()
 
-
-db = Index()
-
-def plot_shapes(annotate=False, customColor=True):
-	addPartyCol()
+def shapes(annotate=False, customColor=True):
 	global f,ax
-	# f,ax = plt.subplots()
-	# ax.set_axis_off()
-	# f.canvas.mpl_connect('button_press_event', onclick2)
-
 	ax.set_title(context.electedas + ' '+ str(year))
 	#for hover handling
 	#f.canvas.mpl_connect('motion_notify_event', onclick2)
 	patches = []
 	cats = []
+	df=context.gdf()
 	if customColor:
 		for i in df.party.unique():
 			h=df[df.party == i]
@@ -163,9 +165,6 @@ def plot_shapes(annotate=False, customColor=True):
 
 # use points instead of shapes 
 def plot_points(geolabel=False):
-	addPartyCol()
-	f,ax = plt.subplots()
-	ax.set_axis_off()
 	ax.set_title(context.electedas + ' '+ str(year))
 	# to get the colors to match a particular party and labels to match a particular color
 	for i in df.party.unique():
@@ -177,8 +176,6 @@ def plot_points(geolabel=False):
 		annotate_xy(ax)
 	ax.legend()
 	plt.show()
-
-annote=None
 
 def onclick(event):
 	axsub = event.inaxes
@@ -193,12 +190,12 @@ def onclick(event):
 				annote.set_visible(True)
 				f.canvas.draw_idle()
 				break
-import shapely
-tmp=None
+
 def onclick2(event):
 	axsub = event.inaxes
 	if axsub:
 		global tmp
+		df=context.gdf()
 		tmp = df[df.contains(shapely.geometry.Point(event.xdata,event.ydata))]
 		print('shape click '+tmp[context.geolocCol])
 		if len(tmp)>0:
@@ -206,7 +203,7 @@ def onclick2(event):
 			#annote.xy = (event.xdata,event.ydata)
 			loc = tmp[context.geolocCol].values[0]
 			#print(loc)
-			rep = d[d[context.locCol] == loc]
+			rep = context.queryFilteredData(loc)
 			name = rep.name.values[0]
 			party = rep.party.values[0]
 			annote.set_text(loc + " "+name+" "+party)
@@ -227,21 +224,15 @@ def update_annote(pc, ind):
 	annote.set_text(party + "\n" + txt+' '+name)
 	#annote.get_bbox_patch().set_facecolor('black')
 
-# pathcollections
-allpc=[]
-annotes=[]
-
 # when hovering over a mandal doaction - show info - excute script etc 
-def plot_points_ux(annotate=False):
-	addPartyCol()
-	global f, ax
-	f,ax = plt.subplots()
-	ax.set_axis_off()
+def points(annotate=False):
+	global f,ax
 	ax.set_title(context.electedas + ' '+ str(year))
 	f.canvas.mpl_connect('button_press_event', onclick)
 	#f.canvas.mpl_connect('motion_notify_event', hover)
 	global allpc
 	allpc = []
+	df=context.gdf()
 	for i in df.party.unique():
 		h=df[df.party == i]
 		x=h.geometry.centroid.x
@@ -254,20 +245,41 @@ def plot_points_ux(annotate=False):
 								arrowprops=dict(arrowstyle="->"))
 		annote.set_visible(False)
 	ax.legend()
-	plt.show()
+	f.canvas.draw_idle()
 
+year=sys.argv[2] or 2001
+years = [2001, 2006, 2014]
+hierachy = [zptc, mptc]
+
+context = zptc
+print('loading', len(context.gdf()))
+context.updateColumnToPlot(data.get(year, zptc))
+ui = UIControl()
+annote=None
+tmp=None
+
+# pathcollections
+allpc=[]
+annotes=[]
+ptype = [shapes, points]
 
 #f,ax = None, None
 f,ax = plt.subplots()
 plt.subplots_adjust(bottom=0.2)
 ax.set_axis_off()
 f.canvas.mpl_connect('button_press_event', onclick2)
+
 axnext = plt.axes([0.81, 0.05, 0.1, 0.075])
 bnext = Button(axnext, 'Next')
-bnext.on_clicked(db.next)
-zxnext = plt.axes([0.7, 0.05, 0.1, 0.075])
-zup = Button(zxnext, 'Zoom')
-zup.on_clicked(db.zoom)
+bnext.on_clicked(ui.next)
 
-plot_shapes()
+axzoom = plt.axes([0.7, 0.05, 0.1, 0.075])
+zup = Button(axzoom, 'Zoom')
+zup.on_clicked(ui.zoom)
+
+axstyle = plt.axes([0.6, 0.05, 0.1, 0.075])
+bstyle = Button(axstyle, 'Style')
+bstyle.on_clicked(ui.style)
+
+shapes()
 plt.show()
