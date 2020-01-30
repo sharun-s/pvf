@@ -25,7 +25,7 @@ print(years)
 if len(sys.argv) > 1 and int(sys.argv[1]) in years:
     yr = int(sys.argv[1])
 
-partylist=m.query("electedas == 'MPTC' and year=="+str(yr))['party']
+partylist=m.query("electedas == 'ZPTC' and year=="+str(yr))['party']
 #partylist = m.loc[yr]['abr']
 pcount=partylist.value_counts().to_dict()
 # Keep a running total of the number of delegates in the diagram, for use later.
@@ -41,7 +41,7 @@ for i in range(len(Totals)):
 # Maximum radius of spot is 0.5/rows; leave a bit of space.
 radius = 0.4/rows
 # Open svg file for writing:
-outfile = open(str(yr)+'.svg', 'w')
+outfile = open(str(yr)+'_zptc_parl.svg', 'w')
 # Write svg header:
 outfile.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n')
 outfile.write('<svg xmlns:svg="http://www.w3.org/2000/svg"\n')

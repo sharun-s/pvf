@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg"
+xmlns="http://www.w3.org/2000/svg" version="1.1"
+width="360" height="185">
+<!-- Created with the Wikimedia parliament diagram creator (http://tools.wmflabs.org/parliamentdiagram/parliamentinputform.html) -->
+<g>
+<text x="175" y="175" style="font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:sans-serif">61</text>
+  <g style="fill:yellow; stroke:yellow" id="TDP">
+    <circle cx="17.81" cy="170.01" r="10.00"/>
+    <circle cx="42.86" cy="170.02" r="10.00"/>
+    <circle cx="67.94" cy="170.03" r="10.00"/>
+    <circle cx="93.07" cy="170.04" r="10.00"/>
+    <circle cx="21.43" cy="144.48" r="10.00"/>
+    <circle cx="47.12" cy="144.66" r="10.00"/>
+    <circle cx="73.10" cy="144.96" r="10.00"/>
+    <circle cx="29.05" cy="119.84" r="10.00"/>
+    <circle cx="100.75" cy="142.91" r="10.00"/>
+    <circle cx="56.02" cy="120.54" r="10.00"/>
+    <circle cx="40.47" cy="96.72" r="10.00"/>
+    <circle cx="83.79" cy="121.70" r="10.00"/>
+    <circle cx="69.26" cy="98.50" r="10.00"/>
+    <circle cx="55.40" cy="75.69" r="10.00"/>
+    <circle cx="116.67" cy="119.63" r="10.00"/>
+    <circle cx="99.45" cy="101.46" r="10.00"/>
+    <circle cx="86.37" cy="79.31" r="10.00"/>
+    <circle cx="73.47" cy="57.29" r="10.00"/>
+    <circle cx="119.29" cy="85.29" r="10.00"/>
+    <circle cx="106.75" cy="63.63" r="10.00"/>
+    <circle cx="94.23" cy="41.98" r="10.00"/>
+    <circle cx="139.16" cy="102.61" r="10.00"/>
+    <circle cx="117.14" cy="30.15" r="10.00"/>
+    <circle cx="129.70" cy="52.03" r="10.00"/>
+    <circle cx="142.27" cy="74.02" r="10.00"/>
+    <circle cx="141.64" cy="22.09" r="10.00"/>
+    <circle cx="154.40" cy="44.90" r="10.00"/>
+    <circle cx="165.90" cy="93.64" r="10.00"/>
+    <circle cx="167.20" cy="68.23" r="10.00"/>
+    <circle cx="167.11" cy="18.01" r="10.00"/>
+    <circle cx="180.00" cy="42.50" r="10.00"/>
+    <circle cx="192.89" cy="18.01" r="10.00"/>
+  </g>
+  <g style="fill:green; stroke:green" id="INC">
+    <circle cx="192.80" cy="68.23" r="10.00"/>
+    <circle cx="194.10" cy="93.64" r="10.00"/>
+    <circle cx="205.60" cy="44.90" r="10.00"/>
+    <circle cx="218.36" cy="22.09" r="10.00"/>
+    <circle cx="217.73" cy="74.02" r="10.00"/>
+    <circle cx="230.30" cy="52.03" r="10.00"/>
+    <circle cx="242.86" cy="30.15" r="10.00"/>
+    <circle cx="220.84" cy="102.61" r="10.00"/>
+    <circle cx="265.77" cy="41.98" r="10.00"/>
+    <circle cx="253.25" cy="63.63" r="10.00"/>
+    <circle cx="240.71" cy="85.29" r="10.00"/>
+    <circle cx="286.53" cy="57.29" r="10.00"/>
+    <circle cx="273.63" cy="79.31" r="10.00"/>
+    <circle cx="260.55" cy="101.46" r="10.00"/>
+    <circle cx="243.33" cy="119.63" r="10.00"/>
+    <circle cx="304.60" cy="75.69" r="10.00"/>
+    <circle cx="290.74" cy="98.50" r="10.00"/>
+    <circle cx="276.21" cy="121.70" r="10.00"/>
+    <circle cx="319.53" cy="96.72" r="10.00"/>
+    <circle cx="303.98" cy="120.54" r="10.00"/>
+    <circle cx="259.25" cy="142.91" r="10.00"/>
+    <circle cx="330.95" cy="119.84" r="10.00"/>
+    <circle cx="286.90" cy="144.96" r="10.00"/>
+    <circle cx="312.88" cy="144.66" r="10.00"/>
+    <circle cx="338.57" cy="144.48" r="10.00"/>
+    <circle cx="266.93" cy="170.04" r="10.00"/>
+    <circle cx="292.06" cy="170.03" r="10.00"/>
+  </g>
+  <g style="fill:orange; stroke:orange" id="BJP">
+    <circle cx="317.14" cy="170.02" r="10.00"/>
+  </g>
+  <g style="fill:red; stroke:red" id="CPI">
+    <circle cx="342.19" cy="170.01" r="10.00"/>
+  </g>
+</g>
+</svg>
